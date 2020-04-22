@@ -1,13 +1,14 @@
+#pragma once
 #include <iostream>
 #include <string>
 
-template<typename T,size_t N>
+template<typename T, size_t N>
 size_t count(const T(&)[N])
 {
 	return N;
 }
 
-int ex1_2() 
+int ex1_2()
 {
 	int i[9];
 	char c[9];

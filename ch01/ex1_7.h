@@ -1,6 +1,7 @@
+#pragma once
 #include <iostream>
 
-template<typename T1,typename T2,size_t M,size_t N>
+template<typename T1, typename T2, size_t M, size_t N>
 size_t mismatch(const T1(&t1)[N], const T2(&t2)[M])
 {
 	auto m = N > M ? M : N;

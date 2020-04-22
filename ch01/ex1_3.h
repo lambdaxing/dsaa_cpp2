@@ -1,7 +1,8 @@
+#pragma once
 #include <iostream>
 #include <string>
 
-template<typename T,size_t N>
+template<typename T, size_t N>
 void fill(T(&t)[N], const T v)
 {
 	for (auto& i : t)

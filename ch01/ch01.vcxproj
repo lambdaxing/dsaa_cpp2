@@ -138,17 +138,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ex1_1.cpp" />
-    <ClCompile Include="ex1_10.cpp" />
-    <ClCompile Include="ex1_11.cpp" />
-    <ClCompile Include="ex1_2.cpp" />
-    <ClCompile Include="ex1_3.cpp" />
-    <ClCompile Include="ex1_4.cpp" />
-    <ClCompile Include="ex1_5.cpp" />
-    <ClCompile Include="ex1_6.cpp" />
-    <ClCompile Include="ex1_7.cpp" />
-    <ClCompile Include="ex1_8.cpp" />
-    <ClCompile Include="ex1_9.cpp" />
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ex1_1.h" />
+    <ClInclude Include="ex1_10.h" />
+    <ClInclude Include="ex1_11.h" />
+    <ClInclude Include="ex1_12.h" />
+    <ClInclude Include="ex1_2.h" />
+    <ClInclude Include="ex1_3.h" />
+    <ClInclude Include="ex1_4.h" />
+    <ClInclude Include="ex1_5.h" />
+    <ClInclude Include="ex1_6.h" />
+    <ClInclude Include="ex1_7.h" />
+    <ClInclude Include="ex1_8.h" />
+    <ClInclude Include="ex1_9.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

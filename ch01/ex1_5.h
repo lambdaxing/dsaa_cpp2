@@ -1,6 +1,7 @@
+#pragma once
 #include <iostream>
 
-template<typename T,size_t N>
+template<typename T, size_t N>
 void iota(T(&t)[N], const T& v)
 {
 	size_t curr = 0;
@@ -8,7 +9,7 @@ void iota(T(&t)[N], const T& v)
 		t[i] = v + curr++;
 }
 
-int ex1_5() 
+int ex1_5()
 {
 	int n[5]{ 0,1,2,3,4 };
 	iota(n, 1);

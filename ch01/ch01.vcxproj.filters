@@ -15,38 +15,46 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ex1_1.cpp">
+    <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="ex1_2.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="ex1_3.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="ex1_4.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="ex1_5.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="ex1_6.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="ex1_7.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="ex1_8.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="ex1_9.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="ex1_10.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="ex1_11.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ex1_1.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ex1_2.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ex1_3.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ex1_4.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ex1_5.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ex1_6.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ex1_7.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ex1_8.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ex1_9.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ex1_10.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ex1_11.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ex1_12.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

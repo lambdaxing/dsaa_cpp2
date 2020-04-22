@@ -1,5 +1,6 @@
+#pragma once
 
-template<typename T,size_t N>
+template<typename T, size_t N>
 void make2dArray(T**& x, int numberOfRows, const T(&rowSize)[N])
 {
 	x = new T* { numberOfRows };

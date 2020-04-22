@@ -1,3 +1,4 @@
+#pragma once
 // fixed
 void swap(int& x, int& y)
 {

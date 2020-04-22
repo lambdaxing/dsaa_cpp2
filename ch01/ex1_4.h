@@ -1,6 +1,7 @@
+#pragma once
 #include <iostream>
 
-template<typename T1,typename T2,size_t N,size_t M>
+template<typename T1, typename T2, size_t N, size_t M>
 T1 inner_product(const T1(&t1)[N], const T2(&t2)[M])
 {
 	auto j = N > M ? M : N;
@@ -10,7 +11,7 @@ T1 inner_product(const T1(&t1)[N], const T2(&t2)[M])
 	return temp;
 }
 
-int ex1_4() 
+int ex1_4()
 {
 	int n1[6]{ 0,1,2,3,4,5 };
 	int n2[5]{ 6,7,8,9,10 };
@@ -20,5 +21,5 @@ int ex1_4()
 	std::cout << inner_product(n1, n2) << std::endl;
 	std::cout << inner_product(d1, d2) << std::endl;
 
-	return 0; 
+	return 0;
 }

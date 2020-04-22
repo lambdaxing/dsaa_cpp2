@@ -1,4 +1,5 @@
-int ex1_8() 
+#pragma once
+int ex1_8()
 {
 	// They have the same signature. (int,int,int)
 

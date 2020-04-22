@@ -1,6 +1,7 @@
+#pragma once
 #include <iostream>
 
-template<typename T,size_t N>
+template<typename T, size_t N>
 bool is_sorted(const T(&t)[N])
 {
 	bool less = false, greater = false;
