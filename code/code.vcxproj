@@ -20,8 +20,8 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{566EE432-916D-4086-A18C-00446B882D9E}</ProjectGuid>
-    <RootNamespace>ch01</RootNamespace>
+    <ProjectGuid>{D3303A8C-B570-4EFC-A535-39DD7599164E}</ProjectGuid>
+    <RootNamespace>code</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -138,31 +138,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ex1_16.cpp" />
-    <ClCompile Include="ex1_17.cpp" />
-    <ClCompile Include="ex1_18.cpp" />
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Currency1.cpp" />
+    <ClCompile Include="Currency2.cpp" />
+    <ClCompile Include="Currency3.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ex1_1.h" />
-    <ClInclude Include="ex1_10.h" />
-    <ClInclude Include="ex1_11.h" />
-    <ClInclude Include="ex1_12.h" />
-    <ClInclude Include="ex1_14.h" />
-    <ClInclude Include="ex1_15.h" />
-    <ClInclude Include="ex1_16.h" />
-    <ClInclude Include="ex1_16_17_18_test.h" />
-    <ClInclude Include="ex1_17.h" />
-    <ClInclude Include="ex1_2.h" />
-    <ClInclude Include="ex1_3.h" />
-    <ClInclude Include="ex1_4.h" />
-    <ClInclude Include="ex1_5.h" />
-    <ClInclude Include="ex1_6.h" />
-    <ClInclude Include="ex1_7.h" />
-    <ClInclude Include="ex1_8.h" />
-    <ClInclude Include="ex1_9.h" />
-    <ClInclude Include="ex1_13.h" />
-    <ClInclude Include="ex1_18.h" />
+    <ClInclude Include="Currency1.h" />
+    <ClInclude Include="Currency2.h" />
+    <ClInclude Include="Currency3.h" />
+    <ClInclude Include="prog1_18.h" />
+    <ClInclude Include="prog1_24.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

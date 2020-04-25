@@ -1,5 +1,5 @@
-#include "ex1_11.h"
-
-int main() {
-	ex1_11();
+#include "ex1_16_17_18_test.h"
+int main()
+{
+	test1_16_17_18_test();
 }

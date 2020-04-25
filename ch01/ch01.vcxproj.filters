@@ -15,6 +15,15 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ex1_16.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ex1_17.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ex1_18.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -54,6 +63,27 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="ex1_12.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ex1_13.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ex1_14.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ex1_15.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ex1_16.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ex1_17.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ex1_18.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ex1_16_17_18_test.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

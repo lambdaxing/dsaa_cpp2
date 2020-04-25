@@ -1,10 +1,10 @@
 #pragma once
 
 template<typename T, size_t N>
-void make2dArray(T**& x, int numberOfRows, const T(&rowSize)[N])
+void make2dArray(T**& x, size_t numberOfRows, const size_t(&rowSize)[N])
 {
-	x = new T* { numberOfRows };
-	for (int i = 0; i < numberOfRows; ++i)
+	x = new T* [ numberOfRows ];
+	for (size_t i = 0; i < numberOfRows; ++i)
 		x[i] = new T[rowSize[i]];
 }
 
