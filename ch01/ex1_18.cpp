@@ -12,7 +12,7 @@ void Currency::setValue(signType theSign, unsigned long theDollars, unsigned int
 		throw std::runtime_error("Cents should be < 100");
 
 	amount = theDollars * 100 + theCents;
-	if (theSign == minus) amount = -amount;
+	if (theSign == signType::minus) amount = -amount;
 }
 
 void Currency::setValue(double theAmount)

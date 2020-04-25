@@ -13,7 +13,7 @@ void Currency1_17::setValue(signType theSign, unsigned long theDollars, unsigned
 
 
 	amount = theDollars * 100 + theCents;
-	if (theSign == minus) amount = -amount;
+	if (theSign == signType::minus) amount = -amount;
 }
 
 void Currency1_17::setValue(double theAmount)

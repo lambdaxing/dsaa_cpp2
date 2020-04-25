@@ -8,13 +8,13 @@ using std::function; using std::modulus; using std::multiplies; using std::divid
 
 #ifndef CURRENCY_SIGN_TYPE
 #define CURRENCY_SIGN_TYPE
-enum signType { plus, minus };
+enum class signType { plus, minus };
 #endif
 
 class Currency1_16
 {
 public:
-	Currency1_16(signType theSign = plus, unsigned long theDollars = 0, unsigned int theCents = 0)
+	Currency1_16(signType theSign = signType::plus, unsigned long theDollars = 0, unsigned int theCents = 0)
 	{
 		setValue(theSign, theDollars, theCents);
 	}
@@ -31,14 +31,14 @@ public:
 	long getLong() const
 	{
 		long a1 = dollars * 100 + cents;
-		if (sign == minus) a1 = -a1;
+		if (sign == signType::minus) a1 = -a1;
 		return a1;
 	}
 
 	double getDouble() const 
 	{ 
 		double theAmount = dollars + static_cast<double>(cents) / 100; 
-		return (sign == plus ? theAmount : -theAmount);
+		return (sign == signType::plus ? theAmount : -theAmount);
 	}
 	void input();								// 1)
 	Currency1_16 subtract(const Currency1_16&) const;	// 2)

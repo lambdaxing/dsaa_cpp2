@@ -8,18 +8,18 @@ using std::function; using std::modulus; using std::multiplies; using std::divid
 
 #ifndef CURRENCY_SIGN_TYPE
 #define CURRENCY_SIGN_TYPE
-enum signType { plus, minus };
+enum class signType { plus, minus };
 #endif
 
 class Currency1_17
 {
 public:
-	Currency1_17(signType theSign = plus, unsigned long theDollars = 0, unsigned int theCents = 0);
+	Currency1_17(signType theSign = signType::plus, unsigned long theDollars = 0, unsigned int theCents = 0);
 	~Currency1_17() = default;
 
 	void setValue(signType, unsigned long, unsigned int);
 	void setValue(double);
-	signType getSign() const { return (amount < 0 ? minus : plus); }
+	signType getSign() const { return (amount < 0 ? signType::minus : signType::plus); }
 	unsigned long getDollars() const { return (amount < 0 ? (-amount) / 100 : amount / 100); }
 	unsigned int getCents() const { return (amount < 0 ? (-amount - getDollars() * 100) : (amount - getDollars() * 100)); }
 	Currency1_17 add(const Currency1_17&) const;

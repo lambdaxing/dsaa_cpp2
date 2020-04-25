@@ -153,7 +153,14 @@
     <ClInclude Include="ex1_16.h" />
     <ClInclude Include="ex1_16_17_18_test.h" />
     <ClInclude Include="ex1_17.h" />
+    <ClInclude Include="ex1_19.h" />
     <ClInclude Include="ex1_2.h" />
+    <ClInclude Include="ex1_20.h" />
+    <ClInclude Include="ex1_21.h" />
+    <ClInclude Include="ex1_22.h" />
+    <ClInclude Include="ex1_23.h" />
+    <ClInclude Include="ex1_24.h" />
+    <ClInclude Include="ex1_25.h" />
     <ClInclude Include="ex1_3.h" />
     <ClInclude Include="ex1_4.h" />
     <ClInclude Include="ex1_5.h" />
@@ -163,6 +170,7 @@
     <ClInclude Include="ex1_9.h" />
     <ClInclude Include="ex1_13.h" />
     <ClInclude Include="ex1_18.h" />
+    <ClInclude Include="ex1_26.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

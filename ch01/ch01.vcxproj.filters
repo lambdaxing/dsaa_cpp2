@@ -86,5 +86,29 @@
     <ClInclude Include="ex1_16_17_18_test.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="ex1_19.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ex1_20.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ex1_21.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ex1_22.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ex1_23.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ex1_24.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ex1_25.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ex1_26.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

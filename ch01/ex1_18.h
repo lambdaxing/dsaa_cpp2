@@ -5,7 +5,7 @@ using std::cout; using std::cin; using std::endl;
 
 #ifndef CURRENCY_SIGN_TYPE
 #define CURRENCY_SIGN_TYPE
-enum signType { plus, minus };
+enum class signType { plus, minus };
 #endif
 
 class Currency
@@ -19,12 +19,12 @@ class Currency
 	friend Currency operator%(const Currency& lhs, const Currency& rhs);
 
 public:
-	Currency(signType theSign = plus, unsigned long theDollars = 0, unsigned int theCents = 0);
+	Currency(signType theSign = signType::plus, unsigned long theDollars = 0, unsigned int theCents = 0);
 	~Currency() = default;
 
 	void setValue(signType, unsigned long, unsigned int);
 	void setValue(double);
-	signType getSign() const { return (amount < 0 ? minus : plus); }
+	signType getSign() const { return (amount < 0 ? signType::minus : signType::plus); }
 	unsigned long getDollars() const { return (amount < 0 ? (-amount) / 100 : amount / 100); }
 	unsigned int getCents() const { return (amount < 0 ? (-amount - getDollars() * 100) : (amount - getDollars() * 100)); }
 
