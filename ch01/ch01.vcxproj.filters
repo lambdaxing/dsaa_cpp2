@@ -110,5 +110,59 @@
     <ClInclude Include="ex1_26.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="ex1_27.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ex1_28.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ex1_29.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ex1_30.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ex1_31.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ex1_32.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ex1_33.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ex1_34.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ex1_35.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ex1_36.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ex1_37.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ex1_38.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ex1_39.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ex1_40.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ex1_41.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ex1_42.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ex1_43.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ex1_44.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

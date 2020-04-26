@@ -1,6 +1,8 @@
 #pragma once
 #include <iostream>
 
+// https://www.cise.ufl.edu/~sahni/dsaac/public/exer/c1/e27.htm
+
 // 1)
 // gcd(20,30) = 10;
 // gcd(112,42) = 14
