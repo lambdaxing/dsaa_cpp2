@@ -164,5 +164,8 @@
     <ClInclude Include="ex1_44.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="ex1_45_46_47_48.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -141,13 +141,19 @@
     <ClCompile Include="Currency1.cpp" />
     <ClCompile Include="Currency2.cpp" />
     <ClCompile Include="Currency3.cpp" />
+    <ClCompile Include="illegalParameterValue.cpp" />
+    <ClCompile Include="prog1_36.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Currency1.h" />
     <ClInclude Include="Currency2.h" />
     <ClInclude Include="Currency3.h" />
+    <ClInclude Include="illegalParameterValue.h" />
     <ClInclude Include="prog1_18.h" />
     <ClInclude Include="prog1_24.h" />
+    <ClInclude Include="prog1_32.h" />
+    <ClInclude Include="prog1_36.h" />
+    <ClInclude Include="prog2_3_4.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

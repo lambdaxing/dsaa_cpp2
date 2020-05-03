@@ -20,8 +20,8 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{566EE432-916D-4086-A18C-00446B882D9E}</ProjectGuid>
-    <RootNamespace>ch01</RootNamespace>
+    <ProjectGuid>{D610C983-477C-4560-AC29-94E1F83C9B7E}</ProjectGuid>
+    <RootNamespace>ch02</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -138,58 +138,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ex1_16.cpp" />
-    <ClCompile Include="ex1_17.cpp" />
-    <ClCompile Include="ex1_18.cpp" />
+    <ClCompile Include="ex2_1-7.h" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ex1_1.h" />
-    <ClInclude Include="ex1_10.h" />
-    <ClInclude Include="ex1_11.h" />
-    <ClInclude Include="ex1_12.h" />
-    <ClInclude Include="ex1_14.h" />
-    <ClInclude Include="ex1_15.h" />
-    <ClInclude Include="ex1_16.h" />
-    <ClInclude Include="ex1_16_17_18_test.h" />
-    <ClInclude Include="ex1_17.h" />
-    <ClInclude Include="ex1_19.h" />
-    <ClInclude Include="ex1_2.h" />
-    <ClInclude Include="ex1_20.h" />
-    <ClInclude Include="ex1_21.h" />
-    <ClInclude Include="ex1_22.h" />
-    <ClInclude Include="ex1_23.h" />
-    <ClInclude Include="ex1_24.h" />
-    <ClInclude Include="ex1_25.h" />
-    <ClInclude Include="ex1_27.h" />
-    <ClInclude Include="ex1_28.h" />
-    <ClInclude Include="ex1_29.h" />
-    <ClInclude Include="ex1_3.h" />
-    <ClInclude Include="ex1_30.h" />
-    <ClInclude Include="ex1_31.h" />
-    <ClInclude Include="ex1_32.h" />
-    <ClInclude Include="ex1_33.h" />
-    <ClInclude Include="ex1_34.h" />
-    <ClInclude Include="ex1_35.h" />
-    <ClInclude Include="ex1_36.h" />
-    <ClInclude Include="ex1_37.h" />
-    <ClInclude Include="ex1_38.h" />
-    <ClInclude Include="ex1_39.h" />
-    <ClInclude Include="ex1_4.h" />
-    <ClInclude Include="ex1_40.h" />
-    <ClInclude Include="ex1_41.h" />
-    <ClInclude Include="ex1_42.h" />
-    <ClInclude Include="ex1_43.h" />
-    <ClInclude Include="ex1_44.h" />
-    <ClInclude Include="ex1_45_46_47_48.h" />
-    <ClInclude Include="ex1_5.h" />
-    <ClInclude Include="ex1_6.h" />
-    <ClInclude Include="ex1_7.h" />
-    <ClInclude Include="ex1_8.h" />
-    <ClInclude Include="ex1_9.h" />
-    <ClInclude Include="ex1_13.h" />
-    <ClInclude Include="ex1_18.h" />
-    <ClInclude Include="ex1_26.h" />
+    <ClInclude Include="ex2_20.h" />
+    <ClInclude Include="ex2_8.h" />
+    <ClInclude Include="ex2_9.h" />
+    <ClInclude Include="ex2_10-17.h" />
+    <ClInclude Include="ex2_18_19.h" />
+    <ClInclude Include="ex2_21-28.h" />
+    <ClInclude Include="ex2_29-32.h" />
+    <ClInclude Include="ex2_33.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

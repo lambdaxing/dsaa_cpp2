@@ -15,49 +15,37 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Currency1.h">
+    <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ex2_1-7.h">
       <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Currency2.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Currency3.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="prog1_18.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="prog1_24.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="illegalParameterValue.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="prog1_32.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="prog1_36.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="prog2_3_4.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Currency1.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Currency2.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Currency3.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="illegalParameterValue.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="prog1_36.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
+    <ClInclude Include="ex2_9.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ex2_8.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ex2_10-17.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ex2_18_19.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ex2_20.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ex2_21-28.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ex2_29-32.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ex2_33.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
