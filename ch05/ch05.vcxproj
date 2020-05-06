@@ -20,8 +20,8 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{D3303A8C-B570-4EFC-A535-39DD7599164E}</ProjectGuid>
-    <RootNamespace>code</RootNamespace>
+    <ProjectGuid>{0E1F09C0-9171-4563-AF13-54F131339E86}</ProjectGuid>
+    <RootNamespace>ch05</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -138,25 +138,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Currency1.cpp" />
-    <ClCompile Include="Currency2.cpp" />
-    <ClCompile Include="Currency3.cpp" />
-    <ClCompile Include="illegalParameterValue.cpp" />
-    <ClCompile Include="prog1_36.cpp" />
+    <ClInclude Include="changeLength1D.h" />
+    <ClInclude Include="ex5_1_2.h" />
+    <ClInclude Include="ex5_3.h" />
+    <ClInclude Include="linearList.h" />
+    <ClInclude Include="myExceptions.h" />
+    <ClInclude Include="ex5_4.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Currency1.h" />
-    <ClInclude Include="Currency2.h" />
-    <ClInclude Include="Currency3.h" />
-    <ClInclude Include="illegalParameterValue.h" />
-    <ClInclude Include="prog1_18.h" />
-    <ClInclude Include="prog1_24.h" />
-    <ClInclude Include="prog1_32.h" />
-    <ClInclude Include="prog1_36.h" />
-    <ClInclude Include="prog1_37.h" />
-    <ClInclude Include="prog2_3_4.h" />
-    <ClInclude Include="prog2_5-9.h" />
-    <ClInclude Include="标头.h" />
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

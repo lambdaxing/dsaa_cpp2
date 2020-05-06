@@ -42,6 +42,15 @@
     <ClInclude Include="prog2_3_4.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="prog1_37.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="prog2_5-9.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="标头.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Currency1.cpp">

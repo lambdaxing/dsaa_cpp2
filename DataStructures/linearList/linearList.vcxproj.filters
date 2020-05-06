@@ -15,40 +15,31 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="linearList.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="arrayList.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="myExceptions.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="changeLength1D.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="testArrayList.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="arrayListWithIterator.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="testArrayListWithIterator.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="ex2_1-7.h">
-      <Filter>头文件</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="ex2_9.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="ex2_8.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="ex2_10-17.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="ex2_18_19.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="ex2_20.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="ex2_21-28.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="ex2_29-32.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="ex2_33.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="ex2_34_35_36.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>

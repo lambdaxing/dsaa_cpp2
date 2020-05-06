@@ -143,6 +143,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ex2_20.h" />
+    <ClInclude Include="ex2_34_35_36.h" />
     <ClInclude Include="ex2_8.h" />
     <ClInclude Include="ex2_9.h" />
     <ClInclude Include="ex2_10-17.h" />
