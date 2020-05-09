@@ -1,6 +1,6 @@
-#include "ex5_4.h"
+#include "ex5_37-40.h"
 
 int main()
 {
-	return ex5_4();
+	return test();
 }

@@ -3,6 +3,7 @@
 #ifndef changeLength1D_
 #define changeLength1D_
 
+#include <algorithm>
 #include "myExceptions.h"
 
 template <typename T>

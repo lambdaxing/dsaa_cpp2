@@ -20,8 +20,8 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{F00FB06A-EE5F-4545-BD0C-BC68454ECDD7}</ProjectGuid>
-    <RootNamespace>linearList</RootNamespace>
+    <ProjectGuid>{951FBC28-4A3B-4484-A543-F9401DC873AA}</ProjectGuid>
+    <RootNamespace>search</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -138,15 +138,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="arrayList.h" />
-    <ClInclude Include="arrayListNoSTL.h" />
-    <ClInclude Include="arrayListWithIterator.h" />
-    <ClInclude Include="myExceptions.h" />
-    <ClInclude Include="linearList.h" />
-    <ClInclude Include="changeLength1D.h" />
-    <ClInclude Include="testArrayList.h" />
-    <ClInclude Include="testArrayListWithIterator.h" />
-    <ClInclude Include="vectorList.h" />
+    <ClInclude Include="binarySearch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />

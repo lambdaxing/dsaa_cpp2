@@ -15,31 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="linearList.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="arrayList.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="myExceptions.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="changeLength1D.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="testArrayList.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="arrayListWithIterator.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="testArrayListWithIterator.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="vectorList.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="arrayListNoSTL.h">
+    <ClInclude Include="binarySearch.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

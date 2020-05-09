@@ -141,9 +141,11 @@
     <ClInclude Include="changeLength1D.h" />
     <ClInclude Include="ex5_1_2.h" />
     <ClInclude Include="ex5_3.h" />
+    <ClInclude Include="ex5_31-36.h" />
+    <ClInclude Include="ex5_37-40.h" />
     <ClInclude Include="linearList.h" />
     <ClInclude Include="myExceptions.h" />
-    <ClInclude Include="ex5_4.h" />
+    <ClInclude Include="ex5_4-30.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />

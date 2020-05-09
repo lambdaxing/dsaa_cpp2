@@ -1,6 +1,6 @@
-#include "testArrayListWithIterator.h"
+#include "arrayListNoSTL.h"
 
 int main()
 {
-	return testArrayListWithIterator();
+	return testArrayListNoSTL();
 }
