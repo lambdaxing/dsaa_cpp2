@@ -29,10 +29,10 @@ void insert(T a[], int n, const T& x)
 template<class T>
 void insertionSort2(T a[], int n)
 {// Sort a[0:n-1] using the insertion sort method.
-	for (int i = 1; i < n; i++)					//		1		n		O(n)
+	for (int i = 1; i < n; i++)					//		1		n		Theta(n)
 	{
 		T t = a[i];								//		1		n-1		O(n)
-		insert(a, i, t);						//		2i+4	n-1		O(n^2)
+		insert(a, i, t);						//		4,2i+4	n-1		O(n^2)
 	}
 }
 //				t(n) = Omega(n) = O(n^2)
