@@ -141,11 +141,18 @@
     <ClInclude Include="arrayList.h" />
     <ClInclude Include="arrayListNoSTL.h" />
     <ClInclude Include="arrayListWithIterator.h" />
+    <ClInclude Include="chain.h" />
+    <ClInclude Include="chainNode.h" />
+    <ClInclude Include="extendedChain.h" />
+    <ClInclude Include="extendedLinearList.h" />
     <ClInclude Include="myExceptions.h" />
     <ClInclude Include="linearList.h" />
     <ClInclude Include="changeLength1D.h" />
     <ClInclude Include="testArrayList.h" />
     <ClInclude Include="testArrayListWithIterator.h" />
+    <ClInclude Include="testChain.h" />
+    <ClInclude Include="testChainWithIterator.h" />
+    <ClInclude Include="testExtendedChain.h" />
     <ClInclude Include="vectorList.h" />
   </ItemGroup>
   <ItemGroup>

@@ -101,7 +101,7 @@ chain<T>::chain(int initialCapacity)
 {// Constructor.
 	if (initialCapacity < 1)
 	{
-		ostringstream s;
+		std::ostringstream s;
 		s << "Initial capacity = " << initialCapacity << " Must be > 0";
 		throw illegalParameterValue(s.str());
 	}
@@ -154,7 +154,7 @@ void chain<T>::checkIndex(int theIndex) const
 {// Verify that theIndex is between 0 and listSize - 1.
 	if (theIndex < 0 || theIndex >= listSize)
 	{
-		ostringstream s;
+		std::ostringstream s;
 		s << "index = " << theIndex << " size = " << listSize;
 		throw illegalIndex(s.str());
 	}
@@ -228,7 +228,7 @@ void chain<T>::insert(int theIndex, const T& theElement)
 {// Insert theElement so that its index is theIndex.
 	if (theIndex < 0 || theIndex > listSize)
 	{// invalid index
-		ostringstream s;
+		std::ostringstream s;
 		s << "index = " << theIndex << " size = " << listSize;
 		throw illegalIndex(s.str());
 	}

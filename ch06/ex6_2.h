@@ -38,6 +38,17 @@ public:
 	void insert(int theIndex, const T& theElement);
 	void output(std::ostream& out) const;
 
+	void clear()
+	{// Delete all nodes in chain.
+		while (firstNode != nullptr)
+		{// delete firstNode
+			chainNode<T>* nextNode = firstNode->next;
+			delete firstNode;
+			firstNode = nextNode;
+		}
+		this->listSize = 0;
+	}
+
 	// ex6_2
 	void setSize(int theSize);
 	// ex6_3
@@ -55,6 +66,9 @@ public:
 	// ex6_9
 	bool operator <(const chain& rhs) const;
 	bool operator>=(const chain& rhs) const;
+	bool operator >(const chain& rhs) const;
+	bool operator<=(const chain& rhs) const;
+
 	// ex6_10
 	void swap(chain& theChain);
 	// ex6_13
@@ -62,6 +76,15 @@ public:
 	arrayList<T> toList() const;
 	// ex6_14
 	void leftShift(std::size_t i);
+	// ex6_15 ex6_16	https://leetcode-cn.com/problems/reverse-linked-list/solution/fan-zhuan-lian-biao-by-leetcode/
+	void reverse();
+	void recursionReverse();
+	// ex6_18
+	void meld(chain& a, chain& b);
+	// ex6_22
+	void split(chain& a, chain& b);
+	void splitBeEmpty(chain& a, chain& b);
+
 	// iterators to start and end of list
 	class iterator;
 	iterator begin() { return iterator(firstNode); }
@@ -446,9 +469,33 @@ bool chain<T>::operator >=(const chain<T>& rhs) const
 }
 
 template<typename T>
+bool chain<T>::operator <=(const chain<T>& rhs) const
+{
+	if (listSize < rhs.listSize)
+		return false;
+
+	chainNode<T>* currentNodeLhs = firstNode;
+	chainNode<T>* currentNodeRhs = rhs.firstNode;
+	while (currentNodeRhs != nullptr)
+		if (currentNodeLhs->element > currentNodeRhs->element)
+			return false;
+		else {
+			currentNodeRhs = currentNodeRhs->next;
+			currentNodeLhs = currentNodeLhs->next;
+		}
+	return true;
+}
+
+template<typename T>
 bool chain<T>::operator <(const chain<T>& rhs) const
 {
 	return !(*this >= rhs);
+}
+
+template<typename T>
+bool chain<T>::operator >(const chain<T>& rhs) const
+{
+	return !(*this <= rhs);
 }
 
 template<typename T>
@@ -548,8 +595,140 @@ void chain<T>::leftShift(std::size_t i)
 template<typename T>
 void chain<T>::reverse()
 {	
-
+	chainNode<T>* currentNode = firstNode;
+	chainNode<T>* preCurrentNode = nullptr;
+	chainNode<T>* temp;
+	while (currentNode != nullptr)
+	{
+		temp = currentNode->next;
+		currentNode->next = preCurrentNode;
+		preCurrentNode = currentNode;
+		currentNode = temp;
+	}
+	firstNode = preCurrentNode;
 }
+
+template<typename T>
+void chain<T>::recursionReverse()
+{
+	if (firstNode == nullptr || firstNode->next == nullptr)
+		return;
+	chainNode<T>* currentNode = firstNode;
+	firstNode = firstNode->next;
+	recursionReverse();
+	currentNode->next->next = currentNode;
+	currentNode->next = nullptr;
+}
+
+template<typename T>
+void chain<T>::meld(chain& a, chain& b)
+{
+	if (&a == this || &b == this)
+	{
+		std::ostringstream s;
+		s << " can't meld chain<T> self ";
+		throw illegalParameterValue(s.str());
+	}
+	chainNode<T>* aCurrentNode = a.firstNode;
+	chainNode<T>* bCurrentNode = b.firstNode;
+	clear();
+	if (aCurrentNode == nullptr && bCurrentNode == nullptr)
+		return;
+	if (aCurrentNode != nullptr)
+		firstNode = aCurrentNode;
+	else
+		firstNode = bCurrentNode;
+
+	chainNode<T>* currentNode = firstNode;
+	chainNode<T>* nextNode = nullptr;
+	int i = 0;
+
+	while (aCurrentNode != nullptr || bCurrentNode != nullptr)
+	{
+		if (bCurrentNode != nullptr && i % 2 || aCurrentNode == nullptr && bCurrentNode != nullptr)
+		{
+			nextNode = bCurrentNode->next;
+			currentNode->next = bCurrentNode;
+			bCurrentNode = nextNode;
+		}
+		else
+		{
+			nextNode = aCurrentNode->next;
+			currentNode->next = aCurrentNode;
+			aCurrentNode = nextNode;
+		}
+		currentNode = currentNode->next;
+		++i;
+	}
+	currentNode->next = nullptr;
+	if (a.firstNode != nullptr)
+		a.firstNode = nullptr;
+	if (b.firstNode != nullptr)
+		b.firstNode = nullptr;
+	listSize = i - 1;
+	a.listSize = 0;
+	b.listSize = 0;
+}
+
+template<typename T>
+void chain<T>::split(chain& a, chain& b)
+{
+	a.clear(); b.clear();
+	int i = 0; int j = 0; int k = 0;
+	chainNode<T>* currentNode = firstNode;
+	while (currentNode != nullptr)
+	{
+		if (i++ % 2) a.insert(j++, currentNode->element);
+		else b.insert(k++, currentNode->element);
+		currentNode = currentNode->next;
+	}
+}
+
+template<typename T>
+void chain<T>::splitBeEmpty(chain& a, chain& b)
+{
+	a.clear(); b.clear();
+	chainNode<T>* currentNode = firstNode;
+	chainNode<T>* aCurrentNode = a.firstNode;
+	chainNode<T>* aPreCurrentNode = nullptr;
+	chainNode<T>* bCurrentNode = b.firstNode;
+	chainNode<T>* bPreCurrentNode = nullptr;
+	int i = 0;
+	while (currentNode != nullptr)
+	{
+		if (i % 2)
+		{
+			aCurrentNode = currentNode;
+			if (i == 1) 
+				a.firstNode = aCurrentNode;
+			else
+				aPreCurrentNode->next = aCurrentNode;
+			aPreCurrentNode = aCurrentNode;
+			aCurrentNode = aCurrentNode->next;
+		}
+		else 
+		{
+			bCurrentNode = currentNode;
+			if (i == 0) 
+				b.firstNode = bCurrentNode;
+			else
+				bPreCurrentNode->next = bCurrentNode;
+			bPreCurrentNode = bCurrentNode;
+			bCurrentNode = bCurrentNode->next;
+		}
+		currentNode = currentNode->next;
+		++i;
+	}
+	if(bPreCurrentNode != nullptr && bPreCurrentNode->next != nullptr)
+		bPreCurrentNode->next = nullptr;
+	if (aPreCurrentNode != nullptr && aPreCurrentNode->next != nullptr)
+		aPreCurrentNode->next = nullptr;
+	a.listSize = i / 2;
+	b.listSize = (i + 1) / 2;
+	listSize = 0;
+	firstNode = nullptr;
+}
+
 void testEx6_2()
 {
 	chain<double> x;
@@ -648,7 +827,58 @@ void testEx6_2()
 	x.leftShift(2);
 	std::cout << "x.leftShift(2): " << x << std::endl;
 
+	// test reverse
+	y.reverse();
+	std::cout << "y.reverse(): " << y << std::endl;
+	y.recursionReverse();
+	std::cout << "y.recursionReverse(): " << y << std::endl;
 
+	// test meld
+	z.meld(x, y);
+	std::cout << "z.meld(x,y)=>z: " << z << std::endl;
+	std::cout << "z.meld(x,y)=>x: " << x << std::endl;
+	std::cout << "z.meld(x,y)=>y: " << y << std::endl;
+	y.insert(0, 0);
+	y.insert(1, 1);
+	y.insert(2, 2);
+	y.insert(3, 3);
+	y.insert(4, 4);
+	std::cout << "y: " << y << std::endl;
+	x.meld(z, y);
+	std::cout << "x.meld(z,y)=>x: " << x << std::endl;
+	std::cout << "x.meld(z,y)=>z: " << z << std::endl;
+	std::cout << "x.meld(z,y)=>y: " << y << std::endl;
+	std::cout << std::endl;
+	z.meld(y, x);
+	std::cout << "z.meld(y,x)=>z: " << z << std::endl;
+	std::cout << "z.meld(y,x)=>y: " << y << std::endl;
+	std::cout << "z.meld(y,x)=>y: " << x << std::endl;
+	std::cout << std::endl;
+	z.meld(y, x);
+	std::cout << "z.meld(y,x)=>z: " << z << std::endl;
+	std::cout << "z.meld(y,x)=>y: " << y << std::endl;
+	std::cout << "z.meld(y,x)=>x: " << x << std::endl;
+
+	// test split
+	z.split(y, x);
+	std::cout << std::endl;
+	std::cout << "z.split(y,x)=>z: " << z << std::endl;
+	std::cout << "z.split(y,x)=>y: " << y << std::endl;
+	std::cout << "z.split(y,x)=>x: " << x << std::endl;
+	for (int i = 0; i < 6; ++i) z.insert(i, i);
+	for (int i = 0; i < 6; ++i) x.insert(i, i);
+	for (int i = 0; i < 6; ++i) y.insert(i, i);
+	std::cout << "z: " << z << std::endl;
+	std::cout << "y: " << y << std::endl;
+	std::cout << "x: " << x << std::endl;
+	z.split(y, x);
+	std::cout << "z.split(y,x)=>z: " << z << std::endl;
+	std::cout << "z.split(y,x)=>y: " << y << std::endl;
+	std::cout << "z.split(y,x)=>x: " << x << std::endl;
+	z.splitBeEmpty(y, x);
+	std::cout << "z.splitBeEmpty(y,x)=>z: " << z << std::endl;
+	std::cout << "z.splitBeEmpty(y,x)=>y: " << y << std::endl;
+	std::cout << "z.splitBeEmpty(y,x)=>x: " << x << std::endl;
 }
 
 #endif

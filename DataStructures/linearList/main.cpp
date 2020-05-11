@@ -1,6 +1,6 @@
-#include "arrayListNoSTL.h"
+#include "testExtendedChain.h"
 
 int main()
 {
-	return testArrayListNoSTL();
+	testExtendedChain();
 }

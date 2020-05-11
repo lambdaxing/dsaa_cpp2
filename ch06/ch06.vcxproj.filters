@@ -36,6 +36,12 @@
     <ClInclude Include="changeLength1D.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="ex6_17.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="extendedLinearList.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">

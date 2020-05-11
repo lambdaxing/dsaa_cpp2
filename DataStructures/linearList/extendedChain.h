@@ -25,8 +25,8 @@ public:
 		chain<T>(c) {}
 
 	// ADT methods
-	bool empty() const { return listSize == 0; }
-	int size() const { return listSize; }
+	bool empty() const { return this->listSize == 0; }
+	int size() const { return this->listSize; }
 	T& get(int theIndex) const
 	{
 		return chain<T>::get(theIndex);
@@ -39,13 +39,13 @@ public:
 	void insert(int theIndex, const T& theElement);
 	void clear()
 	{// Delete all nodes in chain.
-		while (firstNode != nullptr)
+		while (this->firstNode != nullptr)
 		{// delete firstNode
-			chainNode<T>* nextNode = firstNode->next;
-			delete firstNode;
-			firstNode = nextNode;
+			chainNode<T>* nextNode = this->firstNode->next;
+			delete this->firstNode;
+			this->firstNode = nextNode;
 		}
-		listSize = 0;
+		this->listSize = 0;
 	}
 	void push_back(const T& theElement);
 	void output(std::ostream& out) const
@@ -56,7 +56,7 @@ public:
 	// additional method
 	void zero()
 	{
-		firstNode = nullptr; listSize = 0;
+		this->firstNode = nullptr; this->listSize = 0;
 	}
 
 protected:
@@ -68,18 +68,18 @@ template<typename T>
 void extendedChain<T>::erase(int theIndex)
 {// Delete the element whose index is theIndex.
  // Throw illegalIndex exception if no such element.
-	checkIndex(theIndex);
+	this->checkIndex(theIndex);
 
 	// valid index, locate node with element to delete
 	chainNode<T>* deleteNode;
 	if (theIndex == 0)
 	{// remove first node from chain
-		deleteNode = firstNode;
-		firstNode = firstNode->next;
+		deleteNode = this->firstNode;
+		this->firstNode = this->firstNode->next;
 	}
 	else
 	{  // use p to get to predecessor of desired node
-		chainNode<T>* p = firstNode;
+		chainNode<T>* p = this->firstNode;
 		for (int i = 0; i < theIndex - 1; ++i)
 			p = p->next;
 
@@ -88,53 +88,53 @@ void extendedChain<T>::erase(int theIndex)
 		if (deleteNode == lastNode)
 			lastNode = p;
 	}
-	listSize--;
+	--this->listSize;
 	delete deleteNode;
 }
 
 template<typename T>
 void extendedChain<T>::insert(int theIndex, const T& theElement)
 {// Insert theElement so that its index is theIndex.
-	if (theIndex < 0 || theIndex > listSize)
+	if (theIndex < 0 || theIndex > this->listSize)
 	{// invalid index
-		ostringstream s;
-		s << "index = " << theIndex << " size = " << listSize;
+		std::ostringstream s;
+		s << "index = " << theIndex << " size = " << this->listSize;
 		throw illegalIndex(s.str());
 	}
 
 	if (theIndex == 0)
 	{// insert at front
-		firstNode = new chainNode<T>(theElement, firstNode);
-		if (listSize == 0)
-			lastNode = firstNode;
+		this->firstNode = new chainNode<T>(theElement, this->firstNode);
+		if (this->listSize == 0)
+			lastNode = this->firstNode;
 	}
 	else
 	{  // find predecessor of new element
-		chainNode<T>* p = firstNode;
+		chainNode<T>* p = this->firstNode;
 		for (int i = 0; i < theIndex - 1; i++)
 			p = p->next;
 
 		// insert after p
 		p->next = new chainNode<T>(theElement, p->next);
-		if (listSize == theIndex)
+		if (this->listSize == theIndex)
 			lastNode = p->next;
 	}
-	++listSize;
+	++this->listSize;
 }
 
 template<typename T>
 void extendedChain<T>::push_back(const T& theElement)
 {// Insert theElement at the end of the chain.
 	chainNode<T>* newNode = new chainNode<T>(theElement, nullptr);
-	if (firstNode == nullptr)
+	if (this->firstNode == nullptr)
 		// chain is empty
-		firstNode = lastNode = newNode;
+		this->firstNode = lastNode = newNode;
 	else
 	{  // attach next to lastNode
 		lastNode->next = newNode;
 		lastNode = newNode;
 	}
-	listSize++;
+	++this->listSize;
 }
 
 #endif
