@@ -11,12 +11,12 @@
 #include <string>
 #include <algorithm>
 #include "extendedLinearList.h"
-#include "ex6_2.h"					// chain<T>
+#include "ex6_2-16_18_20_22_26_27.h"					// chain<T>
 #include "myExceptions.h"
 
 
 template<typename T>
-class extendedChain : public extendedLinearList<T>, public chain<T>
+class extendedChain : public move<T>, public chain<T>
 {
 public:
 	// constructor and copy constructor

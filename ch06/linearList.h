@@ -6,7 +6,7 @@
 #define linearList_
 #include <iostream>
 
-template<class T>
+template<typename T>
 class linearList
 {
 public:

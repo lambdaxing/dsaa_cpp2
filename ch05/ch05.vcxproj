@@ -146,6 +146,8 @@
     <ClInclude Include="linearList.h" />
     <ClInclude Include="myExceptions.h" />
     <ClInclude Include="ex5_4-30.h" />
+    <ClInclude Include="ex5_41-43.h" />
+    <ClInclude Include="ex5_44.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />

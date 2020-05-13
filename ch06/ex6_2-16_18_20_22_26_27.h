@@ -9,6 +9,7 @@
 #include <iostream>
 #include <sstream>
 #include <string>
+#include <algorithm>
 #include "linearList.h"
 #include "chainNode.h"
 #include "myExceptions.h"
@@ -84,6 +85,13 @@ public:
 	// ex6_22
 	void split(chain& a, chain& b);
 	void splitBeEmpty(chain& a, chain& b);
+	// ex6_26_27
+	void insertSort();
+	void bubbleSort();
+	chainNode<T>* nodeOfMin();
+	void selectionSort();
+	void rank(int*&);
+	void rankSort();
 
 	// iterators to start and end of list
 	class iterator;
@@ -729,6 +737,166 @@ void chain<T>::splitBeEmpty(chain& a, chain& b)
 	firstNode = nullptr;
 }
 
+template<typename T>
+void chain<T>::insertSort()
+{
+	if (firstNode == nullptr || firstNode->next == nullptr)
+		return;
+	chainNode<T>* head = firstNode;
+	chainNode<T>* head2 = head->next;	// the head of not sorted part 
+	chainNode<T>* current = nullptr;
+	chainNode<T>* p = nullptr;
+	chainNode<T>* q = nullptr;
+
+	head->next = nullptr;				// the head of already sorted part 
+
+	while (head2)
+	{
+		current = head2;
+		head2 = head2->next;
+
+		// find the address of insert £¬in the middle of p and q.
+		for (q = head; q && q->element <= current->element; p = q, q = q->next);
+
+		if (q == head)
+		{
+			// insert to the first
+			head = current;
+		}
+		else
+		{
+			p->next = current;
+		}
+		current->next = q;
+	}
+	firstNode = head;
+}
+
+template<typename T>
+void chain<T>::bubbleSort()
+{
+	chainNode<T>* p, * q, * tail;
+
+	tail = nullptr;
+	T t = {};
+	chainNode<T>* temp = new chainNode<T>(t, firstNode);
+	firstNode = temp;
+	while ((firstNode->next) != tail)
+	{
+		p = firstNode;
+		q = firstNode->next;
+		while (q->next != tail)
+		{
+			if ((q->element) > (q->next->element))		// swap q and q->next
+			{
+				p->next = q->next;
+				q->next = q->next->next;
+				p->next->next = q;
+				q = p->next;
+			}
+			q = q->next;
+			p = p->next;
+		}
+		tail = q;
+	}
+	firstNode = temp->next;
+	delete temp;
+}
+
+template<typename T>
+chainNode<T>* chain<T>::nodeOfMin()
+{
+	if (firstNode == nullptr || firstNode->next == nullptr)
+		return firstNode;
+	chainNode<T>* minNode = firstNode;
+	chainNode<T>* currentNode = firstNode;
+	while (currentNode != nullptr)							// find the minNode from first to end
+	{
+		//std::cout << 1;
+		if (currentNode->element < minNode->element)
+			minNode = currentNode;
+		currentNode = currentNode->next;
+	}
+	if (minNode != firstNode)								// minNode is not the firstNode
+	{
+		currentNode = firstNode;
+		while (currentNode->next != minNode)
+			currentNode = currentNode->next;
+		currentNode->next = currentNode->next->next;		// remove the minNode in primary list ( not sorted)
+	}
+	else
+		firstNode = minNode->next;							// minNode is the firstNode , remove it = update firstNode
+	return minNode;
+}
+
+template<typename T>
+void chain<T>::selectionSort()
+{
+	if (firstNode == nullptr || firstNode->next == nullptr)
+		return;
+	
+	chainNode<T>* minNode = nodeOfMin();
+	chainNode<T>* head = minNode;					// the head of already sorted 
+	chainNode<T>* preNode = head;
+	while (firstNode->next != nullptr)				// find the minNode between first and end , add it to the part of already sorted
+	{
+		//std::cout << 2;
+		minNode = nodeOfMin();						
+		preNode->next = minNode;					// join
+		preNode = preNode->next;						 
+	}
+	preNode->next = firstNode;						// the last(max) node ,just last one firstNode
+	firstNode = head;								// update firstNode
+}
+
+template<typename T>
+void chain<T>::rank(int*& rankArray)
+{
+	int j;
+	int i = 0;
+	for (i = 0; i < listSize; ++i)
+		rankArray[i] = 0;
+	chainNode<T>* currentNode = firstNode;
+	chainNode<T>* compareNode = nullptr;
+	i = 0;
+	while (currentNode != nullptr)
+	{
+		compareNode = currentNode->next;
+		j = 1;
+		while (compareNode != nullptr)
+		{
+			if (currentNode->element > compareNode->element)
+				++rankArray[i];
+			else
+				++rankArray[i + j];
+			compareNode = compareNode->next;
+			++j;
+		}
+		currentNode = currentNode->next;
+		++i;
+	}
+}
+
+template<typename T>
+void chain<T>::rankSort()
+{
+	using std::swap;
+	int *rankArray = new int[listSize];
+	rank(rankArray);
+	chainNode<T>* b = nullptr;
+	chainNode<T>* currentNode = firstNode;
+	int i = 0;
+	for (int i = 0; i < listSize; ++i)
+		// get proper element to a[i]
+		while (rankArray[i] != i)
+		{
+			int t = rankArray[i];
+			swap(operator[](i), operator[](t));
+			swap(rankArray[i], rankArray[t]);
+		}
+	delete[] rankArray;
+}
+
 void testEx6_2()
 {
 	chain<double> x;
@@ -879,6 +1047,75 @@ void testEx6_2()
 	std::cout << "z.splitBeEmpty(y,x)=>z: " << z << std::endl;
 	std::cout << "z.splitBeEmpty(y,x)=>y: " << y << std::endl;
 	std::cout << "z.splitBeEmpty(y,x)=>x: " << x << std::endl;
+
+	// test sort
+	std::cout << "insertSort: " << std::endl;
+	x.insertSort();
+	std::cout << "x: " << x << std::endl; 
+	x.insert(3, 1);
+	x.insertSort();
+	std::cout << "x: " << x << std::endl;
+	x.insert(4, 0);
+	x.insertSort();
+	std::cout << "x: " << x << std::endl;
+	x.insert(5, 5);
+	x.insertSort();
+	std::cout << "x: " << x << std::endl;
+	x.insert(0, 1);
+	std::cout << "x: " << x << std::endl;
+	x.insertSort();
+	std::cout << "x: " << x << std::endl;
+
+	// bubble
+	std::cout << "bubbleSort: " << std::endl;
+	x.bubbleSort();
+	std::cout << "x: " << x << std::endl;
+	x.insert(3, 1);
+	x.bubbleSort();
+	std::cout << "x: " << x << std::endl;
+	x.insert(4, 0);
+	x.bubbleSort();
+	std::cout << "x: " << x << std::endl;
+	x.insert(5, 5);
+	x.bubbleSort();
+	std::cout << "x: " << x << std::endl;
+	x.insert(0, 1);
+	std::cout << "x: " << x << std::endl;
+	x.bubbleSort();
+	std::cout << "x: " << x << std::endl;
+
+	// rank
+	std::cout << "rankSort: " << std::endl;
+	x.rankSort();
+	std::cout << "x: " << x << std::endl;
+	chain<double> m;
+	m.insert(0, 3);
+	m.insert(1, 5);
+	m.insert(2, 4);
+	m.insert(3, 6);
+	m.insert(4, 2);
+	m.insert(5, 1);
+	std::cout << "m: " << m << std::endl;
+	m.rankSort();
+	std::cout << "m: " << m << std::endl;
+
+	// selection
+	std::cout << "selectionSort: " << std::endl;
+	x.selectionSort();
+	std::cout << "x: " << x << std::endl;
+	x.insert(3, 1);
+	x.selectionSort();
+	std::cout << "x: " << x << std::endl;
+	x.insert(4, 0);
+	x.selectionSort();
+	std::cout << "x: " << x << std::endl;
+	x.insert(5, 5);
+	x.selectionSort();
+	std::cout << "x: " << x << std::endl;
+	x.insert(0, 1);
+	std::cout << "x: " << x << std::endl;
+	x.selectionSort();
+	std::cout << "x: " << x << std::endl;
 }
 
 #endif

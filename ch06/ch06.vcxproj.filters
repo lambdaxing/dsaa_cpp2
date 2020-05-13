@@ -27,19 +27,25 @@
     <ClInclude Include="myExceptions.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="ex6_2.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="arrayList.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="changeLength1D.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="ex6_17.h">
+    <ClInclude Include="extendedLinearList.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="extendedLinearList.h">
+    <ClInclude Include="ex6_17_19_21_23.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="moveLeftAndRightLinearList.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ex6_24_25.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ex6_2-16_18_20_22_26_27.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

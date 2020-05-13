@@ -39,6 +39,12 @@
     <ClInclude Include="ex5_37-40.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="ex5_41-43.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ex5_44.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">

@@ -21,7 +21,7 @@ bool bubble(T a[], int n)
 template<class T>
 void bubbleSort(T a[], int n)			
 {// Sort a[0:n - 1] using bubble sort.
-	for (int i = n; i > 1 && bubble(a, i); i--);				//	1,n-1		Omega(n),O(n)	Omega(n),O(n^2)	
+	for (int i = n; i > 1 && bubble(a, i); i--);				//	i-1		1,n			Omega(n),O(n^2)	
 }
 //		t(n) = Omega(n) = O(n^2)
 

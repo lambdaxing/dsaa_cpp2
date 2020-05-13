@@ -142,11 +142,13 @@
     <ClInclude Include="chainNode.h" />
     <ClInclude Include="changeLength1D.h" />
     <ClInclude Include="ex6_1.h" />
-    <ClInclude Include="ex6_17.h" />
+    <ClInclude Include="ex6_17_19_21_23.h" />
+    <ClInclude Include="ex6_24_25.h" />
     <ClInclude Include="extendedLinearList.h" />
     <ClInclude Include="linearList.h" />
     <ClInclude Include="myExceptions.h" />
-    <ClInclude Include="ex6_2.h" />
+    <ClInclude Include="ex6_2-16_18_20_22_26_27.h" />
+    <ClInclude Include="moveLeftAndRightLinearList.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
