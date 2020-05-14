@@ -48,6 +48,12 @@
     <ClInclude Include="ex6_2-16_18_20_22_26_27.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="ex6_28.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ex6_29.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">

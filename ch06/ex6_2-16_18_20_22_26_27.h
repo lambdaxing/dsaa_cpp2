@@ -461,37 +461,31 @@ bool chain<T>::operator !=(const chain<T>& rhs) const
 template<typename T>
 bool chain<T>::operator >=(const chain<T>& rhs) const
 {
-	if (listSize < rhs.listSize)
-		return false;
-
 	chainNode<T>* currentNodeLhs = firstNode;
 	chainNode<T>* currentNodeRhs = rhs.firstNode;
-	while (currentNodeRhs != nullptr)
+	while (currentNodeRhs != nullptr && currentNodeLhs != nullptr)
 		if (currentNodeLhs->element < currentNodeRhs->element)
 			return false;
 		else {
 			currentNodeRhs = currentNodeRhs->next;
 			currentNodeLhs = currentNodeLhs->next;
 		}
-	return true;
+	return currentNodeRhs == nullptr;
 }
 
 template<typename T>
 bool chain<T>::operator <=(const chain<T>& rhs) const
 {
-	if (listSize < rhs.listSize)
-		return false;
-
 	chainNode<T>* currentNodeLhs = firstNode;
 	chainNode<T>* currentNodeRhs = rhs.firstNode;
-	while (currentNodeRhs != nullptr)
+	while (currentNodeRhs != nullptr && currentNodeLhs != nullptr)
 		if (currentNodeLhs->element > currentNodeRhs->element)
 			return false;
 		else {
 			currentNodeRhs = currentNodeRhs->next;
 			currentNodeLhs = currentNodeLhs->next;
 		}
-	return true;
+	return currentNodeLhs == nullptr;
 }
 
 template<typename T>
@@ -626,6 +620,15 @@ void chain<T>::recursionReverse()
 	recursionReverse();
 	currentNode->next->next = currentNode;
 	currentNode->next = nullptr;
+}
+
+// ex6_16
+template<typename T>
+void reverse(chain<T>& theList)
+{
+	using std::swap;
+	for (int i = 0; i < theList.size() / 2; ++i)
+		swap(theList[i], theList[theList.size() - 1 - i]);
 }
 
 template<typename T>
