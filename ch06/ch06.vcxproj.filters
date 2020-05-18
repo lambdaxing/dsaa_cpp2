@@ -51,7 +51,10 @@
     <ClInclude Include="ex6_28.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="ex6_29.h">
+    <ClInclude Include="ex6_29-37.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ex6_38-42.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

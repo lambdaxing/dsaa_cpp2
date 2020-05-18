@@ -11,7 +11,7 @@ struct chainNode
 	chainNode<T>* next;
 
 	// methods
-	chainNode() {}
+	chainNode() = default;
 	chainNode(const T& element)
 	{
 		this->element = element;

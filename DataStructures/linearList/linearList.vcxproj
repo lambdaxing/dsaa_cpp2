@@ -143,6 +143,7 @@
     <ClInclude Include="arrayListWithIterator.h" />
     <ClInclude Include="chain.h" />
     <ClInclude Include="chainNode.h" />
+    <ClInclude Include="circularListWithHeader.h" />
     <ClInclude Include="extendedChain.h" />
     <ClInclude Include="extendedLinearList.h" />
     <ClInclude Include="myExceptions.h" />

@@ -464,9 +464,12 @@ void circularList<T>::merge(circularList<T>& a,circularList<T>& b)
 		currentNode = currentNode->next;
 	}
 	
-	this->lastNode = preNode;
-	this->lastNode->next = this->firstNode;
-	this->listSize = a.listSize + b.listSize;
+	if (preNode != nullptr)
+	{
+		this->lastNode = preNode;
+		this->lastNode->next = this->firstNode;
+		this->listSize = a.listSize + b.listSize;
+	}
 	a.firstNode = a.lastNode = nullptr;
 	a.listSize = 0;
 	b.firstNode = b.lastNode = nullptr;

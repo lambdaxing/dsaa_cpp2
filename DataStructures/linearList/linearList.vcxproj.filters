@@ -63,6 +63,9 @@
     <ClInclude Include="testExtendedChain.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="circularListWithHeader.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">

@@ -145,7 +145,8 @@
     <ClInclude Include="ex6_17_19_21_23.h" />
     <ClInclude Include="ex6_24_25.h" />
     <ClInclude Include="ex6_28.h" />
-    <ClInclude Include="ex6_29.h" />
+    <ClInclude Include="ex6_29-37.h" />
+    <ClInclude Include="ex6_38-42.h" />
     <ClInclude Include="extendedLinearList.h" />
     <ClInclude Include="linearList.h" />
     <ClInclude Include="myExceptions.h" />
