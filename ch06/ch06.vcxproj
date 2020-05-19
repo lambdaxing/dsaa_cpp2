@@ -141,12 +141,17 @@
     <ClInclude Include="arrayList.h" />
     <ClInclude Include="chainNode.h" />
     <ClInclude Include="changeLength1D.h" />
+    <ClInclude Include="doubleChainNode.h" />
     <ClInclude Include="ex6_1.h" />
     <ClInclude Include="ex6_17_19_21_23.h" />
     <ClInclude Include="ex6_24_25.h" />
     <ClInclude Include="ex6_28.h" />
     <ClInclude Include="ex6_29-37.h" />
     <ClInclude Include="ex6_38-42.h" />
+    <ClInclude Include="ex6_43-48.h" />
+    <ClInclude Include="ex6_49-54.h" />
+    <ClInclude Include="ex6_55.h" />
+    <ClInclude Include="ex6_56-61.h" />
     <ClInclude Include="extendedLinearList.h" />
     <ClInclude Include="linearList.h" />
     <ClInclude Include="myExceptions.h" />

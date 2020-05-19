@@ -377,14 +377,14 @@ void circularListWithHeader<T>::split(circularListWithHeader<T>& a, circularList
 	{
 		if (i % 2)
 		{
-			bCurrentNode->next = currentNode;
-			bCurrentNode = bCurrentNode->next;
+			aCurrentNode->next = currentNode;
+			aCurrentNode = aCurrentNode->next;
 			++j;
 		}
 		else
 		{
-			aCurrentNode->next = currentNode;
-			aCurrentNode = aCurrentNode->next;
+			bCurrentNode->next = currentNode;
+			bCurrentNode = bCurrentNode->next;
 			++k;
 		}
 		currentNode = currentNode->next;
@@ -392,10 +392,10 @@ void circularListWithHeader<T>::split(circularListWithHeader<T>& a, circularList
 	}
 	a.lastNode = aCurrentNode;
 	a.lastNode->next = a.headerNode;
-	a.listSize = k;
+	a.listSize = j;
 	b.lastNode = bCurrentNode;
 	b.lastNode->next = b.headerNode;
-	b.listSize = j;
+	b.listSize = k;
 
 	lastNode = headerNode;
 	lastNode->next = headerNode;
@@ -478,7 +478,7 @@ void testEx6_38()
 	for (int i = 0; i < 6; ++i)
 	{
 		x.push_back(i);
-		y.push_back(i);
+		y.push_back(i + 6);
 	}
 	cout << "test merge" << endl;
 	cout << "x: " << x << endl;

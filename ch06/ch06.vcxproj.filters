@@ -57,6 +57,21 @@
     <ClInclude Include="ex6_38-42.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="ex6_43-48.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="doubleChainNode.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ex6_49-54.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ex6_56-61.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ex6_55.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
