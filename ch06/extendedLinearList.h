@@ -8,10 +8,10 @@
 #include "linearList.h"
 
 template<class T>
-class move : linearList<T>
+class extendedLinearList : linearList<T>
 {
 public:
-	virtual ~move() {}
+	virtual ~extendedLinearList() {}
 	virtual void clear() = 0;
 	// empty the list
 	virtual void push_back(const T& theElement) = 0;

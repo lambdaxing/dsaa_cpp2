@@ -16,7 +16,7 @@
 
 
 template<typename T>
-class extendedChain : public move<T>, public chain<T>
+class extendedChain : public extendedLinearList<T>, public chain<T>
 {
 public:
 	// constructor and copy constructor

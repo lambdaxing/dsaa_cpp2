@@ -14,7 +14,7 @@
 
 
 template<typename T>
-class doubleCircularWithHeader : public move<T>
+class doubleCircularWithHeader : public extendedLinearList<T>
 {
 public:
 	doubleCircularWithHeader(int initialCapacity = 10);

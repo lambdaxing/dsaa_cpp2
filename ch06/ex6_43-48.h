@@ -13,7 +13,7 @@
 #include "extendedLinearList.h"
 
 template<typename T>
-class doubleLinkedList :public move<T>
+class doubleLinkedList :public extendedLinearList<T>
 {
 public:
 	doubleLinkedList(int initialCapacity = 10);

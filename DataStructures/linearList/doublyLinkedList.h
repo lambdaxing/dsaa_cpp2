@@ -1,36 +1,25 @@
-// singly linked list
-// linked implementation of a linear list
-// derives from abstract class linearList just to make sure
-// all methods of the ADT are implemented
-// unidirectional iterator for chain included
+// doubly linked list
 
-#ifndef chain_
-#define chain_
+#ifndef DOUBLY_LINKED_LIST
+#define DOUBLY_LINKED_LIST
 
 #include <iostream>
 #include <sstream>
 #include <string>
-#include "linearList.h"
-#include "chainNode.h"
+#include <algorithm>
+#include <numeric>
+#include "doubleChainNode.h"
 #include "myExceptions.h"
+#include "extendedLinearList.h"
 
-class linkedDigraph;
-template <typename T> class linkedWDigraph;
-
-template<class T>
-class chain : public linearList<T>
+template<typename T>
+class doublyLinkedList :public extendedLinearList<T>
 {
-	friend linkedDigraph;
-	friend linkedWDigraph<int>;
-	friend linkedWDigraph<float>;
-	friend linkedWDigraph<double>;
 public:
-	// constructor, copy constructor and destructor
-	chain(int initialCapacity = 10);
-	chain(const chain<T>&);
-	~chain();
+	doublyLinkedList(int initialCapacity = 10);
+	doublyLinkedList(const doublyLinkedList<T>& theList);
+	~doublyLinkedList();
 
-	// ADT methods
 	bool empty() const { return listSize == 0; }
 	int size() const { return listSize; }
 	T& get(int theIndex) const;
@@ -38,6 +27,9 @@ public:
 	void erase(int theIndex);
 	void insert(int theIndex, const T& theElement);
 	void output(std::ostream& out) const;
+
+	void clear();
+	void push_back(const T& theElement);
 
 	// iterators to start and end of list
 	class iterator;
@@ -48,15 +40,15 @@ public:
 	class iterator
 	{
 	public:
-		// typedefs required by C++ for a forward iterator
-		typedef std::forward_iterator_tag iterator_category;
+		// typedefs required by C++ for a bidirectional iterator
+		typedef std::bidirectional_iterator_tag iterator_category;
 		typedef T value_type;
 		typedef ptrdiff_t difference_type;
 		typedef T* pointer;
 		typedef T& reference;
 
 		// constructor
-		iterator(chainNode<T>* theNode = nullptr)
+		iterator(doubleChainNode<T>* theNode = nullptr)
 		{
 			node = theNode;
 		}
@@ -77,6 +69,18 @@ public:
 			return old;
 		}
 
+		// decrease
+		iterator& operator--()   // preincrement
+		{
+			node = node->previous; return *this;
+		}
+		iterator operator--(int) // postincrement
+		{
+			iterator old = *this;
+			node = node->previous;
+			return old;
+		}
+
 		// equality testing
 		bool operator!=(const iterator right) const
 		{
@@ -87,18 +91,18 @@ public:
 			return node == right.node;
 		}
 	protected:
-		chainNode<T>* node;
+		doubleChainNode<T>* node;
 	};  // end of iterator class
 
 protected:
 	void checkIndex(int theIndex) const;
-	// throw illegalIndex if theIndex invalid
-	chainNode<T>* firstNode;  // pointer to first node in chain
-	int listSize;             // number of elements in list
+	doubleChainNode<T>* firstNode;
+	doubleChainNode<T>* lastNode;
+	int listSize;
 };
 
 template<typename T>
-chain<T>::chain(int initialCapacity)
+doublyLinkedList<T>::doublyLinkedList(int initialCapacity /* = 10 */)
 {// Constructor.
 	if (initialCapacity < 1)
 	{
@@ -106,32 +110,32 @@ chain<T>::chain(int initialCapacity)
 		s << "Initial capacity = " << initialCapacity << " Must be > 0";
 		throw illegalParameterValue(s.str());
 	}
-	firstNode = nullptr;
+	firstNode = lastNode = nullptr;
 	listSize = 0;
 }
 
 template<typename T>
-chain<T>::chain(const chain<T>& theList)
+doublyLinkedList<T>::doublyLinkedList(const doublyLinkedList<T>& theList)
 {// Copy constructor.
 	listSize = theList.listSize;
 
 	if (listSize == 0)
 	{// theList is empty
-		firstNode = nullptr;
+		firstNode = lastNode = nullptr;
 		return;
 	}
 
 	// non-empty list
-	chainNode<T>* sourceNode = theList.firstNode;
+	doubleChainNode<T>* sourceNode = theList.firstNode;
 	// node in theList to copy from
-	firstNode = new chainNode<T>(sourceNode->element);
+	firstNode = new doubleChainNode<T>(sourceNode->element);
 	// copy first element of theList
 	sourceNode = sourceNode->next;
-	chainNode<T>* targetNode = firstNode;
+	doubleChainNode<T>* targetNode = firstNode;
 	// current last node in *this
 	while (sourceNode != nullptr)
 	{// copy remaining elements
-		targetNode->next = new chainNode<T>(sourceNode->element);
+		targetNode->next = new doubleChainNode<T>(sourceNode->element, targetNode);
 		targetNode = targetNode->next;
 		sourceNode = sourceNode->next;
 	}
@@ -139,19 +143,20 @@ chain<T>::chain(const chain<T>& theList)
 }
 
 template<typename T>
-chain<T>::~chain()
+doublyLinkedList<T>::~doublyLinkedList()
 {// Chain destructor. Delete all nodes in chain.
-	chainNode<T>* nextNode;
+	doubleChainNode<T>* nextNode;
 	while (firstNode != nullptr)
 	{// delete firstNode
 		nextNode = firstNode->next;
 		delete firstNode;
 		firstNode = nextNode;
 	}
+	lastNode = firstNode = nullptr;
 }
 
 template<typename T>
-void chain<T>::checkIndex(int theIndex) const
+void doublyLinkedList<T>::checkIndex(int theIndex) const
 {// Verify that theIndex is between 0 and listSize - 1.
 	if (theIndex < 0 || theIndex >= listSize)
 	{
@@ -162,26 +167,32 @@ void chain<T>::checkIndex(int theIndex) const
 }
 
 template<typename T>
-T& chain<T>::get(int theIndex) const
-{// Return element whose index is theIndex.
- // Throw illegalIndex exception if no such element.
+T& doublyLinkedList<T>::get(int theIndex) const
+{
 	checkIndex(theIndex);
-
-	// move to desired node
-	chainNode<T>* currentNode = firstNode;
-	for (int i = 0; i < theIndex; i++)
-		currentNode = currentNode->next;
-
-	return currentNode->element;
+	doubleChainNode<T>* p;
+	if (theIndex < listSize / 2)
+	{
+		p = firstNode;
+		for (int i = 0; i < theIndex; ++i)
+			p = p->next;
+	}
+	else
+	{
+		p = lastNode;
+		for (int i = listSize; i > theIndex - 1; --i)
+			p = p->previous;
+	}
+	return p->element;
 }
 
 template<typename T>
-int chain<T>::indexOf(const T& theElement) const
+int doublyLinkedList<T>::indexOf(const T& theElement) const
 {// Return index of first occurrence of theElement.
  // Return -1 if theElement not in list.
 
    // search the chain for theElement
-	chainNode<T>* currentNode = firstNode;
+	doubleChainNode<T>* currentNode = firstNode;
 	int index = 0;  // index of currentNode
 	while (currentNode != nullptr &&
 		currentNode->element != theElement)
@@ -199,33 +210,40 @@ int chain<T>::indexOf(const T& theElement) const
 }
 
 template<typename T>
-void chain<T>::erase(int theIndex)
+void doublyLinkedList<T>::erase(int theIndex)
 {// Delete the element whose index is theIndex.
  // Throw illegalIndex exception if no such element.
 	checkIndex(theIndex);
 
 	// valid index, locate node with element to delete
-	chainNode<T>* deleteNode;
+	doubleChainNode<T>* deleteNode;
 	if (theIndex == 0)
 	{// remove first node from chain
 		deleteNode = firstNode;
 		firstNode = firstNode->next;
+		if (listSize != 1) firstNode->previous = nullptr;
+		else lastNode = firstNode;							// = nullptr, remove lastNode
 	}
 	else
 	{  // use p to get to predecessor of desired node
-		chainNode<T>* p = firstNode;
+		doubleChainNode<T>* p = firstNode;
 		for (int i = 0; i < theIndex - 1; i++)
 			p = p->next;
 
 		deleteNode = p->next;
-		p->next = p->next->next; // remove deleteNode from chain
+		p->next = p->next->next;			// remove deleteNode from chain
+		if (p->next != nullptr)
+			p->next->previous = p;			// remove not lastNode
+		else
+			lastNode = p;					// remove lastNode
 	}
+
 	listSize--;
 	delete deleteNode;
 }
 
 template<typename T>
-void chain<T>::insert(int theIndex, const T& theElement)
+void doublyLinkedList<T>::insert(int theIndex, const T& theElement)
 {// Insert theElement so that its index is theIndex.
 	if (theIndex < 0 || theIndex > listSize)
 	{// invalid index
@@ -235,24 +253,31 @@ void chain<T>::insert(int theIndex, const T& theElement)
 	}
 
 	if (theIndex == 0)
-		// insert at front
-		firstNode = new chainNode<T>(theElement, firstNode);
+	{	// insert at front
+		firstNode = new doubleChainNode<T>(theElement, nullptr, firstNode);
+		if (firstNode->next != nullptr)
+			firstNode->next->previous = firstNode;
+		else                                               // insert empty list
+			lastNode = firstNode;
+	}
 	else
 	{  // find predecessor of new element
-		chainNode<T>* p = firstNode;
+		doubleChainNode<T>* p = firstNode;
 		for (int i = 0; i < theIndex - 1; i++)
 			p = p->next;
 
 		// insert after p
-		p->next = new chainNode<T>(theElement, p->next);
+		p->next = new doubleChainNode<T>(theElement, p, p->next);
+		if (p == lastNode)								 // the index of insert is listSize
+			lastNode = p->next;
 	}
-	listSize++;
+	++listSize;
 }
 
 template<typename T>
-void chain<T>::output(std::ostream& out) const
+void doublyLinkedList<T>::output(std::ostream& out) const
 {// Put the list into the stream out.
-	for (chainNode<T>* currentNode = firstNode;
+	for (doubleChainNode<T>* currentNode = firstNode;
 		currentNode != nullptr;
 		currentNode = currentNode->next)
 		out << currentNode->element << "  ";
@@ -260,9 +285,34 @@ void chain<T>::output(std::ostream& out) const
 
 // overload <<
 template <typename T>
-std::ostream& operator<<(std::ostream& out, const chain<T>& x)
+std::ostream& operator<<(std::ostream& out, const doublyLinkedList<T>& x)
 {
 	x.output(out); return out;
+}
+
+template<typename T>
+void doublyLinkedList<T>::clear()
+{
+	doubleChainNode<T>* next;
+	while (firstNode != nullptr)
+	{
+		next = firstNode->next;
+		delete firstNode;
+		firstNode = next;
+	}
+	lastNode = nullptr;
+	listSize = 0;
+}
+
+template<typename T>
+void doublyLinkedList<T>::push_back(const T& theElement)
+{
+	lastNode = new doubleChainNode<T>(theElement, lastNode, nullptr);
+	if (lastNode->previous == nullptr)			// push empty list (lastNode = nullptr)
+		firstNode = lastNode;
+	else
+		lastNode->previous->next = lastNode;	// push not-empty list
+	++listSize;
 }
 
 #endif

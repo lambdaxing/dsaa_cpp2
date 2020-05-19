@@ -66,6 +66,21 @@
     <ClInclude Include="circularListWithHeader.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="circularList.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="doubleChainNode.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="doubleCircularList.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="doubleCircularWithHeader.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="doublyLinkedList.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
