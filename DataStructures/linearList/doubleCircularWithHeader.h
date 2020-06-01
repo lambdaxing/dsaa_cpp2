@@ -1,4 +1,4 @@
-// dcircular doubly linked list with header
+// circular doubly linked list with header
 
 #ifndef DOUBLE_CIRCULAR_WITH_HEADER
 #define DOUBLE_CIRCULAR_WITH_HEADER

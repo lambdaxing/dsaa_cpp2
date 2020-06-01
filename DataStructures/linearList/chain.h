@@ -39,6 +39,8 @@ public:
 	void insert(int theIndex, const T& theElement);
 	void output(std::ostream& out) const;
 
+	void binSort(int range);
+
 	// iterators to start and end of list
 	class iterator;
 	iterator begin() { return iterator(firstNode); }
@@ -263,6 +265,46 @@ template <typename T>
 std::ostream& operator<<(std::ostream& out, const chain<T>& x)
 {
 	x.output(out); return out;
+}
+
+// Theta(n+range)
+template <typename T>
+void chain<T>::binSort(int range)
+{
+	chainNode<T>** bottom, ** top;
+	bottom = new chainNode<T> * [range + 1];
+	top = new chainNode<T> * [range + 1];
+	for (int b = 0; b <= range; ++b)
+		bottom[b] = nullptr;
+
+	for (; firstNode != nullptr; firstNode = firstNode->next)
+	{
+		int theBin = firstNode->element;
+		if (bottom[theBin] == nullptr)
+			bottom[theBin] = top[theBin] = firstNode;
+		else
+		{
+			top[theBin]->next = fisrtNode;
+			top[theBin] = firstNode;
+		}
+	}
+
+	chainNode<T>* y = nullptr;
+	for(int theBin = 0; theBin <= range;++theBin)
+		if (bottom[theBin] != nullptr)
+		{
+			if (y == nullptr)
+				firstNode = bottom[theBin];
+			else
+				y->next = bottom[theBin];
+			y = top[theBin];
+		}
+
+	if (y != nullptr)
+		y->next = nullptr;
+
+	delete[] bottom;
+	delete[] top;
 }
 
 #endif

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -20,8 +20,8 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{F00FB06A-EE5F-4545-BD0C-BC68454ECDD7}</ProjectGuid>
-    <RootNamespace>linearList</RootNamespace>
+    <ProjectGuid>{BB708FDC-FE13-48FD-BAA2-904223807E0F}</ProjectGuid>
+    <RootNamespace>matrix</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -138,29 +138,25 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="arrayList.h" />
-    <ClInclude Include="arrayListNoSTL.h" />
-    <ClInclude Include="arrayListWithIterator.h" />
-    <ClInclude Include="chain.h" />
     <ClInclude Include="chainNode.h" />
-    <ClInclude Include="circularList.h" />
-    <ClInclude Include="circularListWithHeader.h" />
-    <ClInclude Include="doubleChainNode.h" />
-    <ClInclude Include="doubleCircularList.h" />
-    <ClInclude Include="doubleCircularWithHeader.h" />
-    <ClInclude Include="doublyLinkedList.h" />
+    <ClInclude Include="chainWithIterator.h" />
+    <ClInclude Include="changeLength1D.h" />
+    <ClInclude Include="diagonalMatrix.h" />
+    <ClInclude Include="ex7_38_39_40.h" />
+    <ClInclude Include="ex7_41_42_43.h" />
+    <ClInclude Include="ex7_44.h" />
+    <ClInclude Include="extendedArrayList.h" />
     <ClInclude Include="extendedChain.h" />
     <ClInclude Include="extendedLinearList.h" />
-    <ClInclude Include="myExceptions.h" />
     <ClInclude Include="linearList.h" />
-    <ClInclude Include="changeLength1D.h" />
-    <ClInclude Include="studentRecord.h" />
-    <ClInclude Include="testArrayList.h" />
-    <ClInclude Include="testArrayListWithIterator.h" />
-    <ClInclude Include="testChain.h" />
-    <ClInclude Include="testChainWithIterator.h" />
-    <ClInclude Include="testExtendedChain.h" />
-    <ClInclude Include="vectorList.h" />
+    <ClInclude Include="linkedMatrix.h" />
+    <ClInclude Include="lowerTriangularMatrix.h" />
+    <ClInclude Include="matrix.h" />
+    <ClInclude Include="matrixElements.h" />
+    <ClInclude Include="matrixTerm.h" />
+    <ClInclude Include="myExceptions.h" />
+    <ClInclude Include="sparseMatrix.h" />
+    <ClInclude Include="tradiagonalMatrix.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />

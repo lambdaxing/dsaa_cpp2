@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -20,8 +20,8 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{F00FB06A-EE5F-4545-BD0C-BC68454ECDD7}</ProjectGuid>
-    <RootNamespace>linearList</RootNamespace>
+    <ProjectGuid>{28E2F422-AE4B-4E2F-8B26-2C93F683AAA4}</ProjectGuid>
+    <RootNamespace>ch07</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -138,29 +138,26 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="arrayList.h" />
-    <ClInclude Include="arrayListNoSTL.h" />
-    <ClInclude Include="arrayListWithIterator.h" />
-    <ClInclude Include="chain.h" />
-    <ClInclude Include="chainNode.h" />
-    <ClInclude Include="circularList.h" />
-    <ClInclude Include="circularListWithHeader.h" />
-    <ClInclude Include="doubleChainNode.h" />
-    <ClInclude Include="doubleCircularList.h" />
-    <ClInclude Include="doubleCircularWithHeader.h" />
-    <ClInclude Include="doublyLinkedList.h" />
-    <ClInclude Include="extendedChain.h" />
-    <ClInclude Include="extendedLinearList.h" />
+    <ClInclude Include="ex7_1-14.h" />
+    <ClInclude Include="ex7_15_16.h" />
+    <ClInclude Include="ex7_17.h" />
+    <ClInclude Include="ex7_18_19.h" />
+    <ClInclude Include="ex7_20.h" />
+    <ClInclude Include="ex7_21.h" />
+    <ClInclude Include="ex7_22.h" />
+    <ClInclude Include="ex7_23.h" />
+    <ClInclude Include="ex7_25.h" />
+    <ClInclude Include="ex7_26.h" />
+    <ClInclude Include="ex7_27.h" />
+    <ClInclude Include="ex7_28_29_31_32.h" />
+    <ClInclude Include="ex7_30.h" />
+    <ClInclude Include="ex7_33.h" />
+    <ClInclude Include="ex7_34.h" />
+    <ClInclude Include="ex7_35.h" />
+    <ClInclude Include="ex7_36.h" />
+    <ClInclude Include="ex7_37.h" />
+    <ClInclude Include="ex7_38-53.h" />
     <ClInclude Include="myExceptions.h" />
-    <ClInclude Include="linearList.h" />
-    <ClInclude Include="changeLength1D.h" />
-    <ClInclude Include="studentRecord.h" />
-    <ClInclude Include="testArrayList.h" />
-    <ClInclude Include="testArrayListWithIterator.h" />
-    <ClInclude Include="testChain.h" />
-    <ClInclude Include="testChainWithIterator.h" />
-    <ClInclude Include="testExtendedChain.h" />
-    <ClInclude Include="vectorList.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />

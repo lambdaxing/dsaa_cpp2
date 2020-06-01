@@ -141,5 +141,4 @@ public:
 private:
 	std::string message;
 };
-
 #endif
