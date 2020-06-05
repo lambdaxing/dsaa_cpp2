@@ -1,6 +1,6 @@
-#include "ex7_44.h"
+#include "ex7_51.h"
 
 int main()
 {
-	testEx7_44();
+	testEx7_51();
 }

@@ -15,6 +15,7 @@ class sparseMatrixByCols
     friend std::istream& operator>>(std::istream&, sparseMatrixByCols<T>&);
 public:
     sparseMatrixByCols() = default;
+    sparseMatrixByCols(int row, int col) :rows(row), cols(col) {}
     sparseMatrixByCols(const sparseMatrixByCols<T>&);
     ~sparseMatrixByCols() {};
     T get(int, int) const;
@@ -22,12 +23,33 @@ public:
 
     void transpose(sparseMatrixByCols<T>& b);
     void add(sparseMatrixByCols<T>& b, sparseMatrixByCols<T>& c);
+
+    sparseMatrixByCols<T> operator*(const sparseMatrixByCols<T>& rhs) const;
 private:
     int rows,    // number of rows in matrix
         cols;    // number of columns in matrix
     arrayList<matrixTerm<T> > terms;
     // list of nonzero terms
 };
+
+template<typename T>
+sparseMatrixByCols<T> sparseMatrixByCols<T>::operator*(const sparseMatrixByCols<T>& rhs) const
+{
+    if (cols != rhs.rows)
+        throw matrixSizeMismatch();
+
+    sparseMatrixByCols<T> w(rows, rhs.cols);
+
+    for (int i = 1; i <= rows; ++i)
+        for (int j = 1; j <= rhs.cols; ++j)
+        {
+            T sum = get(i, 1) * rhs.get(1, j);
+            for (int k = 2; k <= cols; ++k)
+                sum += get(i, k) * rhs.get(k, j);
+            w.set(i, j, sum);
+        }
+    return w;
+}
 
 template<typename T>
 sparseMatrixByCols<T>::sparseMatrixByCols(const sparseMatrixByCols<T>& m)
@@ -246,16 +268,16 @@ void sparseMatrixByCols<T>::transpose(sparseMatrixByCols<T>& b)
     int* rowSize = new int[rows + 1];
     int* colNext = new int[rows + 1];
 
-    // find number of entries in each row of *this
-    for (int i = 1; i <= cols; i++) // initialize
+    // find number of entries in each column of *this
+    for (int i = 1; i <= rows; i++) // initialize
         rowSize[i] = 0;
     for (auto i = terms.begin();
         i != terms.end(); i++)
         rowSize[(*i).row]++;
 
-    // find the starting point of each col of b
+    // find the starting point of each row of b
     colNext[1] = 0;
-    for (int i = 2; i <= cols; i++)
+    for (int i = 2; i <= rows; i++)
         colNext[i] = colNext[i - 1] + rowSize[i - 1];
 
     // perform the transpose copying from *this to b
@@ -340,10 +362,11 @@ void testEx7_44()
     sparseMatrixByCols<int> m1;
     std::cin >> m1;
     std::cout << std::endl << "<<m1:" << std::endl;
-    std::cout << m1;
+    std::cout << m1 << std::endl;
     sparseMatrixByCols<int> m2(m1);
     std::cout << std::endl << "<<m2:" << std::endl;
-    std::cout << m2;
+    std::cout << m2 << std::endl;
+
     std::cout << std::endl << "print m1:" << std::endl;
     for (int i = 1; i <= 4; ++i)
     {
@@ -354,6 +377,7 @@ void testEx7_44()
         }
         std::cout << std::endl;
     }
+
     std::cout << std::endl << "print m2:" << std::endl;
     for (int i = 1; i <= 4; ++i)
     {
@@ -374,10 +398,21 @@ void testEx7_44()
             std::cout << m.get(i, j) << " ";
         std::cout << std::endl;
     }
+  
     std::cout << std::endl << "m1.add(m2,m)" << std::endl;
     m1.add(m2, m);
     std::cout << m << std::endl;
     std::cout << "print m:" << std::endl;
+    for (int i = 1; i <= 4; ++i)
+    {
+        for (int j = 1; j <= 4; ++j)
+            std::cout << m.get(i, j) << " ";
+        std::cout << std::endl;
+    }
+    
+    m = m1 * m2;
+    std::cout << std::endl << m << std::endl;
+    std::cout << "print m(m1*m2):" << std::endl;
     for (int i = 1; i <= 4; ++i)
     {
         for (int j = 1; j <= 4; ++j)

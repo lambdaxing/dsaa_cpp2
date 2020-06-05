@@ -15,6 +15,7 @@ class sparseMatrix
     friend std::istream& operator>>(std::istream&, sparseMatrix<T>&);
 public:
     sparseMatrix() = default;
+    sparseMatrix(int row, int col) :rows(row), cols(col) {}
     sparseMatrix(const sparseMatrix<T>&);
     ~sparseMatrix() {};
     T get(int, int) const;
@@ -22,12 +23,33 @@ public:
 
     void transpose(sparseMatrix<T>& b);
     void add(sparseMatrix<T>& b, sparseMatrix<T>& c);
+
+    sparseMatrix<T> operator*(const sparseMatrix<T>& rhs) const;
 private:
     int rows,    // number of rows in matrix
         cols;    // number of columns in matrix
     arrayList<matrixTerm<T> > terms;
     // list of nonzero terms
 };
+
+template<typename T>
+sparseMatrix<T> sparseMatrix<T>::operator*(const sparseMatrix<T>& rhs) const
+{
+    if(cols != rhs.rows)
+        throw matrixSizeMismatch();
+
+    sparseMatrix<T> w(rows, rhs.cols);
+
+    for(int i = 1; i <= rows; ++i)
+        for (int j = 1; j <= rhs.cols; ++j)
+        {
+            T sum = get(i, 1) * rhs.get(1, j);
+            for (int k = 2; k <= cols; ++k)
+                sum += get(i, k) * rhs.get(k, j);
+            w.set(i, j, sum);
+        }
+    return w;
+}
 
 template<typename T>
 sparseMatrix<T>::sparseMatrix(const sparseMatrix<T>& m)

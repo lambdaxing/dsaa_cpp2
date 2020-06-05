@@ -7,8 +7,6 @@
 #include <iostream>
 #include "linearList.h"
 
-using namespace std;
-
 template<class T>
 class extendedLinearList : linearList<T>
 {

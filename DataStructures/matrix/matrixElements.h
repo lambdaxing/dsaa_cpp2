@@ -11,6 +11,10 @@ struct rowElement
     int col;
     T value;
 
+    rowElement() = default;
+    rowElement(const rowElement&) = default;
+    rowElement& operator=(const rowElement&) = default;
+
     bool operator !=(const rowElement<T>& y)
     {
         return (value != y.value);
@@ -18,7 +22,7 @@ struct rowElement
     void output(std::ostream& out) const
     {
         out << "column " << col
-            << " value " << value << endl;
+            << " value " << value << std::endl;
     }
 };
 
@@ -34,13 +38,18 @@ struct headerElement
     int row;
     extendedChain<rowElement<T> > rowChain;
 
+    headerElement() = default;
+    headerElement(int r) :row(r) {}
+    headerElement(const headerElement&) = default;
+    headerElement& operator=(const headerElement&) = default;
+
     bool operator !=(const headerElement<T>& y)
     {
         return (row != y.row);
     }
     void output(std::ostream& out) const
     {
-        out << "row " << row << endl << "  " << rowChain << endl;
+        out << "row " << row << std::endl << "  " << rowChain << std::endl;
     }
 };
 

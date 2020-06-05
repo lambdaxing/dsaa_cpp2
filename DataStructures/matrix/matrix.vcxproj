@@ -143,8 +143,11 @@
     <ClInclude Include="changeLength1D.h" />
     <ClInclude Include="diagonalMatrix.h" />
     <ClInclude Include="ex7_38_39_40.h" />
-    <ClInclude Include="ex7_41_42_43.h" />
-    <ClInclude Include="ex7_44.h" />
+    <ClInclude Include="ex7_41_42_43_45.h" />
+    <ClInclude Include="ex7_44_46.h" />
+    <ClInclude Include="ex7_47_48.h" />
+    <ClInclude Include="ex7_49_50.h" />
+    <ClInclude Include="ex7_51.h" />
     <ClInclude Include="extendedArrayList.h" />
     <ClInclude Include="extendedChain.h" />
     <ClInclude Include="extendedLinearList.h" />
@@ -155,6 +158,7 @@
     <ClInclude Include="matrixElements.h" />
     <ClInclude Include="matrixTerm.h" />
     <ClInclude Include="myExceptions.h" />
+    <ClInclude Include="newMatrixTerm.h" />
     <ClInclude Include="sparseMatrix.h" />
     <ClInclude Include="tradiagonalMatrix.h" />
   </ItemGroup>

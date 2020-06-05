@@ -66,10 +66,22 @@
     <ClInclude Include="ex7_38_39_40.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="ex7_41_42_43.h">
+    <ClInclude Include="ex7_41_42_43_45.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="ex7_44.h">
+    <ClInclude Include="ex7_44_46.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="newMatrixTerm.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ex7_47_48.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ex7_49_50.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ex7_51.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
