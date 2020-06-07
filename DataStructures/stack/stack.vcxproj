@@ -20,8 +20,8 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{BB708FDC-FE13-48FD-BAA2-904223807E0F}</ProjectGuid>
-    <RootNamespace>matrix</RootNamespace>
+    <ProjectGuid>{372A7CDF-4E1A-45A1-AA66-1C58618B2B5E}</ProjectGuid>
+    <RootNamespace>stack</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -138,30 +138,26 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="arrayList.h" />
+    <ClInclude Include="arrayStack.h" />
+    <ClInclude Include="chain.h" />
     <ClInclude Include="chainNode.h" />
-    <ClInclude Include="chainWithIterator.h" />
     <ClInclude Include="changeLength1D.h" />
-    <ClInclude Include="diagonalMatrix.h" />
-    <ClInclude Include="ex7_38_39_40.h" />
-    <ClInclude Include="ex7_41_42_43_45.h" />
-    <ClInclude Include="ex7_44_46.h" />
-    <ClInclude Include="ex7_47_48.h" />
-    <ClInclude Include="ex7_49_50.h" />
-    <ClInclude Include="ex7_51.h" />
-    <ClInclude Include="ex7_52.h" />
-    <ClInclude Include="extendedArrayList.h" />
-    <ClInclude Include="extendedChain.h" />
-    <ClInclude Include="extendedLinearList.h" />
+    <ClInclude Include="derivedArrayStack.h" />
+    <ClInclude Include="derivedArrayStackWithCatch.h" />
+    <ClInclude Include="derivedLinkedStack.h" />
+    <ClInclude Include="extendedArrayStack.h" />
+    <ClInclude Include="extendedDerivedArrayStack.h" />
+    <ClInclude Include="extendedLinkedStack.h" />
+    <ClInclude Include="extendedStack.h" />
     <ClInclude Include="linearList.h" />
-    <ClInclude Include="linkedMatrix.h" />
-    <ClInclude Include="lowerTriangularMatrix.h" />
-    <ClInclude Include="matrix.h" />
-    <ClInclude Include="matrixElements.h" />
-    <ClInclude Include="matrixTerm.h" />
+    <ClInclude Include="linkedStack.h" />
     <ClInclude Include="myExceptions.h" />
-    <ClInclude Include="newMatrixTerm.h" />
-    <ClInclude Include="sparseMatrix.h" />
-    <ClInclude Include="tradiagonalMatrix.h" />
+    <ClInclude Include="printMatchedPairs.h" />
+    <ClInclude Include="stack.h" />
+    <ClInclude Include="stackWithArrayList.h" />
+    <ClInclude Include="test.h" />
+    <ClInclude Include="twoStacks.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
