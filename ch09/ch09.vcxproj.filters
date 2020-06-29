@@ -15,70 +15,73 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="stack.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="derivedArrayStack.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="arrayList.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="linearList.h">
+    <ClInclude Include="ex9_5_1.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="myExceptions.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="changeLength1D.h">
+    <ClInclude Include="queue.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="derivedArrayStackWithCatch.h">
+    <ClInclude Include="ex9_1-4.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="arrayStack.h">
+    <ClInclude Include="testEx9_5_1.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="extendedStack.h">
+    <ClInclude Include="ex9_5_2.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="extendedDerivedArrayStack.h">
+    <ClInclude Include="extendedQueue.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="test.h">
+    <ClInclude Include="arrayQueue.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="extendedArrayStack.h">
+    <ClInclude Include="testEx9_5_2.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="stackWithArrayList.h">
+    <ClInclude Include="ex9_6.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="twoStacks.h">
+    <ClInclude Include="testEx9_6.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="derivedLinkedStack.h">
+    <ClInclude Include="ex9_7.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="chain.h">
+    <ClInclude Include="testEx9_7.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="chainNode.h">
+    <ClInclude Include="ex9_8.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="linkedStack.h">
+    <ClInclude Include="testEx9_8.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="extendedLinkedStack.h">
+    <ClInclude Include="ex9_9.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="printMatchedPairs.h">
+    <ClInclude Include="deque.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="towersOfHanoi.h">
+    <ClInclude Include="testEx9_9.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="hanioUsingStacks.h">
+    <ClInclude Include="stack.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ex9_10.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="testEx9_10.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ex9_11.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="testEx9_11.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

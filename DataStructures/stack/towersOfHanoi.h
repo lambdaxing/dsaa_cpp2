@@ -26,8 +26,9 @@ void towersOfHanoi(int n)
 
 void showState()
 {
-
+	
 }
+
 void moveAndShow(int n, int x, int y, int z)
 {
 	if (n > 0)

@@ -20,8 +20,8 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{372A7CDF-4E1A-45A1-AA66-1C58618B2B5E}</ProjectGuid>
-    <RootNamespace>stack</RootNamespace>
+    <ProjectGuid>{5A8AA7F4-02D1-4ACE-BA73-DEE7DE0F7D41}</ProjectGuid>
+    <RootNamespace>queue</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -138,31 +138,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="arrayList.h" />
-    <ClInclude Include="arrayStack.h" />
-    <ClInclude Include="chain.h" />
-    <ClInclude Include="chainNode.h" />
-    <ClInclude Include="changeLength1D.h" />
-    <ClInclude Include="derivedArrayStack.h" />
-    <ClInclude Include="derivedArrayStackWithCatch.h" />
-    <ClInclude Include="derivedLinkedStack.h" />
-    <ClInclude Include="extendedArrayStack.h" />
-    <ClInclude Include="extendedDerivedArrayStack.h" />
-    <ClInclude Include="extendedLinkedStack.h" />
-    <ClInclude Include="extendedStack.h" />
-    <ClInclude Include="hanioUsingStacks.h" />
-    <ClInclude Include="linearList.h" />
-    <ClInclude Include="linkedStack.h" />
-    <ClInclude Include="myExceptions.h" />
-    <ClInclude Include="printMatchedPairs.h" />
-    <ClInclude Include="stack.h" />
-    <ClInclude Include="stackWithArrayList.h" />
-    <ClInclude Include="test.h" />
-    <ClInclude Include="towersOfHanoi.h" />
-    <ClInclude Include="twoStacks.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
