@@ -1,6 +1,6 @@
-#include "testEx9_16.h"
+#include "testEx9_18.h"
 
 int main()
 {
-	testEx9_16();
+	testEx9_18();
 }

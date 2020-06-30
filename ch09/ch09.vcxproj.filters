@@ -132,6 +132,18 @@
     <ClInclude Include="testEx9_16.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="ex9_17.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ex9_18.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="testEx9_17.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="testEx9_18.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">

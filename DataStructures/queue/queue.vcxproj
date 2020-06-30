@@ -138,6 +138,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="arrayQueue.h" />
+    <ClInclude Include="chainNode.h" />
+    <ClInclude Include="linkedQueue.h" />
+    <ClInclude Include="myExceptions.h" />
+    <ClInclude Include="queue.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

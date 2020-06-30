@@ -101,9 +101,9 @@ doublyLinkedDeque<T>::doublyLinkedDeque(const doublyLinkedDeque& x)
 		targetNode = targetNode->next;
 		sourceNode = sourceNode->next;
 	}
-	targetNode->next = nullptr;		// end the chain
+	//targetNode->next = nullptr;		// end the chain
 	theBack = targetNode;
-	theFront->previous = nullptr;	// begin the chain 
+	//theFront->previous = nullptr;	// begin the chain 
 }
 
 template<typename T>

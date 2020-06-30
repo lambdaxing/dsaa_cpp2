@@ -152,6 +152,8 @@
     <ClInclude Include="ex9_13_2.h" />
     <ClInclude Include="ex9_14.h" />
     <ClInclude Include="ex9_15.h" />
+    <ClInclude Include="ex9_17.h" />
+    <ClInclude Include="ex9_18.h" />
     <ClInclude Include="ex9_5_1.h" />
     <ClInclude Include="ex9_5_2.h" />
     <ClInclude Include="ex9_6.h" />
@@ -171,6 +173,8 @@
     <ClInclude Include="testEx9_13_1.h" />
     <ClInclude Include="testEx9_13_2.h" />
     <ClInclude Include="testEx9_16.h" />
+    <ClInclude Include="testEx9_17.h" />
+    <ClInclude Include="testEx9_18.h" />
     <ClInclude Include="testEx9_5_1.h" />
     <ClInclude Include="testEx9_5_2.h" />
     <ClInclude Include="testEx9_6.h" />
