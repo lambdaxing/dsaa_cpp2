@@ -84,6 +84,54 @@
     <ClInclude Include="testEx9_11.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="ex9_12.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="extendedChain.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="chain.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="extendedLinearList.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="linearList.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="chainNode.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="testEx9_12.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ex9_13_1.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="testEx9_13_1.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ex9_13_2.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="testEx9_13_2.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ex9_14.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ex9_15.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ex9_16.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="doubleChainNode.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="testEx9_16.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
