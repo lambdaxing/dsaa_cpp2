@@ -1,0 +1,3 @@
+Copies the character string pointed to by src, including the null terminator, to the character array whose first element is pointed to by dest.
+
+The behavior is undefined if the dest array is not large enough. The behavior is undefined if the strings overlap.

@@ -139,7 +139,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="changeLength1D.h" />
+    <ClInclude Include="compression.cpp" />
     <ClInclude Include="dictionary.h" />
+    <ClInclude Include="hash.h" />
+    <ClInclude Include="hashChains.h" />
+    <ClInclude Include="hashTable.h" />
     <ClInclude Include="myExceptions.h" />
     <ClInclude Include="pairNode.h" />
     <ClInclude Include="skipList.h" />
@@ -149,7 +153,7 @@
     <ClInclude Include="testDictionary.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="decompress.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

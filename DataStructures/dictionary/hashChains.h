@@ -43,7 +43,7 @@ public:
 	}
 	void output(std::ostream& out) const
 	{
-		for (int i = 0; i < divisor; == i)
+		for (int i = 0; i < divisor; ++i)
 			if (table[i].size() == 0)
 				out << "NULL" << std::endl;
 			else

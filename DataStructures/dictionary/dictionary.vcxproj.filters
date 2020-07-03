@@ -42,9 +42,21 @@
     <ClInclude Include="skipList.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="hashTable.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="hash.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="hashChains.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="compression.cpp">
+      <Filter>源文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="decompress.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
