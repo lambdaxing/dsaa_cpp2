@@ -1,3 +1,161 @@
-Copies the character string pointed to by src, including the null terminator, to the character array whose first element is pointed to by dest.
+I've been wanting a site like this, and I'm sure many people, including myself, would absolutely love to contribute. But the templates used make the job really difficult. Would anybody be upset If I just started adding stuff in non-template form, and someone else could come along later and templatize it? Or myself if I care to learn it more in depth.
 
-The behavior is undefined if the dest array is not large enough. The behavior is undefined if the strings overlap.
+The templates here are a bit complex. (The idea was that the content of this site has a fair amount of repetition and hierarchy, and templates allow that stuff to be specified in one place rather than repeated in multiple locations. But it does make for a steep learning curve.)
+I think it would be fine if you added non-templated content. After you've made changes, others can come along and apply formatting and refactoring as needed.
+If there are any specific parts of the templating scheme that don't make sense, please mention them. It might make sense to put together a short tutorial describing how the templates work, and it would be useful to know what the overview should cover.
+First question. Is this how discussions are done, by just continuously editing the Talk:cpp page? Then I suppose we click the signature button to indicate we're done talking.
+
+Some of the things that are confusing are things like dcl and tdcl. I guess they are used to make lists, but I have no idea what those acronyms stand for, or what the difference between the two is. There are other things I saw, I can't remember where, something like ltt. I would like an explanation for any acronyms like that. Thanks.
+
+--Benjamin Lindley 21:05, 30 June 2011 (PDT)
+
+Hi all,
+
+I'm the original contributor of the content in this wiki. Previously I have extensively edited the content in the old wiki that was based on Dokuwiki CMS. During that time I had a lot of discomfort with repetitive modifications to the stuff that was duplicated across several places. It was quite time consuming too, as, for example, some function descriptions are used in 20+ places. So I decided to pass all the iterative work to the templates. The resulting system is quite complex, I agree. However, the formatting capabilities are far, far higher when using templates, and since the content is created once, but consumed many times, I think that the improved usability is worth the additional cost writing the material.
+
+All templates have their documentation at Template:<template name>, e.g. Template:tdcl list item. There is no page that summarizes all templates though, however since there is demand for one, I will create it soon at Help:Templates.
+
+Regarding the discussions, I think it's a good idea to write signature below each comment. Alternatively, one can just write ~~~~ which is automatically translated to signature.
+
+P12 05:00, 1 July 2011 (PDT)
+
+As C++ programmers, I'm sure everybody can appreciate the power afforded by templates. I didn't know about the documentation for the individual templates. That's helpful, thanks. --Benjamin Lindley 09:17, 1 July 2011 (PDT)
+
+What's the hierarchy here?
+This site seems to be laid out in the categories documented in the standard library, sort of. But it's not entirely consistent in that. Should effort be made to that effect? So, we would have 13 broad categories, starting with the Language Support Library, and ending with the Thread Support Library. In that same vein, I think should be done to disambiguate the General Utilities Library from the utility header. For example, vector is part of the Containers Library, and this is reflected in it's page's name cpp/container/vector. But the memory header is part of the General Utilities Library, and that is not reflected in it's page's name cpp/memory. However, I think that cpp/utility/memory would not be good as that would cause people to confuse it with the utility header. I think cpp/general_utilities/memory would be the appropriate name for it. Thoughts? --Benjamin Lindley 23:24, 1 July 2011 (PDT)
+
+The problem is that the Standard groups its components into libraries based only on their functionality. It works well for most of the components that serve very specific purpose. However, for the most generic libraries, components with similar objective are placed into different libraries. This decreases the usability a lot, so we chose not to mirror the structure of the Standard in these cases. It turned out, that the problematic libraries are the [18] Language Support library, [19] Diagnostics library and [20] General Utilities library. So for these libraries, different partitioning scheme is used (the component numbers are based on doc no. N3291):
+Memory management (cpp/memory). Contains:
+[18.6] Dynamic memory management
+[20.6] Memory
+[20.7] Smart pointers
+[20.12] Class template scoped_allocator_adaptor
+Errors (cpp/error). Contains:
+[18.8] Exception handling
+[19] Diagnostics library
+Date and time (cpp/chrono). Contains:
+[18.10] Other runtime support (some components)
+[20.11] Time utilities
+Function objects (cpp/functional). Contains:
+[20.8] Function objects
+Program management (cpp/utility/program). Contains:
+[18.5] Start and termination
+[18.10] Other runtime support (some components)
+Basic types (cpp/utility/types). Contains:
+[18.2] Types
+[18.3] Implementation properties
+[18.4] Integer types
+Runtime type information (cpp/utility/rtti). Contains:
+[18.7] Type identification
+[20.13] Class type_index
+The remaining bits go to cpp/utility/**
+[20.3] Pairs (cpp/utility/pair)
+[20.4] Tuples (cpp/utility/tuple)
+[20.5] bitset (cpp/utility/bitset)
+[20.9] Metaprogramming and type traits - ?????
+[20.10] Compile-time rational arithmetic (cpp/utility/ratio)
+Hierarchically, all these components are in cpp/utility (sidebars should reflect that too). However, some of them are not in cpp/utility URL-wise because that would be confusing as some components are, well, not general utilities (e.g. cpp/memory, cpp/error, cpp/chrono). I don't know why function objects are at cpp/functional. They should be moved to cpp/utility/functional.
+One thing that I'm thinking about is to group Basic types, Runtime type information and Metaprogramming/type traits together as they are all about type properties. Then the category could be placed at cpp/types.
+By the way, the section names memory, utility, etc. are named after the headers only because it is easier to remember the paths then. They have little to do with the actual content that is placed into these categories. E.g. cpp/memory hosts contents of the new header at cpp/memory/new.P12 12:55, 2 July 2011 (PDT)
+Could we promote pair and tuple to front page under Utility? I think they should be listed similar to how bitset is listed now. --Cubbi
+That's a good idea. P12 15:26, 31 August 2011 (PDT)
+notification box location (for downloading an archive)
+I feel that having a big notification at the top of the main page could be a bit distracting for most users. It would certainly be appropriate to announce system-wide messages, like planned downtime or the like. But having it announce something that is of lesser importance (like the location of the archived version of the site) seems like it could be more distracting than useful, at least to the majority of users. To that end, I moved the notification to the bottom of the page. Thoughts? Nate 14:38, 24 September 2011 (PDT)
+
+Seems fine to me. P12 12:47, 25 September 2011 (PDT)
+Code example
+Should we add exemple and usage of different functions? could be helpfull for users and new C++ programmer, what do you think?
+
+I'm definitely a fan of having examples, at least on "leaf" pages. Were there any pages in particular that you were thinking of? Nate 13:25, 4 December 2011 (PST)
+As you say, "leaf" pages should all have their own exemple IMO.Drahakar 16:40, 4 December 2011
+In light of P12's comment on this edit: I agree with the edit in that case, and most of the examples that I've posted at various class pages can be sensibly moved to member function pages when they are written, but I feel that there may be situations where leaf pages (class member functions) are too narrow in scope to demonstrate the typical use of a class. --Cubbi 20:16, 12 December 2011 (PST)
+I agree with that, there will be exceptions for sure. P12 03:28, 13 December 2011 (PST)
+C++11 feature vs. since C++11
+Which of the "C++11 feature" and "since C++11" is better to mark functionality added only in C++11? It seems to me that the second one presents the intent in a clearer way. Any opinions? P12 06:45, 12 December 2011 (PST)
+
+Would that affect (C++11 version) / (pre-C++11 version), and if so, how? Going with shorter text, they could become (since C++11)/(until C++11) or even simply (C++98)/(C++11). --Cubbi 07:52, 12 December 2011 (PST)
+"since C++11" isn't bad, but I kinda like (C++11) too...
+I think a longer version is better where the space is not an issue. If we use the short version, it becomes unclear what is what in the complex cases, e.g. here. We would have to replace (pre-C++11 version) with at least (C++98)(C++03) there. I like Cubbi's suggestion: (pre-C++11 version) would become (until C++11), (C++11 version) -> (since C++11), (C++11 feature) -> (since C++11). P12 03:47, 13 December 2011 (PST)
+New page
+I added cpp/compile/linker/type-safe_linkage.
+
+I think cpp/compile can be a whole section on compilation, seperate from language and linraries, to be included on cpp. Yeah???? --Trusktr 12:26, 4 February 2012 (PST)
+
+Unfortunately, these things are currently out of scope of this wiki. The general concepts are best covered not here, but on Wikipedia, because any article there benefits more people. Also, if a subject is appropriate for them, they will have an article on it eventually, so there's no point to extend this wiki with information that will be duplicated on Wikipedia in the future. Also, I think we don't want to become a manual of each existing C++ compiler - their own documentation is for that. Thus we cover only the standard C++, that is, the C++ that is the same regardless of the compiler or architecture you are compiling for.
+In this case, I think you should look at possibilities to improve the an article on name mangling on Wikipedia. Maybe they already have the same information you want to add here? P12 03:46, 5 February 2012 (PST)
+Search results
+How does it come searching for "constexpr" doesn't give any result? --Bear 12:22, 6 February 2012 (PST)
+
+I suspect the search index, which is maintained by hand, is out of date. Nate 04:18, 7 February 2012 (PST)
+Currently the language concepts are not included into the index altogether. I'll probably need to tweak the design of the search plugin a bit, since it's not suited for generic text search as of now. P12 04:38, 7 February 2012 (PST)
+Macros
+I think the macro should be discussed here. Because it is supported in C++.
+
+Do you mean macros as in here? --Cubbi 23:22, 8 March 2012 (PST)
+Headers
+Why is the link to cpp/header under "Language"? The page cpp/language itself contains no link to cpp/header -- Bazzy 14:55, 19 March 2012 (PDT)
+
+I've move cpp/header to a separate top-level section. I think it's better not to include that page into the sidebar, because it doesn't contain any subpages (yet). -- P12 09:15, 17 April 2012 (PDT)
+C reference
+Hi. I read in the FAQ that reference for the C standard library is welcome here. I've already written most of it under c/ page prefix. Is that location suitable? If not, where should I move the pages? If, however, there are no problems with the location, I think there are no issues preventing the C reference from being a first-class citizen in this wiki. Could someone with editing permissions include its index into the front page? Eendy 10:41, 13 April 2012 (PDT)
+
+I think the idea of a C reference is an interesting idea, but there are a couple of things that we should probably get some discussion on, just to make sure that we're all on the same page. I assume we'd target C11? How should the C++ side of the site refer (if at all) to the C side? C++11 references C99 (?) but there are some differences, e.g. header file names, no? Also, in terms of unleashing this on the world, it might make sense to try to get the overall structure of the content figured out before making it too public -- search engines can react poorly to large chunks of content moving, and we don't want people to e.g. accidentally waste time duplicating content. Nate 14:53, 13 April 2012 (PDT)
+Looking from a practical perspective, there's not much difference between whether we target C99 or C11. The C99 reference is already essentially written, one just needs to change the perspective from C++ to C. Given that we'll eventually accept C11 anyway, I see no problems with having it now.
+Regarding the differences between C99 as included in C++ and the real C99, there shouldn't be any problems. We already refer to C++ not as a superset of C, but as a different language, although similar. Some coupling could be kept by adding links to see also sections where appropriate. I'd like to avoid adding links anywhere else, otherwise it would be very hard to make separate archives for C and C++ references then.
+The overall structure of the C reference in my opinion is good already. It's very similar to the C++ counterpart and it would be good idea to preserve that similarity, unless there is good reason not to. That said, I too would like to wait some time, 'until the dust settles'. Maybe there's something I've missed. -- P12 18:48, 13 April 2012 (PDT)
+Okay, I'm starting to see how this could work. I was a bit worried about the crosstalk between the C++ and C sites (e.g. the change to fwscanf that was reverted) but limiting it to a few "see alsos" here and there should work well. After looking at it a bit, there are plenty of differences between C-ish content on the C++ site and what we would want as content for the pure C site, but those differences aren't structural.
+Maybe one more aspect of crosstalk is template support (which you already seem to be playing around with a bit, P12) -- is it worth trying to share any mediawiki templates between C++ and C? Nate 05:28, 14 April 2012 (PDT)
+Most of the MediaWiki templates are language agnostic and can be reused without problems. The only exceptions are templates related to syntax highlighting and marks (e.g. (since C99)), but they already have support for C. The syntax highlighting templates will even automatically select proper language based on in which section - c/* or cpp/* - the page resides. One thing worth noting is that the templates themselves don't increase coupling between any parts of the wiki, so they can be used liberally.
+By the way, I though a bit about how we could add the C reference to the front page when we decide to do so. IMO it's worth to disable the redirect from the Main_Page to cpp in order to make space for an overview of available topics. Something like the following would be quite convenient. What do you think?
+[removed]
+-- P12 15:58, 14 April 2012 (PDT)
+Nice! I agree that we can disable the redirect to cpp once we get a reasonably solid C section. I also like the concept you put together, P12 -- it's definitely a good first cut. I don't think we should launch it just yet, but it's a good starting point.
+One thing that I think is important is to convey how much useful information is on the site. The contributors here have done so much awesome work -- and the top level page sees so much traffic -- that I want to make sure that casual visitors get a sense of the depth of information on the site. Without getting confusing, of course.  :) Nate 14:23, 15 April 2012 (PDT)
+I think the C reference is ready to go live. Several subsections are missing, of course, but there shouldn't be any problems with that. I've updated the mock-up of the front page. What do you think about it? Barring any significant problem is noticed, I'd like to replace the current main page with it. -- P12 08:25, 20 April 2012 (PDT)
+C++ Idioms
+I would suspect that this has been discussed before and the FAQ points out that no tutorial style introductions should be added to the reference manual. I totally agree with this, but wouldn't it be possible to have a separate section for material that covers specific use-cases of the standard library or common C++ idioms? I have a few immediate candidates in mind that would fit well, IMO:
+
+erase-remove
+type erasure
+RAII, alignment
+POD and Aggregate
+There is a lot of quality content scattered throughout the net on those topics (stackoverflow.com, wikipedia, wiki-books) and of course general literature, but wouldn't it be nice to have it in an aggregated form that gets some exposure by people that care? I know there are problems with content that people disagree about and writing those pages wouldn't be easy, but it could be worth it. Sorry, if this has been discussed extensively before and a decision has been made.
+
+pmr 15:45, 16 April 2012 (PDT)
+
+That's an interesting idea. I'm curious, however, how an idiom section here would compare to e.g. http://en.wikibooks.org/wiki/More_C%2B%2B_Idioms , which is the first hit I get when I search for "C++ idioms". Would you implement it differently? Would there be some benefit to having reference content and idioms colocated on the same site?Nate 04:24, 17 April 2012 (PDT)
+I was thinking along the lines of the wikibooks page. The benefit would be to have the ability to link to the reference and keep things in a closed environment and have control over the pages (and the guarantee that they don't disappear). If I would write about a modern implementation of d-pointers using std::unique_ptr I would like to reference it or any of its members. A page for an idiom would consists of an introduction including common names, motivation, example use cases, an example implementation and reference material. pmr 05:41, 18 April 2012 (PDT)
+I think your vision could still be implemented in Wikibooks. As opposed to Wikipedia, Wikibooks doesn't have any policies that discourage linking to external websites, so there's nothing that prevents linking to this wiki liberally. Similarly, nothing prevents linking to More C++ Idioms book from this wiki. I'd say it's possible to achieve the same degree of coupling between this reference and the More C++ Idioms book as if they were in the same wiki.
+The Wikibooks option has, in my opinion, quite strong advantages. It's a good resource already, extensively covering many idioms. It would take a lot of effort to produce content that is at least as complete. Even if we could do that, our idioms section would be quite similar to the book. The question arises - what added value would we offer? What benefit would be for a reader to choose us instead of the book? If we can't do that, we will just contribute to the existing fragmentation. Note, that the book already attracts a lot of readers and editors and is quite visible to the internet by being the first entry returned by Google for relevant queries. Thus I think it's a better target for improvement.
+I agree that there are several downsides with using Wikibooks. There's more bureaucracy there. The contributions of new editors are reviewed before being shown (it's easy to become 'trusted' user though). The existing format of the book may not fit your vision. Some editors might oppose huge changes even though they would accept if the same changes were made gradually. However, I think the advantages still outweigh the disadvantages. -- P12 07:56, 18 April 2012 (PDT)
+Redundant pages between C and C++ references
+I don't think that it's worth duplicating the data that's the same between the C and C++ references; it might make sense to just redirect to the one that makes more sense (for example, shared C library stuff goes under c/). This way, we can include the differences between the C and C++ versions if there are any and provide both the C and C++ headers. --- Undeterminant 17:16, 19 April 2012 (PDT)
+
+I agree that duplication is bad, but we might want a lot of subtle differences between the C and C++ versions of a given entry that will make reuse difficult. Code examples, #include style, meta tags like "since C++11" and related content come to mind, specifically. It's not clear to me (either way) that making our entries even more abstract and template-heavy will be worth the gains of shared info...thoughts? Nate 18:35, 19 April 2012 (PDT)
+But how would that be useful for the reader? C programmers are not usually interested in C++ details, similarly, C++ programmers are also not usually interested in C. Mixing the two would only be a distracting at best. Even though C and C++ are similar, they already have quite a lot of differences. They are unfortunately slowly diverging; C, as defined by C11, is hardly a subset of C++. Because of that, I don't think there's a way we could have single reference for both C and C++. As an example, I suggest to look at C pow() and C++ pow(). Even though this is not a common case, it highlights how different C and C++ are. -- P12 04:16, 20 April 2012 (PDT)
+std::decimal
+Should we add a page on the base-10 floating-point types? They are a published international standard (TR 24733:2011), and GCC is supporting them, I see: http://gcc.gnu.org/onlinedocs/libstdc++/libstdc++-api-4.5/a00850.html --Cubbi 17:45, 29 December 2012 (PST)
+
+I'm a little wary about adding language extensions to the site, mostly because of (a) the risk of confusion ("cppreference.com mentions std::decimal, so why is my compiler complaining?") and (b) the problems associated with scope creep (i.e. where do we stop, reduced editor time for other topics, difficulty in keeping up to date with multiple standards). It might be a different story for WG proposals, however -- has there been any movement on getting base-10 floating-point support in C++14/C++17? Nate 08:40, 30 December 2012 (PST)
+It has been proposed Proposal to Add Decimal Floating Point Support to C++ --Bazzy 15:19, 30 December 2012 (PST)
+Regarding scope, I do remember P12 writing somewhere that this wiki may document the boost libraries in future. Regarding Dietmar's proposal, it goes before the committee in April. I suppose we can wait until then (that's also when C++14 feature set will be set) --Cubbi 06:53, 31 December 2012 (PST)
+C++20concept
+C++20 concept is different from concept TS,but when we click "Constraints and concepts" in Language Page(cpp/language),we just like going into the concept TS page!all the introducation is about concept TS!I think we need to create a new page to split standard concept and concept TS.
+
+if you click constraints and concepts, you should see a banner saying it's work in progress. The plan is to lay out C++20 content as base and Concepts TS content in revboxes where different. The committee's plan is to merge other parts of the Concepts TS (with more changes) into C++20 before it is finalized, so hopefully some of those revboxes will get de-boxed over the next few years. --Cubbi (talk) 07:03, 23 August 2017 (PDT)
+stream list is too long
+list of streams shows all impl of streams, but pages of streams are almost the same. What about only keep Abstraction(this part can be splitted), File I/O, String I/O, Synchronized Output?(and manipulators, c-style) Yaossg (talk) 20:52, 12 December 2017 (PST)
+
+I agree the cpp layout is lopsided. It could just be a single 'streams' entry for all those, like it lists 'algorithms', and the whole thing could be reflown to show more top-level entries from cpp/language. And perhaps the presentation of some other library sections could be rebalanced. Proposed layouts welcome (just don't go flipping the whole front page suddenly before gathering some comments). --Cubbi (talk) 05:55, 13 December 2017 (PST)
+I'm surprise I finally got such an agreement, I've got these idea for months, I wrote such advice months ago but nobody cared. so I've tried to edit my words again and again in the past months. anyway, thanks a lot. Yaossg (talk) 07:50, 13 December 2017 (PST)
+We (long-time contributors and admins) are all busy programmers. It's not that nobody cares, it's that it may be relatively low priority compared to many other things that need done. --Cubbi (talk) 08:07, 13 December 2017 (PST)
+Sorry, I was so excited that I forgot to tell you I would finish these work at weekends. Currently, there's a testing page for everyone to edit(just my user page), I'll adjust it later to make it similar to cpp. Yaossg (talk) 07:56, 13 December 2017 (PST)
+
+I would personally advocate for exposing as many of the classes in the standard library as possible. As long as they're categorised cleanly, I don't see any issue with that --Ybab321 (talk) 08:00, 14 December 2017 (PST)
+cpp/freestanding, add to list in cpp
+I created the cpp/freestanding (Freestanding and hosted implementations) page. It is desirable to add link to it with same name to the list in cpp page, after the "Headers" link. - 37.113.176.110 03:19, 10 September 2018 (PDT) edited - 37.113.168.36 23:09, 10 September 2018 (PDT)
+
+I've already added a similar link to the navbar - 37.113.176.110 03:28, 10 September 2018 (PDT)
+
+hi.cppreference.com
+Hello there, I wanna translate pages to Hindi but I could not find where to get started. Is Hindi not supported? Harsh Rathod Poke me! 03:11, 18 May 2020 (PDT)
