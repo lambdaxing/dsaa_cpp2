@@ -138,6 +138,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="binType.h" />
+    <ClInclude Include="completeWinnerTree.h" />
+    <ClInclude Include="firstFit.h" />
+    <ClInclude Include="myExceptions.h" />
+    <ClInclude Include="winnerTree.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
