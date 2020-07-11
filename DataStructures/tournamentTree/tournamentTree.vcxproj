@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -20,8 +20,8 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{9881DE5E-4616-4FB2-A9CC-746C85D0572F}</ProjectGuid>
-    <RootNamespace>binaryTree</RootNamespace>
+    <ProjectGuid>{233381B9-7D59-4946-9166-FB78C4F3FBDC}</ProjectGuid>
+    <RootNamespace>tournamentTree</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -138,19 +138,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="binaryTree.h" />
-    <ClInclude Include="binaryTreeNode.h" />
-    <ClInclude Include="binaryTreeTraversals.h" />
-    <ClInclude Include="booster.h" />
-    <ClInclude Include="linkedBinaryTree.h" />
-    <ClInclude Include="myExceptions.h" />
-    <ClInclude Include="unionFindNode.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="booster.cpp" />
-    <ClCompile Include="unionFindWithCompaction.cpp" />
-    <ClCompile Include="unionFindWithTrees.cpp" />
-    <ClCompile Include="unionFindWithWeightingRule.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

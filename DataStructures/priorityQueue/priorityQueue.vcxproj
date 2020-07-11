@@ -142,6 +142,8 @@
     <ClInclude Include="binaryTreeNode.h" />
     <ClInclude Include="changeLength1D.h" />
     <ClInclude Include="heapSort.h" />
+    <ClInclude Include="huffmanNode.h" />
+    <ClInclude Include="huffmanTree.h" />
     <ClInclude Include="linkedBinaryTree.h" />
     <ClInclude Include="lptNodes.h" />
     <ClInclude Include="lptSchedule.h" />

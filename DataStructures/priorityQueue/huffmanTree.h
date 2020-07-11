@@ -44,6 +44,5 @@ linkedBinaryTree<int>* huffmanTree(T weight[], int n)
 
 	// destructor for min heap deletes hNode
 	return heap.top().tree;
-
 }
 

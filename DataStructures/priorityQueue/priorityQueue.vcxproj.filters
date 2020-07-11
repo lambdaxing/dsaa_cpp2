@@ -54,6 +54,12 @@
     <ClInclude Include="lptNodes.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="huffmanTree.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="huffmanNode.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
