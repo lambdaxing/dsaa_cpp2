@@ -27,7 +27,7 @@ std::pair<const K, E>* binarySearchTree<K, E>::find(const K& theKey) const
 {// Return pointer to matching pair.
  // Return null if no matching pair.
 	// p starts at the root and moves through the tree looking for an element with key theKey
-	binaryTreeNode<std::pair<const K, E>>* p = root;
+	binaryTreeNode<std::pair<const K, E>>* p = this->root;
 	while (p != nullptr)
 		// examine p->element
 		if (theKey < p->element.first)
@@ -46,7 +46,7 @@ template<typename K,typename E>
 void binarySearchTree<K, E>::insert(const std::pair<const K, E>& thePair)
 {// Insert thePair into the tree. Overwrite existing pair, if any, with same key.
 	//find place to insert
-	binaryTreeNode<std::pair<const K, E>>* p = root, * pp = nullptr;
+	binaryTreeNode<std::pair<const K, E>>* p = this->root, * pp = nullptr;
 
 	while (p != nullptr)
 	{// examine p->element
@@ -66,14 +66,14 @@ void binarySearchTree<K, E>::insert(const std::pair<const K, E>& thePair)
 
 	// get a node for thePair and attach to pp
 	binaryTreeNode<std::pair<const K, E>>* newNode = new binaryTreeNode<std::pair<const K, E>>(thePair);
-	if (root != nullptr) // the tree is not empty
+	if (this->root != nullptr) // the tree is not empty
 		if (thePair.first < pp->element.first)
 			pp->leftChild = newNode;
 		else
 			pp->rightChild = newNode;
 	else
-		root = newNode;	// insertion into empty tree
-	++treeSize;
+		this->root = newNode;	// insertion into empty tree
+	++this->treeSize;
 }
 
 template<typename K,typename E>
@@ -81,7 +81,7 @@ void binarySearchTree<K, E>::erase(const K& theKey)
 {// Delete the pair, if any, whose key equals theKey.
 
 	// search for node with key theKey
-	binaryTreeNode<std::pair<const K, E>>* p = root, * pp = nullptr;
+	binaryTreeNode<std::pair<const K, E>>* p = this->root, * pp = nullptr;
 	while (p != nullptr && p->element.first != theKey)
 	{// move to a child of p
 		pp = p;
@@ -100,7 +100,7 @@ void binarySearchTree<K, E>::erase(const K& theKey)
 	{// two children
 		// convert to zero or one child case
 		// find largest element in left subtree of p
-		binaryTreeNode<std::pair<const K, E>>* s = p->leftChild, ps = p;	// parent of s
+		binaryTreeNode<std::pair<const K, E>>* s = p->leftChild, * ps = p;	// parent of s
 		
 		while (s->rightChild != nullptr)
 		{// move to larger element
@@ -112,7 +112,7 @@ void binarySearchTree<K, E>::erase(const K& theKey)
 		// p->element = s->element as key is const
 		binaryTreeNode<std::pair<const K, E>>* q = new binaryTreeNode<std::pair<const K, E>>(s->element, p->leftChild, p->rightChild);
 		if (pp == nullptr)
-			root = p;
+			this->root = q;
 		else
 			if (p == pp->leftChild)
 				pp->leftChild = q;
@@ -133,8 +133,8 @@ void binarySearchTree<K, E>::erase(const K& theKey)
 		c = p->rightChild;
 
 	// delete p
-	if (p == root)
-		root = c;
+	if (p == this->root)
+		this->root = c;
 	else
 	{// is p left or right child of pp ?
 		if (p == pp->leftChild)
@@ -142,7 +142,7 @@ void binarySearchTree<K, E>::erase(const K& theKey)
 		else
 			pp->rightChild = c;
 	}
-	--treeSize;
+	--this->treeSize;
 	delete p;
 }
 

@@ -138,12 +138,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="bestFit.h" />
+    <ClInclude Include="binarySearchTree.h" />
     <ClInclude Include="binaryTree.h" />
     <ClInclude Include="binaryTreeNode.h" />
     <ClInclude Include="bsTree.h" />
+    <ClInclude Include="dBinarySearchTree.h" />
+    <ClInclude Include="dBinarySearchTreeWithGE.h" />
     <ClInclude Include="dictionary.h" />
     <ClInclude Include="indexedBSTree.h" />
+    <ClInclude Include="linkedBinaryTree.h" />
     <ClInclude Include="myExceptions.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

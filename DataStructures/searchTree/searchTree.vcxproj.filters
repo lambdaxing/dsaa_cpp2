@@ -33,5 +33,25 @@
     <ClInclude Include="binaryTreeNode.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="binarySearchTree.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="linkedBinaryTree.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dBinarySearchTree.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dBinarySearchTreeWithGE.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="bestFit.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
