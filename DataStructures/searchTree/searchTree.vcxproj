@@ -138,6 +138,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="avlTree.h" />
     <ClInclude Include="bestFit.h" />
     <ClInclude Include="binarySearchTree.h" />
     <ClInclude Include="binaryTree.h" />
@@ -149,6 +150,7 @@
     <ClInclude Include="indexedBSTree.h" />
     <ClInclude Include="linkedBinaryTree.h" />
     <ClInclude Include="myExceptions.h" />
+    <ClInclude Include="testAVL.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
