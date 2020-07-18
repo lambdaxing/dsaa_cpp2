@@ -80,6 +80,7 @@ void (*linkedBinaryTree<int>::visit)(binaryTreeNode<int>*);
 //void (*linkedBinaryTree<booster>::visit)(binaryTreeNode<booster>*);
 void (*linkedBinaryTree<std::pair<int, int> >::visit)(binaryTreeNode<std::pair<int, int> >*);
 void (*linkedBinaryTree<std::pair<const int, char> >::visit)(binaryTreeNode<std::pair<const int, char> >*);
+void (*linkedBinaryTree<std::pair<const char, int> >::visit)(binaryTreeNode<std::pair<const char, int> >*);
 void (*linkedBinaryTree<std::pair<const int, int> >::visit)(binaryTreeNode<std::pair<const int, int> >*);
 
 template<typename E>
@@ -210,3 +211,4 @@ int linkedBinaryTree<E>::height(binaryTreeNode<E>* t)
 		return ++hr;
 }
 #endif // !LINKED_BINARY_TREE_
+

@@ -123,46 +123,48 @@ auto avlTree<K, E>::insert(const std::pair<const K, E>& thePair, position t) -> 
 
 template<typename K, typename E>
 auto avlTree<K, E>::erase(const K& theKey, position t) -> position
-{
+{// Deletes the specified element recursively
+
 	if (t == nullptr)	// not found the key theKey
 		return t;
 
 	if (theKey < t->element.first)
-	{
-		t->leftChild = erase(theKey, t->leftChild);
-		if (this->height(t->rightChild) - this->height(t->leftChild) == 2)
-			if (this->height(t->rightChild->leftChild) < this->height(t->rightChild->rightChild))
+	{// deletes the specified element in the left avl 
+		t->leftChild = erase(theKey, t->leftChild);		// delete theKey in the left part of t 
+		if (this->height(t->rightChild) - this->height(t->leftChild) == 2)	// If there's an imbalance here 
+			if (this->height(t->rightChild->leftChild) < this->height(t->rightChild->rightChild))	// RR
 				t = singleRotateWithRight(t);
-			else
+			else   // RL
 				t = doubleRotateWithRight(t);
 	}
 	else if (theKey > t->element.first)
-	{
-		t->rightChild = erase(theKey, t->rightChild);
+	{// deletes the specified element in the right avl 
+		t->rightChild = erase(theKey, t->rightChild);	// delete theKey in the right part of t
 		if (this->height(t->leftChild) - this->height(t->rightChild) == 2)
-			if (this->height(t->leftChild->rightChild) < this->height(t->leftChild->leftChild))
+			if (this->height(t->leftChild->rightChild) < this->height(t->leftChild->leftChild))		// LL
 				t = singleRotateWithLeft(t);
-			else
+			else    // LR
 				t = doubleRotateWithLeft(t);
 	}
 	else
-	{
+	{// now, theKye == t->element.first, so delete t
 		// t has two children
 		if (t->leftChild != nullptr && t->rightChild != nullptr)
 		{
+			// find the largest in the t->leftChid
 			position s = t->leftChild, ps = t;	// parent of s
 			while (s->rightChild != nullptr)
 			{// move to larger element
 				ps = s;
 				s = s->rightChild;
 			}
-			position q = new binaryTreeNode<std::pair<const K, E>>(s->element, t->leftChild, t->rightChild);
-			delete t;
+			position q = new binaryTreeNode<std::pair<const K, E>>(s->element, t->leftChild, t->rightChild);	// Replace t(will be delete) with the largest element in the t->leftChild 
+			delete t;	// delete old t
 			t = q;
-			t->leftChild = erase(s->element.first, t->leftChild);
+			t->leftChild = erase(s->element.first, t->leftChild);  // delete the largest element in the t->leftChild
 		}
-		else
-		{
+		else  
+		{// The recursion terminates
 			// t has at most one child
 			position c;
 			if (t->leftChild != nullptr)
