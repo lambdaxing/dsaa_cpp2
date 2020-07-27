@@ -1,6 +1,5 @@
-#include "testAVL.h"
-
+#include "testRedBlack.h"
 int main()
-{	
-	testAVL();
+{
+	testRedBlackTime();
 }

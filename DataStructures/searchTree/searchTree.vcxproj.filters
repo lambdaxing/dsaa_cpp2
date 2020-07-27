@@ -54,6 +54,18 @@
     <ClInclude Include="testAVL.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="redBlackTree.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="redBlackNode.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="linkedRedBlackNodeTree.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="testRedBlack.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">

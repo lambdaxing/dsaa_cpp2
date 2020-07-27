@@ -149,8 +149,12 @@
     <ClInclude Include="dictionary.h" />
     <ClInclude Include="indexedBSTree.h" />
     <ClInclude Include="linkedBinaryTree.h" />
+    <ClInclude Include="linkedRedBlackNodeTree.h" />
     <ClInclude Include="myExceptions.h" />
+    <ClInclude Include="redBlackNode.h" />
+    <ClInclude Include="redBlackTree.h" />
     <ClInclude Include="testAVL.h" />
+    <ClInclude Include="testRedBlack.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
