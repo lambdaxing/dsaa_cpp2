@@ -284,7 +284,7 @@ void chain<T>::binSort(int range)
 			bottom[theBin] = top[theBin] = firstNode;
 		else
 		{
-			top[theBin]->next = fisrtNode;
+			top[theBin]->next = firstNode;
 			top[theBin] = firstNode;
 		}
 	}

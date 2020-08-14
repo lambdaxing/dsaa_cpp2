@@ -138,12 +138,39 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="adjacencyDigraph.h" />
+    <ClInclude Include="adjacencyGraph.h" />
+    <ClInclude Include="adjacencyWDigraph.h" />
+    <ClInclude Include="adjacencyWGraph.h" />
+    <ClInclude Include="arrayDigraph.h" />
+    <ClInclude Include="arrayGraph.h" />
+    <ClInclude Include="arrayListWithIterator.h" />
+    <ClInclude Include="arrayWDigraph.h" />
+    <ClInclude Include="arrayWGraph.h" />
+    <ClInclude Include="chainNode.h" />
+    <ClInclude Include="chainWithIterator.h" />
+    <ClInclude Include="changeLength1D.h" />
+    <ClInclude Include="delete2dArray.h" />
     <ClInclude Include="graph.h" />
     <ClInclude Include="edge.h" />
+    <ClInclude Include="graphArray.h" />
+    <ClInclude Include="graphChain.h" />
+    <ClInclude Include="linearList.h" />
+    <ClInclude Include="linkedDigraph.h" />
+    <ClInclude Include="linkedGraph.h" />
+    <ClInclude Include="linkedWDigraph.h" />
+    <ClInclude Include="linkedWGraph.h" />
+    <ClInclude Include="make2dArrayNoCatch.h" />
+    <ClInclude Include="myExceptions.h" />
+    <ClInclude Include="testAdjacency.h" />
+    <ClInclude Include="testArray.h" />
+    <ClInclude Include="testLinked.h" />
+    <ClInclude Include="unWeightedEdge.h" />
     <ClInclude Include="vertexIterator.h" />
+    <ClInclude Include="weightedEdge.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.c" />
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

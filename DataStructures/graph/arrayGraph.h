@@ -1,28 +1,28 @@
-// linked adjacency list representation of a graph
+// array adjacency list representation of a graph
 
-#ifndef linkedGraph_
-#define linkedGraph_
+#ifndef ARRAY_GRAPH_
+#define ARRAY_GRAPH_
 
 #include <iostream>
 #include <sstream>
-#include "linkedDigraph.h"
+#include "arrayDigraph.h"
 #include "unweightedEdge.h"
 
-class linkedGraph : public linkedDigraph
+class arrayGraph : public arrayDigraph
 {
 public:
-    linkedGraph(int numberOfVertices = 0)
-        : linkedDigraph(numberOfVertices) {}
+    arrayGraph(int numberOfVertices = 0)
+        : arrayDigraph(numberOfVertices) {}
 
     bool directed() const { return false; }
 
     void insertEdge(edge<bool>* theEdge)
     {// Insert an edge.
         int oldE = this->e;
-        linkedDigraph::insertEdge(theEdge);
+        arrayDigraph::insertEdge(theEdge);
         if (this->e > oldE)
         {// new edge
-            linkedDigraph::insertEdgeNoCheck(new unweightedEdge
+            arrayDigraph::insertEdgeNoCheck(new unweightedEdge
             (theEdge->vertex2(), theEdge->vertex1()));
             this->e--;  // compenstate for extra increment
         }
@@ -30,8 +30,8 @@ public:
 
     void insertEdgeNoCheck(edge<bool>* theEdge)
     {// Insert an edge. No validation checks performed.
-        linkedDigraph::insertEdgeNoCheck(theEdge);
-        linkedDigraph::insertEdgeNoCheck(new unweightedEdge
+        arrayDigraph::insertEdgeNoCheck(theEdge);
+        arrayDigraph::insertEdgeNoCheck(new unweightedEdge
         (theEdge->vertex2(), theEdge->vertex1()));
         this->e--;
     }
@@ -39,10 +39,10 @@ public:
     void eraseEdge(int i, int j)
     {
         int oldE = this->e;
-        linkedDigraph::eraseEdge(i, j);
+        arrayDigraph::eraseEdge(i, j);
         if (oldE > this->e) // edge exists
         {
-            linkedDigraph::eraseEdge(j, i);
+            arrayDigraph::eraseEdge(j, i);
             this->e++;
         }
     }
@@ -61,7 +61,7 @@ public:
     {
         in >> this->n >> this->e;
         delete[] this->aList;
-        this->aList = new graphChain<int>[this->n + 1];
+        this->aList = new graphArray<int>[this->n + 1];
 
         for (int i = 0; i < this->e; i++)
         {
@@ -89,12 +89,12 @@ public:
 };
 
 // overload <<
-std::ostream& operator<<(std::ostream& out, const linkedGraph& x)
+std::ostream& operator<<(std::ostream& out, const arrayGraph& x)
 {
     x.output(out); return out;
 }
 // overload >>
-std::istream& operator>>(std::istream& in, linkedGraph& x)
+std::istream& operator>>(std::istream& in, arrayGraph& x)
 {
     x.input(in); return in;
 }

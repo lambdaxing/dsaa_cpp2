@@ -24,9 +24,90 @@
     <ClInclude Include="vertexIterator.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="adjacencyWDigraph.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="myExceptions.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="make2dArrayNoCatch.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="delete2dArray.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="weightedEdge.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="adjacencyWGraph.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="linkedDigraph.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="graphChain.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="chainWithIterator.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="chainNode.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="linearList.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="adjacencyDigraph.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="adjacencyGraph.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="unWeightedEdge.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="linkedWDigraph.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="linkedWGraph.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="linkedGraph.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="testAdjacency.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="testLinked.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="testArray.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="arrayWDigraph.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="arrayWGraph.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="arrayDigraph.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="arrayGraph.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="arrayListWithIterator.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="changeLength1D.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="graphArray.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.c">
+    <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

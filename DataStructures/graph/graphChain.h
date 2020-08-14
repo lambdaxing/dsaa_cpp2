@@ -15,7 +15,7 @@ public:
     T* eraseElement(int theVertex)
     {// Delete node with element == theVertex. Return pointer to
      // deleted element. Return nullptr if no matching element.
-        chainNode<T>* current = firstNode,
+        chainNode<T>* current = this->firstNode,
             * trail = nullptr; // one behind current
 
 // search for match
@@ -35,10 +35,10 @@ public:
         if (trail != nullptr)
             trail->next = current->next;
         else
-            firstNode = current->next; // current is first node
+            this->firstNode = current->next; // current is first node
 
         delete current;
-        listSize--;
+        this->listSize--;
         return theElement;
     }
 };

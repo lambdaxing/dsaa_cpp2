@@ -36,6 +36,17 @@ public:
             std::fill(a[i], a[i] + n + 1, noEdge);
     }
 
+    // ex33
+    adjacencyWDigraph(const adjacencyWDigraph& x)
+    {
+        n = x.n;
+        e = x.e;
+        noEdge = x.noEdge;
+        make2dArray(a, n + 1, n + 1);
+        for (int i; i <= n; i++)
+            std::copy(x.a[i], x.a[i] + x.n + 1, a[i]);
+    }
+
     ~adjacencyWDigraph() { delete2dArray(a, n + 1); }
 
     int numberOfVertices() const { return n; }
@@ -209,5 +220,49 @@ public:
                 }
         }
     }
+
+    void input(std::istream& in)
+    {
+        // destructor
+        delete2dArray(a, n + 1);
+
+        in >> n >> e;
+        make2dArray(a, n + 1, n + 1);
+        for (int i = 1; i <= n; i++)
+            // initialize adjacency matrix
+            std::fill(a[i], a[i] + n + 1, noEdge);
+
+        // input e edges
+        for (int i = 0; i < e; ++i)
+        {
+            int v1, v2;
+            T w;
+            in >> v1 >> v2 >> w;
+
+            if (v1 < 1 || v2 < 1 || v1 > n || v2 > n || v1 == v2)
+            {
+                std::ostringstream s;
+                s << "(" << v1 << "," << v2
+                    << ") is not a permissible edge";
+                throw illegalParameterValue(s.str());
+            }
+
+            a[v1][v2] = w;
+        }
+    }
 };
+
+// overload <<
+template<typename T>
+std::ostream& operator<<(std::ostream& out, const adjacencyWDigraph<T>& x)
+{
+    x.output(out); return out;
+}
+
+// overload >>
+template<typename T>
+std::istream& operator>>(std::istream& in, adjacencyWDigraph<T>& x)
+{
+    x.input(in); return in;
+}
 #endif // !ADJACENCY_WDI_GRAPH_

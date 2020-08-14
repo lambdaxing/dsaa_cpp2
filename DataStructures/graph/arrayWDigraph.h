@@ -1,15 +1,15 @@
-// linked adjacency list representation of a weighted digraph
+// array adjacency list representation of a weighted digraph
 
-#ifndef linkedWDigraph_
-#define linkedWDigraph_
+#ifndef ARRAY_WDI_GRAPH_
+#define ARRAY_WDI_GRAPH_
 
 #include <iostream>
 #include <sstream>
 #include "graph.h"
-#include "graphChain.h"
 #include "weightedEdge.h"
 #include "vertexIterator.h"
 #include "myExceptions.h"
+#include "graphArray.h"
 
 //**************************************************************************
 // struct used for element type in graph chain
@@ -35,25 +35,25 @@ std::ostream& operator<<(std::ostream& out, const wEdge<T>& x)
 
 // T is data type of edge weight
 template <class T>
-class linkedWDigraph : public graph<T>
+class arrayWDigraph : public graph<T>
 {
 protected:
     int n;                         // number of vertices
     int e;                         // number of edges
-    graphChain<wEdge<T> >* aList;  // adjacency lists
+    graphArray<wEdge<T> >* aList;  // adjacency lists
 
 public:
-    linkedWDigraph(int numberOfVertices = 0)
+    arrayWDigraph(int numberOfVertices = 0)
     {// Constructor.
         if (numberOfVertices < 0)
             throw illegalParameterValue
             ("number of vertices must be >= 0");
         n = numberOfVertices;
         e = 0;
-        aList = new graphChain<wEdge<T> >[n + 1];
+        aList = new graphArray<wEdge<T> >[n + 1];
     }
 
-    ~linkedWDigraph() { delete[] aList; }
+    ~arrayWDigraph() { delete[] aList; }
 
     int numberOfVertices() const { return n; }
 
@@ -146,9 +146,10 @@ public:
     class myIterator : public vertexIterator<int>
     {
     public:
-        myIterator(chainNode<wEdge<T> >* theNode)
+        myIterator(graphArray<wEdge<T> >& currentVertex)
         {
-            currentNode = theNode;
+            c = currentVertex.begin();
+            e = currentVertex.end();
         }
 
         ~myIterator() {}
@@ -156,10 +157,10 @@ public:
         int next()
         {// Return next vertex if any. Return 0 if no next vertex.
            // find next adjacent vertex
-            if (currentNode == nullptr)
+            if (c == e)
                 return 0;
-            int nextVertex = currentNode->element.vertex;
-            currentNode = currentNode->next;
+            int nextVertex = c->vertex;
+            ++c;
             return nextVertex;
         }
 
@@ -167,22 +168,22 @@ public:
         {// Return next vertex if any. Return 0 if no next vertex.
          // Set theWeight = edge weight.
            // find next adjacent vertex
-            if (currentNode == nullptr)
+            if (c == e)
                 return 0;
-            int nextVertex = currentNode->element.vertex;
-            theWeight = currentNode->element.weight;
-            currentNode = currentNode->next;
+            int nextVertex = c->vertex;
+            theWeight = c->weight;
+            ++c;
             return nextVertex;
         }
 
     protected:
-        chainNode<wEdge<T> >* currentNode;
+        typename graphArray<wEdge<T>>::iterator c, e;      // typename is used to tell the compiler that iterator is a type, otherwise compiler will prompt that the dependent name is not a type.
     };
 
     myIterator* iterator(int theVertex)
     {// Return iterator for vertex theVertex.
         checkVertex(theVertex);
-        return new myIterator(aList[theVertex].firstNode);
+        return new myIterator(aList[theVertex]);
     }
 
 
@@ -196,7 +197,7 @@ public:
     {
         in >> n >> e;
         delete[] aList;
-        aList = new graphChain<wEdge<T> >[n + 1];
+        aList = new graphArray<wEdge<T> >[n + 1];
 
         for (int i = 0; i < e; i++)
         {
@@ -218,18 +219,20 @@ public:
             }
         }
     }
+
 };
 
 // overload <<
 template <class T>
-std::ostream& operator<<(std::ostream& out, const linkedWDigraph<T>& x)
+std::ostream& operator<<(std::ostream& out, const arrayWDigraph<T>& x)
 {
     x.output(out); return out;
 }
 // overload >>
 template<typename T>
-std::istream& operator>>(std::istream& in, linkedWDigraph<T>& x)
+std::istream& operator>>(std::istream& in, arrayWDigraph<T>& x)
 {
     x.input(in); return in;
 }
+
 #endif

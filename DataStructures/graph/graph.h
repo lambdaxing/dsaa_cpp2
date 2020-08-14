@@ -26,6 +26,7 @@ public:
     virtual bool weighted() const = 0;
     virtual vertexIterator<T>* iterator(int) = 0;
     virtual void output(std::ostream&) const = 0;
+    virtual void input(std::istream&) = 0;
 
     // implementation independent methods
     virtual void bfs(int v, int reach[], int label)
@@ -54,4 +55,5 @@ public:
         }
     }
 };
+
 #endif // !GRAPH_

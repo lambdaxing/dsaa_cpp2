@@ -163,6 +163,32 @@ public:
             out << aList[i] << std::endl;
     }
 
+    void input(std::istream& in)
+    {
+        in >> n >> e;
+        delete[] aList;
+        aList = new graphChain<int>[n + 1];
+
+        for (int i = 0; i < e; i++)
+        {
+            int v1, v2;
+            in >> v1 >> v2;
+            
+            if (v1 < 1 || v2 < 1 || v1 > n || v2 > n || v1 == v2)
+            {
+                std::ostringstream s;
+                s << "(" << v1 << "," << v2
+                    << ") is not a permissible edge";
+                throw illegalParameterValue(s.str());
+            }
+
+            if (aList[v1].indexOf(v2) == -1)
+            {// new edge
+                aList[v1].insert(0, v2);
+            }
+        }
+    }
+
     void bfs(int v, int reach[], int label)
     {// Breadth-first search. reach[i] is set to label for
      // all vertices reachable from vertex v.
@@ -177,7 +203,7 @@ public:
 
             // mark all unreached vertices adjacent from w
             for (chainNode<int>* u = aList[w].firstNode;
-                u != NULL; u = u->next)
+                u != nullptr; u = u->next)
                 // visit an adjacent vertex of w
                 if (reach[u->element] == 0)
                 {// u->element is an unreached vertex
@@ -186,11 +212,17 @@ public:
                 }
         }
     }
+
 };
 
 // overload <<
 std::ostream& operator<<(std::ostream& out, const linkedDigraph& x)
 {
     x.output(out); return out;
+}
+// overload >>
+std::istream& operator>>(std::istream& in, linkedDigraph& x)
+{
+    x.input(in); return in;
 }
 #endif

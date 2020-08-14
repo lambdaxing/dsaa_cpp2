@@ -16,7 +16,7 @@ public:
      // there, update its weight to theEdge.weight().
         int v1 = theEdge->vertex1();
         int v2 = theEdge->vertex2();
-        if (v1 < 1 || v2 < 1 || v1 > n || v2 > n || v1 == v2)
+        if (v1 < 1 || v2 < 1 || v1 > this->n || v2 > this->n || v1 == v2)
         {
             std::ostringstream s;
             s << "(" << v1 << "," << v2
@@ -24,21 +24,21 @@ public:
             throw illegalParameterValue(s.str());
         }
 
-        if (a[v1][v2] == this->noEdge)  // new edge
-            e++;
-        a[v1][v2] = theEdge->weight();
-        a[v2][v1] = theEdge->weight();
+        if (this->a[v1][v2] == this->noEdge)  // new edge
+            this->e++;
+        this->a[v1][v2] = theEdge->weight();
+        this->a[v2][v1] = theEdge->weight();
     }
 
     bool directed() const { return false; }
 
     void eraseEdge(int i, int j)
     {// Delete the edge (i,j).
-        if (i >= 1 && j >= 1 && i <= n && j <= n && a[i][j] != this->noEdge)
+        if (i >= 1 && j >= 1 && i <= this->n && j <= this->n && this->a[i][j] != this->noEdge)
         {
-            a[i][j] = this->noEdge;
-            a[j][i] = this->noEdge;
-            e--;
+            this->a[i][j] = this->noEdge;
+            this->a[j][i] = this->noEdge;
+            this->e--;
         }
     }
 
@@ -48,8 +48,8 @@ public:
 
         // count out edges from vertex theVertex
         int sum = 0;
-        for (int j = 1; j <= n; j++)
-            if (a[theVertex][j] != noEdge)
+        for (int j = 1; j <= this->n; j++)
+            if (this->a[theVertex][j] != this->noEdge)
                 sum++;
 
         return sum;
@@ -64,5 +64,51 @@ public:
     {// Return in-degree of vertex theVertex.
         return degree(theVertex);
     }
+
+    void input(std::istream& in)
+    {
+        // destructor
+        delete2dArray(this->a, this->n + 1);
+
+        in >> this->n >> this->e;
+        make2dArray(this->a, this->n + 1, this->n + 1);
+        for (int i = 1; i <= this->n; i++)
+            // initialize adjacency matrix
+            std::fill(this->a[i], this->a[i] + this->n + 1, this->noEdge);
+
+        // input e edges
+        for (int i = 0; i < this->e; ++i)
+        {
+            int v1, v2;
+            T w;
+            in >> v1 >> v2 >> w;
+
+            if (v1 < 1 || v2 < 1 || v1 > this->n || v2 > this->n || v1 == v2)
+            {
+                std::ostringstream s;
+                s << "(" << v1 << "," << v2
+                    << ") is not a permissible edge";
+                throw illegalParameterValue(s.str());
+            }
+
+            this->a[v1][v2] = w;
+            this->a[v2][v1] = w;
+        }
+    }
+
 };
+
+// overload <<
+template<typename T>
+std::ostream& operator<<(std::ostream& out, const adjacencyWGraph<T>& x)
+{
+    x.output(out); return out;
+}
+
+// overload >>
+template<typename T>
+std::istream& operator>>(std::istream& in, adjacencyWGraph<T>& x)
+{
+    x.input(in); return in;
+}
 #endif

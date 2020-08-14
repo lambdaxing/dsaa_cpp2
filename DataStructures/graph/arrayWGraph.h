@@ -1,29 +1,29 @@
-// linked adjacency list representation of a weighted graph
+// array adjacency list representation of a weighted graph
 
-#ifndef linkedWGraph_
-#define linkedWGraph_
+#ifndef ARRAY_W_GRAPH_
+#define ARRAY_W_GRAPH_
 
 #include <iostream>
 #include <sstream>
-#include "linkedWDigraph.h"
+#include "arrayWDigraph.h"
 #include "weightedEdge.h"
 
 template <class T>
-class linkedWGraph : public linkedWDigraph<T>
+class arrayWGraph : public arrayWDigraph<T>
 {
 public:
-    linkedWGraph(int numberOfVertices = 0)
-        : linkedWDigraph<T>(numberOfVertices) {}
+    arrayWGraph(int numberOfVertices = 0)
+        : arrayWDigraph<T>(numberOfVertices) {}
 
     bool directed() const { return false; }
 
     void insertEdge(edge<T>* theEdge)
     {// Insert an edge.
         int oldE = this->e;
-        linkedWDigraph<T>::insertEdge(theEdge);     // add (i,j)
+        arrayWDigraph<T>::insertEdge(theEdge);     // add (i,j)
         if (this->e > oldE)
         {// new edge
-            linkedWDigraph<T>::insertEdgeNoCheck(new weightedEdge<T>
+            arrayWDigraph<T>::insertEdgeNoCheck(new weightedEdge<T>
                 (theEdge->vertex2(),
                     theEdge->vertex1(),
                     theEdge->weight()));            // add (j,i)
@@ -33,8 +33,8 @@ public:
 
     void insertEdgeNoCheck(edge<T>* theEdge)
     {// Insert an edge. No validation checks performed.
-        linkedWDigraph<T>::insertEdgeNoCheck(theEdge);  // add (i,j)
-        linkedWDigraph<T>::insertEdgeNoCheck(new weightedEdge<T>
+        arrayWDigraph<T>::insertEdgeNoCheck(theEdge);  // add (i,j)
+        arrayWDigraph<T>::insertEdgeNoCheck(new weightedEdge<T>
             (theEdge->vertex2(),
                 theEdge->vertex1(),
                 theEdge->weight()));                    // add (j,i)
@@ -44,10 +44,10 @@ public:
     void eraseEdge(int i, int j)
     {
         int oldE = this->e;
-        linkedWDigraph<T>::eraseEdge(i, j);
+        arrayWDigraph<T>::eraseEdge(i, j);
         if (oldE > this->e) // edge exists
         {
-            linkedWDigraph<T>::eraseEdge(j, i);
+            arrayWDigraph<T>::eraseEdge(j, i);
             this->e++;
         }
     }
@@ -66,7 +66,7 @@ public:
     {
         in >> this->n >> this->e;
         delete[] this->aList;
-        this->aList = new graphChain<wEdge<T> >[this->n + 1];
+        this->aList = new graphArray<wEdge<T> >[this->n + 1];
 
         for (int i = 0; i < this->e; i++)
         {
@@ -96,13 +96,13 @@ public:
 
 // overload <<
 template <class T>
-std::ostream& operator<<(std::ostream& out, const linkedWGraph<T>& x)
+std::ostream& operator<<(std::ostream& out, const arrayWGraph<T>& x)
 {
     x.output(out); return out;
 }
 // overload >>
 template<typename T>
-std::istream& operator>>(std::istream& in, linkedWGraph<T>& x)
+std::istream& operator>>(std::istream& in, arrayWGraph<T>& x)
 {
     x.input(in); return in;
 }
