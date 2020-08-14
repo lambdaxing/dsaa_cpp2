@@ -28,6 +28,7 @@ public:
     virtual void output(std::ostream&) const = 0;
     virtual void input(std::istream&) = 0;
 
+
     // implementation independent methods
     virtual void bfs(int v, int reach[], int label)
     {// Breadth-first search. reach[i] is set to label for
@@ -53,6 +54,30 @@ public:
                 }
             delete iw;
         }
+    }
+
+    void dfs(int v, int reach[], int label)
+    {// Depth-first search. reach[i] is set to label for all
+     // vertices reachable from vertex v
+        graph<T>::reach = reach;
+        graph<T>::label = label;
+        rDfs(v);
+    }
+
+protected:
+    static int* reach;
+    static int label;
+ 
+    void rDfs(int v)
+    {// Recursive dfs method.
+        reach[v] = label;
+        vertexIterator<T>* iv = iterator(v);
+        int u;
+        while ((u = iv->next()) != 0)
+            // visit an adjacent vertex of v
+            if (reach[u] == 0)
+                rDfs(u);  // u is an unreached vertex
+        delete iv;
     }
 };
 

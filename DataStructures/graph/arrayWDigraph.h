@@ -220,6 +220,44 @@ public:
         }
     }
 
+    void bfs(int v, int reach[], int label)
+    {
+        std::queue<int> q;
+        reach[v] = label;
+        q.push(v);
+
+        while (!q.empty())
+        {
+            int w = q.front();
+            q.pop();
+
+            for (auto u = aList[w].begin(); u != aList[w].end(); ++u)
+            {
+                if (reach[u->vertex] == 0)
+                {
+                    q.push(u->vertex);
+                    reach[u->vertex] = label;
+                }
+            }
+        }
+    }
+
+    void dfs(int v, int reach[], int label)
+    {// Depth-first search. reach[i] is set to label for all
+     // vertices reachable from vertex v
+        graph<T>::reach = reach;
+        graph<T>::label = label;
+        rDfs(v);
+    }
+
+protected:
+    void rDfs(int v)
+    {
+        graph<T>::reach[v] = graph<T>::label;
+        for (auto u = aList[v].begin(); u != aList[v].end(); ++u)
+            if (graph<T>::reach[u->vertex] == 0)
+                rDfs(u->vertex);
+    }
 };
 
 // overload <<

@@ -213,6 +213,23 @@ public:
         }
     }
 
+    void dfs(int v, int reach[], int label)
+    {// Depth-first search. reach[i] is set to label for all
+     // vertices reachable from vertex v
+        graph<bool>::reach = reach;
+        graph<bool>::label = label;
+        rDfs(v);
+    }
+
+protected:
+    void rDfs(int v)
+    {
+        graph<bool>::reach[v] = graph<bool>::label;
+        for (auto u = aList[v].begin(); u != aList[v].end(); ++u)
+            if (graph<bool>::reach[*u] == 0)
+                rDfs(*u);
+    }
+
 };
 
 // overload <<

@@ -198,29 +198,6 @@ public:
         }
     }
 
-    void bfs(int v, int reach[], int label)
-    {// Breadth-first search. reach[i] is set to label for
-     // all vertices reachable from vertex v.
-        std::queue<int> q;
-        reach[v] = label;
-        q.push(v);
-        while (!q.empty())
-        {
-            // remove a labeled vertex from the queue
-            int w = q.front();
-            q.pop();
-
-            // mark all unreached vertices adjacent from w
-            for (int u = 1; u <= n; u++)
-                // visit an adjacent vertex of w
-                if (a[w][u] != noEdge && reach[u] == 0)
-                {// u is an unreached vertex
-                    q.push(u);
-                    reach[u] = label; // mark reached
-                }
-        }
-    }
-
     void input(std::istream& in)
     {
         // destructor
@@ -250,6 +227,47 @@ public:
             a[v1][v2] = w;
         }
     }
+
+    void bfs(int v, int reach[], int label)
+    {// Breadth-first search. reach[i] is set to label for
+     // all vertices reachable from vertex v.
+        std::queue<int> q;
+        reach[v] = label;
+        q.push(v);
+        while (!q.empty())
+        {
+            // remove a labeled vertex from the queue
+            int w = q.front();
+            q.pop();
+
+            // mark all unreached vertices adjacent from w
+            for (int u = 1; u <= n; u++)
+                // visit an adjacent vertex of w
+                if (a[w][u] != noEdge && reach[u] == 0)
+                {// u is an unreached vertex
+                    q.push(u);
+                    reach[u] = label; // mark reached
+                }
+        }
+    }
+
+    void dfs(int v, int reach[], int label)
+    {// Depth-first search. reach[i] is set to label for all
+     // vertices reachable from vertex v
+        graph<T>::reach = reach;
+        graph<T>::label = label;
+        rDfs(v);
+    }
+
+protected:
+    void rDfs(int v)
+    {
+        graph<T>::reach[v] = graph<T>::label;
+        for (int u = 1; u <= n; u++)
+            if (a[v][u] != noEdge && graph<T>::reach[u] == 0)
+                rDfs(u);
+    }
+
 };
 
 // overload <<

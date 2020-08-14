@@ -218,6 +218,48 @@ public:
             }
         }
     }
+
+    void bfs(int v, int reach[], int label)
+    {// Breadth-first search. reach[i] is set to label for
+     // all vertices reachable from vertex v.
+        std::queue<int> q;
+        reach[v] = label;
+        q.push(v);
+        while (!q.empty())
+        {
+            // remove a labeled vertex from the queue
+            int w = q.front();
+            q.pop();
+
+            // mark all unreached vertices adjacent from w
+            for (chainNode<wEdge<T> >* u = aList[w].firstNode;
+                u != nullptr; u = u->next)
+                // visit an adjacent vertex of w
+                if (reach[u->element.vertex] == 0)
+                {// u->element is an unreached vertex
+                    q.push(u->element.vertex);
+                    reach[u->element.vertex] = label; // mark reached
+                }
+        }
+    }
+
+    void dfs(int v, int reach[], int label)
+    {// Depth-first search. reach[i] is set to label for all
+     // vertices reachable from vertex v
+        graph<T>::reach = reach;
+        graph<T>::label = label;
+        rDfs(v);
+    }
+
+protected:
+    void rDfs(int v)
+    {
+        graph<T>::reach[v] = graph<T>::label;
+        for (auto u = aList[v].begin(); u != aList[v].end(); ++u)
+            if (graph<T>::reach[u->vertex] == 0)
+                rDfs(u->vertex);
+    }
+
 };
 
 // overload <<
