@@ -12,7 +12,7 @@ auto mismatch(const T1* b, const T1* e, const T2* b2)
 	}
 	return { b,b2 };
 }
-
+ 
 int ex1_44()
 {
 	int n[5]{ 1,2,3,4,5 };

@@ -1,4 +1,7 @@
-#pragma once
+// some algorithms about subset generation
+
+#ifndef ALGORITHMS_SUBSET_GENERATION_
+#define ALGORITHMS_SUBSET_GENERATION_
 
 #include <iostream>
 #include <algorithm>
@@ -11,7 +14,7 @@
 template<typename T>
 void rSubsets(T x[], T subX[], size_t i, size_t n);
 
-template <typename T,size_t N>
+template <typename T, size_t N>
 void allSubsets(T(&x)[N])
 {
     T* subX = new T[N];
@@ -43,14 +46,10 @@ void rSubsets(T x[], T subX[], size_t i, size_t n)
     rSubsets(x, subX, i + 1, n);
 
     // put element i into subset
-    subX[i] = x[i] ;
+    subX[i] = x[i];
     // generate all subsets with i included
     rSubsets(x, subX, i + 1, n);
 }
 
 
-void testEx1_25()
-{
-    char a[3]{ 'a','b','c' };
-    allSubsets(a);
-}
+#endif // !ALGORITHMS_SUBSET_GENERATION_

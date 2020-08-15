@@ -1,11 +1,15 @@
 #pragma once
+#include <iostream>
+#include <algorithm>
+#include <iterator>
 
 template<typename T>
 void permutations(T list[], int k, int m)
 {
+	using std::swap;
 	if (k == m) {
-		copy(list, list + m + 1, ostream_iterator<T>(cout, ""));
-		cout << endl;
+		std::copy(list, list + m + 1, std::ostream_iterator<T>(cout, ""));
+		std::cout << std::endl;
 	}
 	else {
 		for (int i = k; i <= m; ++i)

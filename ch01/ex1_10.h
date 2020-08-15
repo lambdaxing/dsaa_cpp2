@@ -6,9 +6,9 @@
 int abc1_10(int a, int b, int c)
 {
 	if (a < 0 && b < 0 && c < 0)
-		throw std::runtime_error("1");
+		throw 1;
 	if (a == 0 && b == 0 && c == 0)
-		throw std::runtime_error("2");
+		throw 2;
 
 	return a + b * c;
 }
@@ -19,10 +19,10 @@ int ex1_10()
 	a = b = c = 0;
 
 	try { abc1_10(a, b, c); }
-	catch (std::runtime_error e)
+	catch (int e)
 	{
-		std::cout << e.what();
-		return std::stoi(e.what());
+		std::cout << e;
+		return e;
 	}
 	return 0;
 }

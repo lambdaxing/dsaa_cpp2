@@ -8,7 +8,7 @@ using namespace std;
 template<typename T>
 void permutations(T list[], int k, int m)
 {
-	while (next_permutation(list, list + m + 1));
+	while (prev_permutation(list, list + m + 1));
 	do {
 		copy(list, list + m + 1, ostream_iterator<T>(cout, ""));
 		cout << endl;
