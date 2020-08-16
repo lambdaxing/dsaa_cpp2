@@ -1,4 +1,5 @@
 // some algorithms about subset generation
+// Outputs all subsets of a given set
 
 #ifndef ALGORITHMS_SUBSET_GENERATION_
 #define ALGORITHMS_SUBSET_GENERATION_

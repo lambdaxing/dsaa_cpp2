@@ -14,4 +14,18 @@
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="permutations.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="gcd.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="subsetGeneration.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="poly.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
 </Project>
