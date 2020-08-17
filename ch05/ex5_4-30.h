@@ -16,19 +16,8 @@
 #include "myExceptions.h"
 #include "changeLength1D.h"
 
-template<typename T> class arrayList;
 template<typename T>
-std::ostream& operator<<(std::ostream& out, const arrayList<T>& x);
-template<typename T>
-bool operator ==(const arrayList<T>& lhs, const arrayList<T>& rhs);
-template<typename T>
-bool operator !=(const arrayList<T>& lhs, const arrayList<T>& rhs);
-template<typename T>
-bool operator  <(const arrayList<T>& lhs, const arrayList<T>& rhs);
-
-template<typename T>
-class arrayList :
-	public linearList<T>
+class arrayList :public linearList<T>
 {
 	// ex5_8_9_10
 	friend bool operator ==<T>(const arrayList<T>& lhs, const arrayList<T>& rhs);
@@ -37,6 +26,7 @@ class arrayList :
 public:
 	// ex5_4
 	arrayList(int initialCapacity = 10, int multiple = 2);
+
 	arrayList(const arrayList<T>&);
 	~arrayList() { delete[] element; }
 
@@ -348,7 +338,7 @@ void arrayList<T>::circularShift(int i)
 	reverse();
 }
 
-// ex2_25
+// ex5_25
 template<typename T>
 void arrayList<T>::half()
 {
@@ -363,7 +353,7 @@ void arrayList<T>::half()
 
 }
 
-// ex2_26
+// ex5_26
 template<typename T>
 void half(arrayList<T>& theList)
 {// Remove all odd indexed elements.
@@ -378,7 +368,7 @@ void half(arrayList<T>& theList)
 		theList.pop_back();
 }
 
-// ex2_28
+// ex5_28
 template<typename T>
 void arrayList<T>::meld(const arrayList& a, const arrayList& b)
 {
@@ -394,7 +384,7 @@ void arrayList<T>::meld(const arrayList& a, const arrayList& b)
 	listSize = size;		
 }
 
-// ex2_29
+// ex5_29
 template<typename T>
 void arrayList<T>::merge(const arrayList& a, const arrayList& b)
 {

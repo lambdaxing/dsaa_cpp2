@@ -1,11 +1,6 @@
-#include "ex5_37-40.h"
+#include "ex5_41-43.h"
 
 int main()
 {
-	return test();
+	testMArrayList();
 }
-
-/**
- * 
- *
- */

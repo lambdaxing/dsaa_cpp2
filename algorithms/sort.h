@@ -107,7 +107,7 @@ void insert(T a[], int n, const T& x)
     a[i + 1] = x;
 }
 template<class T>
-void insertionSort(T a[], int n)
+void insertionSort2(T a[], int n)
 {// Sort a[0:n-1] using the insertion sort method.
     for (int i = 1; i < n; i++)
     {

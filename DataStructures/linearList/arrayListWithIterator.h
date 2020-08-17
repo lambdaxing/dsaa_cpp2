@@ -17,24 +17,24 @@
 #include "changeLength1D.h"
 
 template<typename T>
-class arrayList :
-	public linearList<T>
+class arrayList :public linearList<T>
 {
 public:
+	// constructor, copy constructor and destructor
 	arrayList(int initialCapacity = 10);
 	arrayList(const arrayList<T>&);
 	~arrayList() { delete[] element; }
 
-	// ADT
-	bool empty() const override { return listSize == 0; }
-	int size() const override { return listSize; }
-	T& get(int theIndex) const override;
-	int indexOf(const T& theElement) const override;
-	void erase(int theIndex) override;
-	void insert(int theIndex, const T& theElement) override;
-	void output(std::ostream& out) const override;
+	// ADT methods
+	bool empty() const { return listSize == 0; }
+	int size() const { return listSize; }
+	T& get(int theIndex) const;
+	int indexOf(const T& theElement) const;
+	void erase(int theIndex);
+	void insert(int theIndex, const T& theElement);
+	void output(std::ostream& out) const;
 
-	// other
+	// additional method
 	int capacity() const { return arrayLength; }
 
 	// iterators to start and end of list
@@ -54,30 +54,34 @@ public:
 		typedef T& reference;
 
 		// constructor
-		iterator(T* thePosition = 0) { position = thePosition; }
+		iterator(T* thePosition = nullptr) { position = thePosition; }
 
 		// dereferencing operator
 		T& operator* () const { return *position; }
 		T* operator->() const { return &*position; }
 
-		iterator& operator++() { ++position; return *this; }
-		iterator operator++(int)
+		// increment
+		iterator& operator++() { ++position; return *this; }	// preincrement
+		iterator operator++(int)								// postincrement
 		{
 			iterator old = *this;
 			++position;
 			return old;
 		}
-		iterator& operator--() { --position; return *this; }
-		iterator operator--(int)
+		// decrement
+		iterator& operator--() { --position; return *this; }	// predecrement
+		iterator operator--(int)								// postdecrement
 		{
 			iterator old = *this;
 			--position;
 			return old;
 		}
 
+		// equality testing
 		bool operator!=(const iterator& rhs) const { return position != rhs.position; }
 		bool operator==(const iterator& rhs) const { return position == rhs.position; }
 
+		// others
 		iterator& operator+=(std::size_t rhs) { position += rhs; return *this; }
 		iterator& operator-=(std::size_t rhs) { position -= rhs; return *this; }
 		T& operator[](std::size_t i) { return position[i]; }
@@ -102,20 +106,19 @@ public:
 		difference_type operator- (const iterator& rhs) const { return position - rhs.position; }
 	protected:
 		T* position;
-	};
-protected:
+	};// end of iterator class
+
+protected:	// additional members of arrayList
 	void checkIndex(int theIndex) const;
-	T* element;
-	int arrayLength;
-	int listSize;
+	// throw illegalIndex if theIndex invalid
+	T* element;            // 1D array to hold list elements
+	int arrayLength;       // capacity of the 1D array
+	int listSize;          // number of elements in list
 };
 
 template<typename T>
-std::ostream& operator<<(std::ostream& out, const arrayList<T>& x);
-
-template<typename T>
 arrayList<T>::arrayList(int initialCapacity /* = 10 */)
-{
+{// Constructor.
 	if (initialCapacity < 1) {
 		std::ostringstream s;
 		s << "Initial capacity = " << initialCapacity << " Must be > 0";
@@ -126,10 +129,9 @@ arrayList<T>::arrayList(int initialCapacity /* = 10 */)
 	listSize = 0;
 }
 
-// copy constructor
 template<typename T>
 arrayList<T>::arrayList(const arrayList<T>& theList)
-{
+{// Copy constructor.
 	arrayLength = theList.arrayLength;
 	listSize = theList.listSize;
 	element = new T[arrayLength];
@@ -138,7 +140,7 @@ arrayList<T>::arrayList(const arrayList<T>& theList)
 
 template<typename T>
 void arrayList<T>::checkIndex(int theIndex) const
-{
+{// Verify that theIndex is between 0 and listSize - 1.
 	if (theIndex < 0 || theIndex >= listSize) {
 		std::ostringstream s;
 		s << "index = " << theIndex << " size = " << listSize;
@@ -148,27 +150,34 @@ void arrayList<T>::checkIndex(int theIndex) const
 
 template<typename T>
 T& arrayList<T>::get(int theIndex) const
-{
+{// Return element whose index is theIndex.
+ // Throw illegalIndex exception if no such element.
 	checkIndex(theIndex);
 	return element[theIndex];
 }
 
 template<typename T>
 int arrayList<T>::indexOf(const T& theElement) const
-{
+{// Return index of first occurrence of theElement.
+ // Return -1 if theElement not in list.
+
+   // search for theElement
 	int theIndex = static_cast<int>(std::find(element, element + listSize, theElement) - element);
 
-	if (theIndex == listSize)	// not found
-		return -1;
+	// check if theElement was found
+	if (theIndex == listSize)
+		return -1;		// not found
 	else
 		return theIndex;
 }
 
 template<typename T>
 void arrayList<T>::erase(int theIndex)
-{
+{// Delete the element whose index is theIndex.
+ // Throw illegalIndex exception if no such element.
 	checkIndex(theIndex);
 
+	// valid index, shift elements with higher index
 	std::copy(element + theIndex + 1, element + listSize, element + theIndex);
 
 	element[--listSize].~T();	// invoke destructor
@@ -181,32 +190,36 @@ void arrayList<T>::erase(int theIndex)
 
 template<typename T>
 void arrayList<T>::insert(int theIndex, const T& theElement)
-{
-	if (theIndex < 0 || theIndex > listSize) {
+{// Insert theElement so that its index is theIndex.
+	if (theIndex < 0 || theIndex > listSize) 
+	{// invalid index
 		std::ostringstream s;
 		s << "index = " << theIndex << " size = " << listSize;
 		throw illegalIndex(s.str());
 	}
 
-	// increase array length
-	if (listSize == arrayLength) {
+	// valid index, make sure we have space
+	if (listSize == arrayLength) 
+	{// no space, double capacity
 		changeLength1D(element, arrayLength, 2 * arrayLength);
 		arrayLength *= 2;
 	}
 
-	// move the elements on the right of theIndex one place to the right as a whole
+	// shift elements right one position
 	std::copy_backward(element + theIndex, element + listSize, element + listSize + 1);
 
-	element[theIndex] = theElement;		// insert
+	element[theIndex] = theElement;
+
 	++listSize;
 }
 
 template<typename T>
 void arrayList<T>::output(std::ostream& out) const
-{
+{// Put the list into the stream out.
 	std::copy(element, element + listSize, std::ostream_iterator<T>(out, " "));
 }
 
+// overload <<
 template<typename T>
 std::ostream& operator<<(std::ostream& out, const arrayList<T>& x)
 {

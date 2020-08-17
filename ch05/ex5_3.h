@@ -46,5 +46,10 @@ int ex5_3()
 			std::cout << p[i][j] << " ";
 		std::cout << std::endl;
 	}
+
+	// destructor
+	for (int i = 0; i < 5; ++i) delete[] p[i];
+	delete[] p;
+
 	return 0;
 }
