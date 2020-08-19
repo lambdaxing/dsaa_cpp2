@@ -141,7 +141,11 @@
     <ClInclude Include="gcd.h" />
     <ClInclude Include="permutations.h" />
     <ClInclude Include="poly.h" />
+    <ClInclude Include="search.h" />
+    <ClInclude Include="sort.h" />
     <ClInclude Include="subsetGeneration.h" />
+    <ClInclude Include="testSort.h" />
+    <ClInclude Include="unionFindWithArrays.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

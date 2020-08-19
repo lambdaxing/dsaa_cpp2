@@ -14,16 +14,10 @@
 #include "chainNode.h"
 #include "myExceptions.h"
 #include "arrayList.h"
-class linkedDigraph;
-template <typename T> class linkedWDigraph;
 
 template<class T>
 class chain : public linearList<T>
 {
-	friend linkedDigraph;
-	friend linkedWDigraph<int>;
-	friend linkedWDigraph<float>;
-	friend linkedWDigraph<double>;
 public:
 	// constructor, copy constructor and destructor
 	chain(int initialCapacity = 10);

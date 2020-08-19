@@ -1,4 +1,4 @@
-//
+// circular doubly linked list with header node
 
 #ifndef DOUBLE_CIRCULAR_WITH_HEADER
 #define DOUBLE_CIRCULAR_WITH_HEADER
@@ -11,7 +11,6 @@
 #include "doubleChainNode.h"
 #include "myExceptions.h"
 #include "extendedLinearList.h"
-
 
 template<typename T>
 class doubleCircularWithHeader : public extendedLinearList<T>

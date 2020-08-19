@@ -13,7 +13,7 @@
 #include "extendedLinearList.h"
 
 template<class T>
-class circularListWithHeader : public move<T>
+class circularListWithHeader : public extendedLinearList<T>
 {
 public:
 	// constructor

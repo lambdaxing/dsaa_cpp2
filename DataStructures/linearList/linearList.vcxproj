@@ -160,6 +160,7 @@
     <ClInclude Include="testChain.h" />
     <ClInclude Include="testChainWithIterator.h" />
     <ClInclude Include="testExtendedChain.h" />
+    <ClInclude Include="testRadixSort.h" />
     <ClInclude Include="vectorList.h" />
   </ItemGroup>
   <ItemGroup>

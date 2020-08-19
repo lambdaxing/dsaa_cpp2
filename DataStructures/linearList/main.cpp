@@ -1,6 +1,6 @@
-#include "testExtendedChain.h"
+#include "testRadixSort.h"
 
 int main()
 {
-	testExtendedChain();
+	testRadixSort();
 }

@@ -37,7 +37,7 @@ private:
 
 	int m,arrayLength, alSize;		// m is the number of lists and the range of i is 1~m
 	// arrayLength is capacity of the 1D array
-	// alSize is number of elements in all lists
+	// alSize is number of alredy used in 1D array 
 };
 
 template<typename T>
@@ -128,6 +128,7 @@ void mArrayList<T>::erase(int i, int theIndex)
 	element[last[i]--].~T();	// invoke destructor
 }
 
+// 插入算法很多地方还可以优化，例如在扩容时根据每个链表的大小重新进行区域划分或依据最大链表大小的倍数进行扩容，这儿只是完成了功能，时间复杂度并不理想。
 template<typename T>
 void mArrayList<T>::insert(int i, int theIndex, const T& theElement)
 {

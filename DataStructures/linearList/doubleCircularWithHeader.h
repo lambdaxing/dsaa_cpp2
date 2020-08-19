@@ -12,7 +12,6 @@
 #include "myExceptions.h"
 #include "extendedLinearList.h"
 
-
 template<typename T>
 class doubleCircularWithHeader : public extendedLinearList<T>
 {

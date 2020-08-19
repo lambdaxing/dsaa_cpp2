@@ -21,8 +21,7 @@ public:
 	// constructor and copy constructor
 	extendedChain(int initialCapacity = 10) :
 		chain<T>(initialCapacity) {}
-	extendedChain(const extendedChain<T>& c) :
-		chain<T>(c) {}
+	extendedChain(const extendedChain<T>& c);
 
 	// ADT methods
 	bool empty() const { return this->listSize == 0; }
@@ -60,10 +59,41 @@ public:
 	}
 
 protected:
-	chainNode<T>* lastNode;  // pointer to last node in chain
+	chainNode<T>* lastNode = nullptr;  // pointer to last node in chain
 };
 
+// The original directly inherits from Chain unhandled lastNode.
+template<typename T>
+extendedChain<T>::extendedChain(const extendedChain& theList)
+{
+	// Copy constructor.
+	this->listSize = theList.listSize;
 
+	if (this->listSize == 0)
+	{// theList is empty
+		this->firstNode = lastNode = nullptr;
+		return;
+	}
+
+	// non-empty list
+	chainNode<T>* sourceNode = theList.firstNode;
+	// node in theList to copy from
+	this->firstNode = new chainNode<T>(sourceNode->element);
+	// copy first element of theList
+	sourceNode = sourceNode->next;
+	chainNode<T>* targetNode = this->firstNode;
+	// current last node in *this
+	while (sourceNode != nullptr)
+	{// copy remaining elements
+		targetNode->next = new chainNode<T>(sourceNode->element);
+		targetNode = targetNode->next;
+		sourceNode = sourceNode->next;
+	}
+	targetNode->next = nullptr; // end the chain
+	lastNode = targetNode;
+}
+
+// I've made some changes to the original code in this book,because I think the original has a little bit of a problem.
 template<typename T>
 void extendedChain<T>::erase(int theIndex)
 {// Delete the element whose index is theIndex.
@@ -72,22 +102,26 @@ void extendedChain<T>::erase(int theIndex)
 
 	// valid index, locate node with element to delete
 	chainNode<T>* deleteNode;
+	// use p to get to predecessor of desired node
+	chainNode<T>* p = this->firstNode;
+
 	if (theIndex == 0)
 	{// remove first node from chain
 		deleteNode = this->firstNode;
 		this->firstNode = this->firstNode->next;
+		p = this->firstNode;
 	}
 	else
-	{  // use p to get to predecessor of desired node
-		chainNode<T>* p = this->firstNode;
+	{  
 		for (int i = 0; i < theIndex - 1; ++i)
 			p = p->next;
 
 		deleteNode = p->next;
 		p->next = p->next->next; // remove deleteNode from chain
-		if (deleteNode == lastNode)
-			lastNode = p;
 	}
+	if (deleteNode == lastNode)
+		lastNode = p;
+
 	--this->listSize;
 	delete deleteNode;
 }

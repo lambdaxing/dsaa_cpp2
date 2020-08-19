@@ -1,4 +1,4 @@
-//
+// circular doubly linked list without header node
 
 #ifndef DOUBLE_CIRCULAR_LIST
 #define DOUBLE_CIRCULAR_LIST
