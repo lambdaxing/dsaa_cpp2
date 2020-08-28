@@ -30,13 +30,13 @@
     <ClInclude Include="sort.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="testSort.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="search.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="unionFindWithArrays.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="unionFindWithChains.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

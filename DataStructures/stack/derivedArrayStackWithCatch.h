@@ -1,3 +1,8 @@
+// array stack derived from arrayList
+// derives from abstract class stack just to make sure
+// all methods of the ADT are implemented
+// catches exception thrown by base-class method and throws
+// own exception instead
 
 #ifndef derivedArrayStackWithCatch_
 #define derivedArrayStackWithCatch_

@@ -45,9 +45,6 @@
     <ClInclude Include="ex6_24_25.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="ex6_2-16_18_20_22_26_27.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="ex6_28.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -70,6 +67,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="ex6_55.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ex6_2-16_18_20_22_26_27_64_65.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

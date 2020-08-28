@@ -1,3 +1,6 @@
+// array stack derived from arrayList
+// derives from abstract class stack just to make sure
+// all methods of the ADT are implemented
 
 #ifndef derivedArrayStack_
 #define derivedArrayStack_
@@ -16,17 +19,17 @@ public:
 	{
 		if (arrayList<T>::empty())
 			throw stackEmpty();
-		return get(arrayList<T>::size() - 1);
+		return this->get(arrayList<T>::size() - 1);
 	}
 	void pop()
 	{
 		if (arrayList<T>::empty())
 			throw stackEmpty();
-		erase(arrayList<T>::size() - 1);
+		this->erase(arrayList<T>::size() - 1);
 	}
 	void push(const T& theElement)
 	{
-		insert(arrayList<T>::size(), theElement);
+		this->insert(arrayList<T>::size(), theElement);
 	}
 }; 
 

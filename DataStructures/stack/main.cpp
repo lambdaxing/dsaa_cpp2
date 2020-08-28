@@ -1,6 +1,6 @@
-#include "printMatchedPairs.h"
+#include "railroadWithStacks.h"
 
 int main()
 {
-	testPrintMatchedPairs();
+	testRailRoadWithStacks();
 }

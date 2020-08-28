@@ -1,3 +1,5 @@
+// linked implementation of a stack
+// derives from the ADT stack
 
 #ifndef linkedStack_
 #define linkedStack_
@@ -45,8 +47,8 @@ public:
 	void output(std::ostream& out) const;
 
 protected:
-	chainNode<T>* stackTop;
-	int stackSize;
+	chainNode<T>* stackTop;  // pointer to stack top
+	int stackSize;           // number of elements in stack
 };
 
 template<typename T>

@@ -155,7 +155,7 @@
     <ClInclude Include="extendedLinearList.h" />
     <ClInclude Include="linearList.h" />
     <ClInclude Include="myExceptions.h" />
-    <ClInclude Include="ex6_2-16_18_20_22_26_27.h" />
+    <ClInclude Include="ex6_2-16_18_20_22_26_27_64_65.h" />
     <ClInclude Include="moveLeftAndRightLinearList.h" />
   </ItemGroup>
   <ItemGroup>

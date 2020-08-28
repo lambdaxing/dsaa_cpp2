@@ -9,7 +9,7 @@
 #include "myExceptions.h"
 #include "chainNode.h"
 #include "moveLeftAndRightLinearList.h"
-#include "ex6_2-16_18_20_22_26_27.h"
+#include "ex6_2-16_18_20_22_26_27_64_65.h"
 
 template<typename T>
 class moveLeftAndRightOnChain : public moveLeftAndRightLinearList<T>, public chain<T>

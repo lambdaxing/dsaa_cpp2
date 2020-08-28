@@ -16,17 +16,17 @@ public:
 	{
 		if (chain<T>::empty())
 			throw stackEmpty();
-		return get(0);
+		return this->get(0);
 	}
 	void pop()
 	{
 		if (chain<T>::empty())
 			throw stackEmpty();
-		erase(0);
+		this->erase(0);
 	}
 	void push(const T& theElement)
 	{
-		insert(0, theElement);
+		this->insert(0, theElement);
 	}
 };
 

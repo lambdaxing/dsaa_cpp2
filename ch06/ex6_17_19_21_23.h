@@ -11,9 +11,8 @@
 #include <string>
 #include <algorithm>
 #include "extendedLinearList.h"
-#include "ex6_2-16_18_20_22_26_27.h"					// chain<T>
+#include "ex6_2-16_18_20_22_26_27_64_65.h"					// chain<T>
 #include "myExceptions.h"
-
 
 template<typename T>
 class extendedChain : public extendedLinearList<T>, public chain<T>

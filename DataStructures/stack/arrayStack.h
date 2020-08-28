@@ -1,3 +1,5 @@
+// array implementation of a stack
+// derives from the ADT stack
 
 #ifndef arrayStack_
 #define arrayStack_
@@ -14,23 +16,23 @@ class arrayStack :public stack<T>
 {
 public:
 	arrayStack(int initialCapacity = 10);
-	~arrayStack() { delete[] stacks; }
+	~arrayStack() { delete[] stack; }
 	bool empty() const { return stackTop == -1; }
 	int size() const { return stackTop + 1; }
 	T& top()
 	{
 		if (stackTop == -1)
 			throw stackEmpty();
-		return stacks[stackTop];
+		return stack[stackTop];
 	}
 	void pop()
 	{
 		if (stackTop == -1)
 			throw stackEmpty();
-		stacks[stackTop--].~T();
+		stack[stackTop--].~T();	 // destructor for T
 		if (stackTop + 1 < arrayLength / 4)
 		{
-			changeLength1D(stacks, arrayLength, arrayLength / 4);
+			changeLength1D(stack, arrayLength, arrayLength / 4);
 			arrayLength /= 4;
 		}
 	}
@@ -38,15 +40,15 @@ public:
 	void output(std::ostream& out) const;
 
 protected:
-	int stackTop;
-	int arrayLength;
-	T* stacks;
+	int stackTop;         // current top of stack
+	int arrayLength;      // stack capacity
+	T* stack;             // element array
 };
 
 template<typename T>
 void arrayStack<T>::output(std::ostream& out) const
 {
-	std::copy(stacks, stacks + stackTop + 1, std::ostream_iterator<T>(out, " "));
+	std::copy(stack, stack + stackTop + 1, std::ostream_iterator<T>(out, " "));
 }
 
 template<typename T>
@@ -59,20 +61,20 @@ arrayStack<T>::arrayStack(int initialCapacity)
 		throw illegalParameterValue(s.str());
 	}
 	arrayLength = initialCapacity;
-	stacks = new T[arrayLength];
+	stack = new T[arrayLength];
 	stackTop = -1;
 }
 
 template<typename T>
 void arrayStack<T>::push(const T& theElement)
-{
+{// Add theElement to stack.
 	if (stackTop == arrayLength - 1)
 	{
-		changeLength1D(stacks, arrayLength, 2 * arrayLength);
+		changeLength1D(stack, arrayLength, 2 * arrayLength);
 		arrayLength *= 2;
 	}
-
-	stacks[++stackTop] = theElement;
+	// add at stack top
+	stack[++stackTop] = theElement;
 }
 
 #endif

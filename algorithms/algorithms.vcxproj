@@ -144,8 +144,8 @@
     <ClInclude Include="search.h" />
     <ClInclude Include="sort.h" />
     <ClInclude Include="subsetGeneration.h" />
-    <ClInclude Include="testSort.h" />
     <ClInclude Include="unionFindWithArrays.h" />
+    <ClInclude Include="unionFindWithChains.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

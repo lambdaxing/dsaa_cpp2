@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -143,9 +143,11 @@
     <ClInclude Include="chain.h" />
     <ClInclude Include="chainNode.h" />
     <ClInclude Include="changeLength1D.h" />
+    <ClInclude Include="delete2dArray.h" />
     <ClInclude Include="derivedArrayStack.h" />
     <ClInclude Include="derivedArrayStackWithCatch.h" />
     <ClInclude Include="derivedLinkedStack.h" />
+    <ClInclude Include="equivalenceClasses.h" />
     <ClInclude Include="extendedArrayStack.h" />
     <ClInclude Include="extendedDerivedArrayStack.h" />
     <ClInclude Include="extendedLinkedStack.h" />
@@ -153,10 +155,15 @@
     <ClInclude Include="hanioUsingStacks.h" />
     <ClInclude Include="linearList.h" />
     <ClInclude Include="linkedStack.h" />
+    <ClInclude Include="make2dArray.h" />
+    <ClInclude Include="maze.h" />
     <ClInclude Include="myExceptions.h" />
+    <ClInclude Include="position.h" />
     <ClInclude Include="printMatchedPairs.h" />
+    <ClInclude Include="railroadWithStacks.h" />
     <ClInclude Include="stack.h" />
     <ClInclude Include="stackWithArrayList.h" />
+    <ClInclude Include="switchBox.h" />
     <ClInclude Include="test.h" />
     <ClInclude Include="towersOfHanoi.h" />
     <ClInclude Include="twoStacks.h" />

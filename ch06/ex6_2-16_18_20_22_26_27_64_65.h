@@ -87,6 +87,11 @@ public:
 	void rank(int*&);
 	void rankSort();
 
+	// ex6_64_65
+	void binSort(int range, int digit);		// overload for radixSort
+	void radixSort(int r, int d);			// r is cardinal number, d is digital number, integers between 0 and pow(r,c) - 1  
+	void radixSort();					// c is the digit number , sort n integers between 0 and pow(n,c) - 1, n is cardinal number in this method
+
 	// iterators to start and end of list
 	class iterator;
 	iterator begin() { return iterator(firstNode); }
@@ -892,6 +897,69 @@ void chain<T>::rankSort()
 			swap(rankArray[i], rankArray[t]);
 		}
 	delete[] rankArray;
+}
+
+// Theta(n+range)
+template <typename T>
+void chain<T>::binSort(int range, int digit)
+{// Sort the nodes in the chain. The sort key is value(theElement).
+   // create and initialize the bins
+	chainNode<T>** bottom, ** top;
+	bottom = new chainNode<T> * [range + 1];
+	top = new chainNode<T> * [range + 1];
+	for (int b = 0; b <= range; ++b)
+		bottom[b] = nullptr;
+
+	// distribute to bins
+	for (; firstNode != nullptr; firstNode = firstNode->next)
+	{
+		int theBin = (firstNode->element % static_cast<int>(pow(range, digit))) / static_cast<int>(pow(range, digit - 1));	 // calculate the "digit" digit of this element (from the lowest(1) to the highest(d))
+		if (bottom[theBin] == nullptr)		 // bin is empty
+			bottom[theBin] = top[theBin] = firstNode;
+		else
+		{// bin not empty
+			top[theBin]->next = firstNode;
+			top[theBin] = firstNode;
+		}
+	}
+
+	// collect from bins into sorted chain
+	chainNode<T>* y = nullptr;
+	for (int theBin = 0; theBin <= range; ++theBin)
+		if (bottom[theBin] != nullptr)
+		{// bin not empty
+			if (y == nullptr)	// first nonempty bin
+				firstNode = bottom[theBin];
+			else    // not first nonempty bin
+				y->next = bottom[theBin];
+			y = top[theBin];
+		}
+
+	if (y != nullptr)
+		y->next = nullptr;
+
+	delete[] bottom;
+	delete[] top;
+}
+
+template <typename T>
+void chain<T>::radixSort(int r, int d)
+{
+	for (int i = 1; i <= d; i++)
+		binSort(r, i);
+}
+
+template<typename T>
+void chain<T>::radixSort()
+{
+	int n = size();
+	int maxElement = getMaxToInt();					// pow(n,c) - 1 >= maxElement
+	int c = static_cast<int>(std::log(maxElement + 1) / std::log(n) + 1);	// "+ 1" for round up to an integer
+
+	int r = n;			// use n as the cardinal number
+	int d = c;			// the number of digits calculated from cardinal n is the degree of binSort
+	for (int i = 1; i <= d; i++)
+		binSort(r, i);
 }
 
 void testEx6_2()

@@ -2,5 +2,7 @@
 
 int main()
 {
-	testEx6_56();
+	char c;
+	while (std::cin >> c)
+		std::cout << c << " ";
 }
