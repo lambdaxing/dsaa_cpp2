@@ -147,10 +147,12 @@
     <ClInclude Include="arrayListWithIterator.h" />
     <ClInclude Include="arrayWDigraph.h" />
     <ClInclude Include="arrayWGraph.h" />
+    <ClInclude Include="binNode.h" />
     <ClInclude Include="chainNode.h" />
     <ClInclude Include="chainWithIterator.h" />
     <ClInclude Include="changeLength1D.h" />
     <ClInclude Include="delete2dArray.h" />
+    <ClInclude Include="fastUnionFind.h" />
     <ClInclude Include="graph.h" />
     <ClInclude Include="edge.h" />
     <ClInclude Include="graphArray.h" />
@@ -165,6 +167,7 @@
     <ClInclude Include="testAdjacency.h" />
     <ClInclude Include="testArray.h" />
     <ClInclude Include="testLinked.h" />
+    <ClInclude Include="unionFindNode.h" />
     <ClInclude Include="unWeightedEdge.h" />
     <ClInclude Include="vertexIterator.h" />
     <ClInclude Include="weightedEdge.h" />

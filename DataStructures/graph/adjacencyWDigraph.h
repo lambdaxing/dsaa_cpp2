@@ -259,6 +259,67 @@ public:
         rDfs(v);
     }
 
+    void shortestPaths(int sourceVertex, T* distanceFromSource, int* predecessor)
+    {// Find shortest paths from sourceVertex.
+     // Return shortest distances in distanceFromSource.
+     // Return predecessor information in predecessor.
+        if (sourceVertex < 1 || sourceVertex > n)
+            throw illegalParameterValue("Invalid source vertex");
+
+        if (!weighted())
+            throw undefinedMethod("adjacencyWDigraph::shortestPaths() not defined for unweighted graphs");
+
+        graphChain<int> newReachableWertices;
+
+        // initialize
+        for (int i = 1; i <= n; i++)
+        {
+            distanceFromSource[i] = a[sourceVertex][i];
+            if (distanceFromSource[i] == noEdge)
+                predecessor[i] = -1;
+            else
+            {
+                predecessor[i] = sourceVertex;
+                newReachableVertices.insert(0, i);
+            }
+        }
+        distanceFromSource[sourceVertex] = 0;
+        predecessor[sourceVertex] = 0;      // source vertex has no predecessor
+
+        // update distanceFromSource and predecessor
+        while(!newReachableVertices.empty())
+        {// more paths exist
+            // find unreached vertex v with least distanceFromSource
+            auto iNewReachableVertices = newReachableVertices.begin();
+            auto theEnd = newReachableVertices.end();
+            int v = *iNewReachableVertices;
+            iNewReachableVertices++;
+            while (iNewReachableVertices != theEnd)
+            {
+                int w = *iNewReachableVertices;
+                iNewReachableVertices++;
+                if (distanceFromSource[w] < distanceFromSource[v])
+                    v = w;
+            }
+
+            // next shortest path is to vertex v, delete v from newReachableVertices and update distanceFromSource
+            newReachableVertices.eraseElement(v);
+            for (int j = 1; j <= n; j++)
+            {
+                if (a[v][j] != noEdge && (predecessor[j] == -1 || distanceFromSource[j] > distanceFromSource[v] + a[v][j]))
+                {
+                    // distanceFromSource[j] decreases
+                    distanceFromSource[j] = distanceFromSource[v] + a[v][j];
+                    // add j to newReachableVertices
+                    if (predecessor[j] == -1)
+                        // not reached before
+                        newReachableVertices.insert(0, j);
+                    predecessor[j] = v;
+                }
+            }
+        }
+    }
+
 protected:
     void rDfs(int v)
     {

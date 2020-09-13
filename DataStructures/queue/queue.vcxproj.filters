@@ -30,5 +30,16 @@
     <ClInclude Include="chainNode.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="railroadWithQueues.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="railroadWIthNoQueues.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

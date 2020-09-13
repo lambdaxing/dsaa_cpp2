@@ -105,6 +105,15 @@
     <ClInclude Include="graphArray.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="binNode.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="fastUnionFind.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="unionFindNode.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">

@@ -139,8 +139,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="dictionary.h" />
-    <ClInclude Include="ex9_6.h" />
+    <ClInclude Include="ex10_8.h" />
+    <ClInclude Include="ex10_5_9.h" />
+    <ClInclude Include="ex10_6.h" />
+    <ClInclude Include="ex10_7.h" />
+    <ClInclude Include="myExceptions.h" />
     <ClInclude Include="pairNode.h" />
+    <ClInclude Include="skipNode.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,5 +1,5 @@
 // sorted array, implements dictionary
-// there is a question: std::pair<const K,E>::operator=(...,...) is be deleted. 
+// There is a question: std::pair<const K,E>::operator=(...,...) is be deleted. 
 // see: https://en.cppreference.com/w/cpp/utility/pair/operator%3D
 #ifndef sortedArrayList_
 #define sortedArrayList_
