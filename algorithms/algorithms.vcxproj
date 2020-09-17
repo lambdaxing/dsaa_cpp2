@@ -138,14 +138,33 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="closestPoints.h" />
+    <ClInclude Include="delete2dArray.h" />
     <ClInclude Include="gcd.h" />
+    <ClInclude Include="indexOfMax.h" />
+    <ClInclude Include="iterativeDPKnapsack.h" />
+    <ClInclude Include="iterativeDPMatrixChain.h" />
+    <ClInclude Include="make2dArrayNoCatch.h" />
+    <ClInclude Include="mergeSort.h" />
+    <ClInclude Include="minMax.h" />
+    <ClInclude Include="myExceptions.h" />
+    <ClInclude Include="noncrossingSubset.h" />
+    <ClInclude Include="noRecomputationDPKnapsack.h" />
+    <ClInclude Include="noRecomputationDPMatrixChain.h" />
     <ClInclude Include="permutations.h" />
     <ClInclude Include="poly.h" />
+    <ClInclude Include="recursiveDPKnapsack.h" />
+    <ClInclude Include="recursiveDPMatrixChain.h" />
     <ClInclude Include="search.h" />
+    <ClInclude Include="selectK.h" />
     <ClInclude Include="sort.h" />
     <ClInclude Include="subsetGeneration.h" />
+    <ClInclude Include="tileBoard.h" />
     <ClInclude Include="unionFindWithArrays.h" />
     <ClInclude Include="unionFindWithChains.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

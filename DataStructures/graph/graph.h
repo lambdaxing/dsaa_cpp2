@@ -12,6 +12,7 @@
 #include "weightedEdge.h"
 #include "binNode.h"
 #include "fastUnionFind.h"
+#include "arrayListWithIterator.h"
 #include <stack>
 
 template<typename T>
@@ -363,6 +364,78 @@ public:
 
         delete[] inSpanning;
         return (k == n - 1);
+    }
+
+    void bellmanFord(int s, T* d, int* p)
+    {// Bellman and Ford algorithm to find the shortest paths from vertex s.
+     // Graph may have edges with negative cost but should not have a
+     // cycle with negative cost.
+     // Shortest distances from s are returned in d.
+     // Predecessor info in returned p.
+        if (!weighted())
+            throw undefinedEdgeMethod("graph::bellmanFord() not defined for unweighted graphs");
+
+        int n = numberOfVertices();
+        if (s < 1 || s > n)
+            throw illegalParameterValue("illegal source vertex");
+
+        // define two lists for vertices whose d has changed
+        arrayList<int>* list1 = new arrayList<int>;
+        arrayList<int>* list2 = new arrayList<int>;
+
+        // define an array to record vertices that are in list2
+        bool* inList2 = new bool[n + 1];
+
+        // initialize p[1:n] = 0 and inList2[1:n] = false
+        std::fill(p + 1, p + n + 1, 0);
+        std::fill(inList2 + 1, inList2 + n + 1, false);
+
+        // set d[s] = d^0(s) = 0
+        d[s] = 0;
+        p[s] = s;   // p[i] != 0 means vertex i has been reached
+                    // will later reset p[s] = 0
+
+        // initialize list1
+        list1->insert(0, s);
+
+        // do n - 1 rounds of updating d
+        for (int k = 1; k < n; k++)
+        {
+            if (list1->empty())
+                break;      // no more changes possible
+            // process vertices on list1
+            for (arrayList<int>::iterator iList1 = list1->begin(); iList1 != list1->end(); ++iList1)
+            {// update d for the neighbors v of vertex u = *iList1
+                int u = *iList1;
+                vertexIterator<T>* iu = iterator(u);
+                int v;
+                T w;
+                while ((v = iu->next(w)) != 0)
+                {
+                    if (p[v] == 0 || d[u] + w < d[v])
+                    {// this is either the first path to v
+                     // or is a shortest path than earlier ones
+                        d[v] = d[u] + w;
+                        p[v] = u;
+                        // put v into list2 unless it is already there
+                        if (!inList2[v])
+                        {// put at end of list
+                            list2->insert(list2->size(), v);
+                            inList2[v] = true;
+                        }
+                    }
+                }
+            }
+
+            // set list1 and list2 for next update round
+            list1 = list2;
+            list2 = new arrayList<int>;
+
+            // reset inList2[1:n] to false
+            for (arrayList<int>::iterator iList1 = list1->begin(); iList1 != list1->end(); ++iList1)
+                inList2[*iList1] = false;
+        }
+        p[s] = 0;   // s has no predecessor
     }
 
  protected:

@@ -320,6 +320,58 @@ public:
         }
     }
 
+    void allPairs(T** c, int** kay)
+    {// Dynamic programming all pairs shortest paths algorithm.
+     // Compute c[i][j] and kay[i][j] for all i and j.
+        if (!weighted())
+            throw undefinedMethod("adjacencyWDigraph::allPairs() not defined for unweighted graphs");
+
+        // initialize c[i][j] = c(i,j,0)
+        for (int i = 1; i <= n; i++)
+            for (int j = 1; j <= n; j++)
+            {
+                c[i][j] = 0;
+                kay[i][j] = 0;
+            }
+        for (int i = 1; i <= n; i++)
+            c[i][i] = 0;
+
+        // compute c[i][j] = c(i,j,k)
+        for(int k = 1; k <= n; k++)
+            for (int i = 1; i <= n; i++) 
+                for (int j = 1; j <= n; j++)
+                    if(c[i][k] != noEdge && c[k][j] != noEdge && (c[i][j] == noEdge || c[i][j] > c[i][k]+c[k][j]))
+                    {// smaller value for c[i][j] found.
+                        c[i][j] = c[i][k] + c[k][j];
+                        kay[i][j] = k;
+                    }
+
+    }
+
+    void outputPath(T** c, int** kay, T noEdge, int i, int j)
+    {// output shortest path from i to j
+        if (c[i][j] == noEdge)
+            std::cout << "There is no path from " << i << " to " << j << std::endl;
+        else
+        {
+            std::cout << "The path is " << i << " ";
+            outputPath(kay, i, j);
+            std::cout << std::endl;
+        }
+    }
+
+    void outputPath(int **kay,int i,int j)
+    {// really code to output paht
+        if (i == j)
+            return;
+        if (kay[i][j] == 0)      // There is no middle vertex in the path
+            cout << j << " ";
+        else
+        {// kay[i][j] is a middle vertex in the path
+            outputPath(kay, i, kay[i][j]);
+            outputPath(kay, kay[i][j], j);
+        }
+    }
 protected:
     void rDfs(int v)
     {

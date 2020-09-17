@@ -39,5 +39,58 @@
     <ClInclude Include="unionFindWithChains.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="minMax.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="tileBoard.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="make2dArrayNoCatch.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="delete2dArray.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="mergeSort.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="selectK.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="indexOfMax.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="myExceptions.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="closestPoints.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="recursiveDPKnapsack.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="noRecomputationDPKnapsack.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="iterativeDPKnapsack.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="recursiveDPMatrixChain.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="noRecomputationDPMatrixChain.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="iterativeDPMatrixChain.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="noncrossingSubset.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
