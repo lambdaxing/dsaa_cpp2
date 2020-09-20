@@ -33,6 +33,13 @@ public:
         this->a[v2][v1] = true;
     }
 
+    int btMaxClique(int *maxClique)
+    {// Solve max-clique problem using backtracking.
+     // Set maxClique[] so that maxClique[i] = 1 if i is in max cluque.
+     // Return size of max cluque.
+        // initialize for rClique
+
+    }
     void input(std::istream& in)
     {
         // destructor
@@ -64,6 +71,14 @@ public:
     }
 
     bool weighted() const { return false; }
+
+protected:
+
+    // class data members used by backtracking max clique
+    static int* currentClique;
+    static int sizeOfCurrentClique;
+    static int sizeOfMaxCliqueSoFar;
+    static int* maxCliqueSoFar;
 
 };
 

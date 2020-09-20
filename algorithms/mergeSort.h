@@ -58,7 +58,7 @@ void merge(T c[], T d[], int startOfFirst, int endOfFirst, int endOfSecond)
 		for (int q = second; q <= endOfSecond; q++)
 			d[result++] = c[q];
 	else
-		for (int q = first; first <= endOfFirst; q++)
+		for (int q = first; q <= endOfFirst; q++)
 			d[result++] = c[q];
 	
 }

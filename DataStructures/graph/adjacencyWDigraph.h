@@ -372,7 +372,60 @@ public:
             outputPath(kay, kay[i][j], j);
         }
     }
+
+    T btSalesperson(int* bestTour)
+    {// Traveling salesperson by backtracking.
+     // bestTour[1:n] is set to best tour.
+     // Return cost of best tour.
+        if (!weighted())
+            throw undefinedMethod("adjacencyWDigraph::btSalesperson() not defined for unweighted graphs");
+
+        // set partialTour to identity permutation
+        partialTour = new int[n + 1];
+        for (int i = 1; i <= n; i++)
+            partialTour[i] = 1;
+
+        costOfBestTourSoFar = noEdge;
+        bestTourSoFar = bestTour;
+        costOfPartialTour = 0;
+
+        // search permutations of partialTour[2:n]
+        rTSP(2);
+
+        return costOfBestTourSoFar;
+    }
+
 protected:
+    void rTSP(int currentLevel)
+    {// Recursive backtracking code for traveling salesperson.
+     // Search the permutation tree for best tour. Start at a node at currentLevel.
+        if(currentLevel == n)
+        {// at parent of a leaf
+            // complete tour by adding last two edges
+            if(a[partialTour[n-1]][partialTour[n]] != noEdge && a[partialTour[n]][1] != noEdge && 
+                (costOfBestTourSoFar == noEdge || 
+                    costOfPartialTour + a[partialTour[n-1]][partialTour[n]] + a[partialTour[n]][1] < costOfBestTourSoFar))
+            {// better tour found
+                std::copy(partialTour + 1, partialTour + n + 1, bestTourSoFar + 1);
+                costOfBestTourSoFar = costOfPartialTour + a[partialTour[n - 1]][partialTour[n]] + a[partialTour[n]][1];
+            }
+        }
+        else
+        {// try out subtrees
+            for(int j = currentLevel; j <= n; j++)
+                // is move to subtree labeled partialTour[j] possible ?
+                if(a[partialTour[currentLevel - 1]][partialTour[j]] != noEdge && 
+                    (costOfBestTourSoFar == noEdge || 
+                        costOfPartialTour + a[partialTour[currentLevel - 1]][partialTour[j]] < costOfBestTourSoFar))
+                {// search this subtree
+                    swap(partialTour[currentLevel], partialTour[j]);
+                    costOfPartialTour += a[partialTour[currentLevel - 1]][partialTour[currentLevel]];
+                    rTSP(currentLevel + 1);
+                    costOfPartialTour -= a[partialTour[currentLevel - 1]][partialTour[currentLevel]];
+                    swap(partialTour[currentLevel], partialTour[j]);
+                }
+        }
+    }
     void rDfs(int v)
     {
         graph<T>::reach[v] = graph<T>::label;
@@ -381,6 +434,11 @@ protected:
                 rDfs(u);
     }
 
+    // class data members used by btSalesperson
+    static int* partialTour;
+    static int* bestTourSoFar;
+    static T costOfBestTourSoFar;
+    static T costOfPartialTour;
 };
 
 // overload <<

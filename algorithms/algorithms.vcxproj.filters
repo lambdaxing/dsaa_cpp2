@@ -87,6 +87,15 @@
     <ClInclude Include="noncrossingSubset.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="recursiveBTLoading.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="iterativeBTLoading.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="recursiveBTKnapsack.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">

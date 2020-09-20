@@ -1,6 +1,6 @@
-#include "noncrossingSubset.h"
+#include "recursiveBTKnapsack.h"
 
 int main()
 {
-	testNoncrossingSubset();
+	testRecursiveBTKnapsack();
 }
