@@ -140,12 +140,15 @@
   <ItemGroup>
     <ClInclude Include="closestPoints.h" />
     <ClInclude Include="delete2dArray.h" />
+    <ClInclude Include="fifoBBLoading3.h" />
     <ClInclude Include="gcd.h" />
     <ClInclude Include="indexOfMax.h" />
     <ClInclude Include="iterativeBTLoading.h" />
     <ClInclude Include="iterativeDPKnapsack.h" />
     <ClInclude Include="iterativeDPMatrixChain.h" />
     <ClInclude Include="make2dArrayNoCatch.h" />
+    <ClInclude Include="maxProfitBBKnapsack.h" />
+    <ClInclude Include="maxProfitBBLoading.h" />
     <ClInclude Include="mergeSort.h" />
     <ClInclude Include="minMax.h" />
     <ClInclude Include="myExceptions.h" />

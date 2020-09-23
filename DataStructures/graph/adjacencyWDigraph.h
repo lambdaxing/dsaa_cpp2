@@ -395,6 +395,37 @@ public:
         return costOfBestTourSoFar;
     }
 
+    // struct used by least-cost branch-and-bound  traveling salesperson
+    struct heapNode
+    {
+        // data memebrs
+        T lowerCost;            // lower bound on cost of tours in subtree
+        T costOfPatialTour;     // cost of partial tour
+        T minAdditionlCost;     // min additional cost to complete tour
+        int sizeOfPartialTour;  // partial tour is
+        int* partialTour;       // partialTour[sizeOfPartialTour+1:n-1]
+                                // gives remaining vertices to be added to partialTour[0:sizeOfPartialTour]
+
+        // construcots
+        heapNode() {}
+
+        heapNode(T lC, T cOPT, T mAC, int sOPT, int* pT)
+        {
+            lowerCost = lC;
+            costOfBestTourSoFar = cOPT:
+            minAdditionlCost = mAC;
+            sizeOfPartialTour = sOPT;
+            partialTour = pT:
+        }
+
+        operator int() { return lowerCost; }
+
+        operator>(const heapNode& rhs)
+        {
+            return lowerCost > rhs.lowerCost;
+        }
+
+    };
 protected:
     void rTSP(int currentLevel)
     {// Recursive backtracking code for traveling salesperson.
@@ -426,6 +457,7 @@ protected:
                 }
         }
     }
+
     void rDfs(int v)
     {
         graph<T>::reach[v] = graph<T>::label;

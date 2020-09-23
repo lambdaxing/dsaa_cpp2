@@ -164,6 +164,7 @@
     <ClInclude Include="linkedWGraph.h" />
     <ClInclude Include="make2dArrayNoCatch.h" />
     <ClInclude Include="myExceptions.h" />
+    <ClInclude Include="recursiveBTBoard.h" />
     <ClInclude Include="testAdjacency.h" />
     <ClInclude Include="testArray.h" />
     <ClInclude Include="testLinked.h" />

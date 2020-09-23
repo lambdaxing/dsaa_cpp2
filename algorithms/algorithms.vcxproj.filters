@@ -96,6 +96,15 @@
     <ClInclude Include="recursiveBTKnapsack.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="fifoBBLoading3.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="maxProfitBBLoading.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="maxProfitBBKnapsack.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">

@@ -1,6 +1,6 @@
-#include "recursiveBTKnapsack.h"
+#include "maxProfitBBKnapsack.h"
 
 int main()
 {
-	testRecursiveBTKnapsack();
+	testMaxProfitBBKnapsack();
 }

@@ -47,6 +47,7 @@ int arrangeBoards(int **theBoard,int theNumberOfBoards,int theNumberOfNets,int *
 	rBoard(1, 0);
 
 	delete[] partial; delete[]boardsWithNet; delete[] boardsInPartialWithNet;
+
 	return leastDensitySoFar;
 }
 
