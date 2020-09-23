@@ -1,27 +1,32 @@
-# dsaa_cpp2
-Some answers to exercises in The Data Structures, Algorithms, and Applications in C++ Second Edition.
+# The Codes Of *The Data Structures, Algorithms, and Applications in C++ Second Edition*
 
-All of the code in this repository is built by MVS's some empty projects.  
-Each directory has a file ending in .sln.  
-Most of the code is in the header file.  
-Include the header file you want to test in the source file, and then run the associated functions.  
+&ensp;&ensp;All of the code in this repository is built by MVS's empty projects.  Each directory has a file ending in .sln. Most of the code is in the header file.  Include the header file you want to test in the source file, and then run the associated functions.  
+&ensp;&ensp;Due to my limited level and many practice questions, the answers do not include proof questions, performance measurement questions and some difficult problems. If you have more and better solutions, you are very welcome to tell me or join the project. **As of September 23, 2020, Data Structres and Algorithms have been completed, and the answer has been updated to Chapter 10.** After I review C++11 and learn C++14 and C++17, I will come back to update the code and complete the remaining exercises.
 
-该存储库中的所有代码都是由 MVS 的一些空项目构建的。  
-每个目录都有一个以 .sln 结尾的文件。  
-大部分代码位于头文件中。  
-在源文件中包含要测试的头文件，然后运行相关函数即可。  
+## Contents
+### 1.[DataStructures](https://github.com/xiaoxing30/dsaa_cpp2/tree/master/DataStructures)
 
-// ex1_1.h   
-#include\<iostream\>  
-void ex1_1()  
-{  
-&ensp;&ensp;&ensp;&ensp;std::cout << "ex1_1()" << std::endl;  
-}
+### 2.[Algorithms](https://github.com/xiaoxing30/dsaa_cpp2/tree/master/algorithms)
 
-// main.cpp  
-#include "ex1_1.h"  
-int main()  
-{  
-&ensp;&ensp;&ensp;&ensp;ex1_1();  
-}  
-  
+### 3.Answers
+- [Chapter 1](https://github.com/xiaoxing30/dsaa_cpp2/tree/master/ch01)
+- [Chapter 2](https://github.com/xiaoxing30/dsaa_cpp2/tree/master/ch02)
+- [Chapter 3](https://github.com/xiaoxing30/dsaa_cpp2/tree/master/ch03)
+- [Chapter 4](https://github.com/xiaoxing30/dsaa_cpp2/tree/master/ch04)
+- [Chapter 5](https://github.com/xiaoxing30/dsaa_cpp2/tree/master/ch05)
+- [Chapter 6](https://github.com/xiaoxing30/dsaa_cpp2/tree/master/ch06)
+- [Chapter 7](https://github.com/xiaoxing30/dsaa_cpp2/tree/master/ch07)
+- [Chapter 8](https://github.com/xiaoxing30/dsaa_cpp2/tree/master/ch08)
+- [Chapter 9](https://github.com/xiaoxing30/dsaa_cpp2/tree/master/ch09)
+- [Chapter 10](https://github.com/xiaoxing30/dsaa_cpp2/tree/master/ch10)
+- [Chapter 11](https://github.com/xiaoxing30/dsaa_cpp2/tree/master/ch11)
+- [Chapter 12](https://github.com/xiaoxing30/dsaa_cpp2/tree/master/ch12)
+- [Chapter 13](https://github.com/xiaoxing30/dsaa_cpp2/tree/master/ch13)
+- [Chapter 14](https://github.com/xiaoxing30/dsaa_cpp2/tree/master/ch14)
+- [Chapter 15](https://github.com/xiaoxing30/dsaa_cpp2/tree/master/ch15)
+- [Chapter 16](https://github.com/xiaoxing30/dsaa_cpp2/tree/master/ch16)
+- [Chapter 17](https://github.com/xiaoxing30/dsaa_cpp2/tree/master/ch17)
+- [Chapter 18](https://github.com/xiaoxing30/dsaa_cpp2/tree/master/ch18)
+- [Chapter 19](https://github.com/xiaoxing30/dsaa_cpp2/tree/master/ch19)
+- [Chapter 20](https://github.com/xiaoxing30/dsaa_cpp2/tree/master/ch20)
+- [Chapter 21](https://github.com/xiaoxing30/dsaa_cpp2/tree/master/ch21)
