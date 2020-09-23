@@ -395,27 +395,26 @@ public:
         return costOfBestTourSoFar;
     }
 
-    // struct used by least-cost branch-and-bound  traveling salesperson
+    // struct used by least-cost branch-and-bound traveling salesperson
     struct heapNode
     {
         // data memebrs
         T lowerCost;            // lower bound on cost of tours in subtree
         T costOfPatialTour;     // cost of partial tour
-        T minAdditionlCost;     // min additional cost to complete tour
+        T minAdditionalCost;     // min additional cost to complete tour
         int sizeOfPartialTour;  // partial tour is
         int* partialTour;       // partialTour[sizeOfPartialTour+1:n-1]
                                 // gives remaining vertices to be added to partialTour[0:sizeOfPartialTour]
-
         // construcots
         heapNode() {}
 
         heapNode(T lC, T cOPT, T mAC, int sOPT, int* pT)
         {
             lowerCost = lC;
-            costOfBestTourSoFar = cOPT:
-            minAdditionlCost = mAC;
+            costOfPatialTour  n = cOPT;
+            minAdditionalCost = mAC;
             sizeOfPartialTour = sOPT;
-            partialTour = pT:
+            partialTour = pT;
         }
 
         operator int() { return lowerCost; }
@@ -424,8 +423,95 @@ public:
         {
             return lowerCost > rhs.lowerCost;
         }
-
     };
+
+    T leastCostBBSalesperson(int *bestTour)
+    {// least-cost branch-and-bound code to find a shortest tour
+     // bestTour[i] set to i'th vertex on shortest tour
+     // Return cost of shortest tour.
+        if (!weighted())
+            throw undefinedMethod("adjacencyWDigraph::leastCostBBSalesperson() not defined for unweighted graphs");
+
+        std::priority_queue<heapNode> liveNodeMinHeap;
+
+        // costOfMinOutEdge[i] = cost of least-cost edge leaving vertex i
+        T* costOfMinOutEdge = new T[n + 1];
+        T sumOfMinCostOutEdges = 0;
+        for(int i = 1; i <= n; i++)
+        {// compute costOfMinOutEdge[i] and sumOfMinCostOutEdges
+            T minCost = noEdge;
+            for (int j = 1; j <= n; j++)
+                if (a[i][j] != noEdge && (minCost == noEdge || minCost > a[i][j]))
+                    minCost = a[i][j];
+            if (minCost == noEdge) return noEdge;       // no route
+            costOfMinOutEdge[i] = minCost;
+            sumOfMinCostOutEdges += minCost;
+        }
+
+        // initial E-node is tree root
+        heapNode eNode(0, 0, sumOfMinCostOutEdges, 0, new int[n]);
+        for (int i = 0; i < n; i++)
+            eNode.partialTour[i] = i + 1;
+        T costOfBestTourSoFar = noEdge;         // no tour found so far
+        int* partialTour = eNode.partialTour;   // shorthand for eNode.partialTour
+
+        // search permutation tree
+        while(eNode.sizeOfPartialTour < n - 1)
+        {// not at leat
+            partialTour = eNode.partialTour;
+            if(eNode.sizeOfPartialTour == n - 2)
+            {// parent of leat
+                // complete tour by adding two edges
+                // see whether new tour is better
+                if (a[partialTour[n - 2]][partialTour[n - 1]] != noEdge
+                    && (a[partialTour[n - 1]][1] != noEdge ||
+                        eNode.costOfPartialTour + a[partialTour[n - 2]][partialTour[n - 1]] + a[partialTour[n - 1]][1] < costOfBestTourSoFar))
+                {// better tour found
+                    costOfBestTourSoFar = eNode.costOfPartialTour + a[partialTour[n - 2]][partialTour[n - 1]] + a[partialTour[n - 1][1]];
+                    eNode.costOfPartialTour = costOfBestTourSoFar;
+                    eNode.lowerCost = costOfBestTourSoFar;
+                    eNode.sizeOfPartialTour++;
+                    liveNodeMinHeap.push(eNode);
+                }
+            }
+            else
+            {// generate children
+                for(int i = eNode.sizeOfPartialTour + 1; i < n; i++)
+                    if (a[partialTour[eNode.sizeOfPartialTour]][partialTour[i]] != noEdge)
+                    {
+                        // feasible child, bound path cost
+                        T costOfPartialTour = eNode.costOfPartialTour + a[partialTour[eNode.sizeOfPartialTour]][partialTour[i]];
+                        T minAdditionCost = eNode.minAdditionalCost - costOfMinOutEdgeOutEdge[partialTour[eNode.sizeOfPartialTour]];
+                        T leastCostPossible = costOfPartialTour + minAdditionCost;
+                        if(costOfBestTourSoFar == noEdge || leastCostPossible < costOfBestTourSoFar)
+                        {// subtree may have better leaf, put root in min heap
+                            heapNode hNode(leastCostPossible, costOfPartialTour, minAdditionCost, eNode.sizeOfPartialTour + 1, new int[n]);
+                            for (int j = 0; j < n; j++)
+                                hNode.partialTour[j] = partialTour[j];
+                            hNode.partialTour[eNode.sizeOfPartialTour + 1] = partialTour[i];
+                            hNode.partialTour[i] = partialTour[eNode.sizeOfPartialTour + 1];
+                            liveNodeMinHeap.push(hNode);
+                        }
+                    }
+            }
+
+            // get next E-node
+            delete[] eNode.partialTour;
+            if (liveNodeMinHeap.empty()) break;
+            eNode = liveNodeMinHeap.top();
+            liveNodeMinHeap.pop();
+        }
+        
+        if (costOfBestTourSoFar == noEdge)
+            return nullptr;     // no route
+
+        // copy best route into bestTour[1:n]
+        for (int i = 0; i < n; i++)
+            bestTour[i + 1] = partialTour[i];
+
+        return costOfBestTourSoFar;
+    }
+
 protected:
     void rTSP(int currentLevel)
     {// Recursive backtracking code for traveling salesperson.

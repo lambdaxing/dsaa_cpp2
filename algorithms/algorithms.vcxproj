@@ -146,6 +146,7 @@
     <ClInclude Include="iterativeBTLoading.h" />
     <ClInclude Include="iterativeDPKnapsack.h" />
     <ClInclude Include="iterativeDPMatrixChain.h" />
+    <ClInclude Include="leastCostBBBoard.h" />
     <ClInclude Include="make2dArrayNoCatch.h" />
     <ClInclude Include="maxProfitBBKnapsack.h" />
     <ClInclude Include="maxProfitBBLoading.h" />

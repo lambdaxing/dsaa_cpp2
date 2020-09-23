@@ -1,6 +1,6 @@
-#include "maxProfitBBKnapsack.h"
+#include "leastCostBBBoard.h"
 
 int main()
 {
-	testMaxProfitBBKnapsack();
+	testLeastCostBBBoard();
 }

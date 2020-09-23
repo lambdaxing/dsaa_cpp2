@@ -217,7 +217,7 @@ protected:
     // class data member used by max-profit branch-and-bound max clique
     static std::priority_queue<heapNode> liveNodeMaxHeap;
 
-    void addLiveNode(int upperSize,int theSize,int theLevel,std::shared_ptr<bbNode> theParent,bool leftChild)
+    void addLiveNode(int upperSize, int theSize, int theLevel, std::shared_ptr<bbNode> theParent, bool leftChild)
     {// Add a new live node to the max heap.
      // Also add the live node to the solution space tree.
      // theSize = size of clique at this live node.
