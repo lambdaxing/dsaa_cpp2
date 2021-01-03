@@ -117,9 +117,6 @@
     <ClInclude Include="recursiveBTBoard.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="leastCostBBBoard.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">

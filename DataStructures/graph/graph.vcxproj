@@ -157,7 +157,6 @@
     <ClInclude Include="edge.h" />
     <ClInclude Include="graphArray.h" />
     <ClInclude Include="graphChain.h" />
-    <ClInclude Include="leastCostBBBoard.h" />
     <ClInclude Include="linearList.h" />
     <ClInclude Include="linkedDigraph.h" />
     <ClInclude Include="linkedGraph.h" />

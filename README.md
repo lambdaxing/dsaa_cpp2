@@ -1,14 +1,16 @@
 # The Codes Of *The Data Structures, Algorithms, and Applications in C++ Second Edition*
 
 &ensp;&ensp;All of the code in this repository is built by MVS's empty projects.  Each directory has a file ending in .sln. Most of the code is in the header file.  Include the header file you want to test in the source file, and then run the associated functions.  
-&ensp;&ensp;Due to my limited level and many practice questions, the answers do not include proof questions, performance measurement questions and some difficult problems. If you have more and better solutions, you are very welcome to tell me or join the project. **As of September 23, 2020, Data Structres and Algorithms have been completed, and the answer has been updated to Chapter 10.** After I review C++11 and learn C++14 and C++17, I will come back to update the code and complete the remaining exercises.
+&ensp;&ensp;Due to my limited level and many practice questions, the answers do not include proof questions, performance measurement questions and some difficult problems.
 
 ## Contents
+
 ### 1.[DataStructures](https://github.com/xiaoxing30/dsaa_cpp2/tree/master/DataStructures)
 
 ### 2.[Algorithms](https://github.com/xiaoxing30/dsaa_cpp2/tree/master/algorithms)
 
 ### 3.Answers
+
 - [Chapter 1](https://github.com/xiaoxing30/dsaa_cpp2/tree/master/ch01)
 - [Chapter 2](https://github.com/xiaoxing30/dsaa_cpp2/tree/master/ch02)
 - [Chapter 3](https://github.com/xiaoxing30/dsaa_cpp2/tree/master/ch03)
